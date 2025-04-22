@@ -23,6 +23,10 @@ test("Validate Product search input is present", async ({ page }) => {
     await expect(getSearchBarElement).toHaveAttribute('aria-label', 'Product Search')
 })
 
+test("test the data ", async ({ page }) => {
+    console.log("sample test");
+});
+
 test("Validate Submit button", async ({ page }) => {
     const submitButton = page.getByRole("button", { name: 'Submit' });
     await expect(submitButton).toHaveScreenshot(["OrderCapture/SubmitButton", "SubmitBtnOnOrderCapturePage.png"])
