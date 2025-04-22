@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.10",
+    "allure-commandline": "^2.33.0",
+    "allure-playwright": "^3.2.1",
+    "playwright": "^1.51.1"
+  },
+  "scripts": {
+    "test": "playwright test OrderCaptureTestsVisualRegression.spec.ts",
+    "report": "npx allure generate allure-results -o allure-report --clean",
+    "report:ci": "allure generate --clean",
+    "show-report": "npx allure open ./allure-report",
+    "test:stop": "pm2 stop all && pm2 delete all",
+    "test:report": "npm run test && npm run report && npm run show-report && npm run test:stop"
+  }
+}

@@ -1,0 +1,24 @@
+stages:
+  - test
+
+playwright-tests:
+  stage: test
+  image: node:20
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  before_script:
+    - npm ci
+    - npx playwright install
+  script:
+    - npx allure generate allure-results -o allure-report --clean
+    - allure generate --clean
+    - npx allure open ./allure-report
+    - npm playwright test OrderCaptureTestsVisualRegression_V1.spec.ts
+  artifacts:
+    paths:
+      - playwright-report/
+    expire_in: 1 week
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_PIPELINE_SOURCE == "merge_request_event"'
