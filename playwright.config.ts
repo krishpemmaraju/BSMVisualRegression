@@ -20,7 +20,7 @@ export default defineConfig({
     }
   },
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -36,7 +36,7 @@ export default defineConfig({
        includeUntested: false, // Exclude discovered but not run tests
        detail:true,
        outputFolder:'allure-results',
-       suiteTitle: false,
+       suiteTitle: true,
        categories : [
            {
                name: 'Outdated tests',
@@ -55,11 +55,17 @@ export default defineConfig({
     headless:true
   },
 
+/*...devices['Desktop Chrome'] 
+
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      // // use: {  launchOptions: {
+      // //     args: ['--start-maximized']
+      // // }
+          
+      //  }
      },
 
     //  {

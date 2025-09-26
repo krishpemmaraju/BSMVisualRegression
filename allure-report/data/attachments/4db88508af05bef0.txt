@@ -1,0 +1,1 @@
+C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\ProductListSlotSection\ProductListContentSlotSection-chromium-win32.png is re-generated, writing actual.

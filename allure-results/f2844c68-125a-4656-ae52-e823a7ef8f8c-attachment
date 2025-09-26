@@ -1,0 +1,168 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Order Capture - Full Page Screenshot
+- Location: C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_V1.spec.ts:23:5
+
+# Error details
+
+```
+Error: expect(page).toHaveScreenshot(expected)
+
+  Expected an image 1280px by 1436px, received 1280px by 1756px. 31870 pixels (ratio 0.02 of all image pixels) are different.
+
+Expected: C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_V1.spec.ts-snapshots\OrderCapture\OrderCaptureUnderOrderMgmtFullScreenshot-chromium-win32.png
+Received: C:\Automation\AutomationNewSVN\AutoMisc\visualregression\test-results\OrderCaptureTestsVisualReg-ec0aa-ture---Full-Page-Screenshot-chromium\OrderCapture\OrderCaptureUnderOrderMgmtFullScreenshot-actual.png
+    Diff: C:\Automation\AutomationNewSVN\AutoMisc\visualregression\test-results\OrderCaptureTestsVisualReg-ec0aa-ture---Full-Page-Screenshot-chromium\OrderCapture\OrderCaptureUnderOrderMgmtFullScreenshot-diff.png
+
+Call log:
+  - expect.toHaveScreenshot(OrderCapture\OrderCaptureUnderOrderMgmtFullScreenshot.png) with timeout 5000ms
+    - verifying given screenshot expectation
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - Expected an image 1280px by 1436px, received 1280px by 1704px. 31870 pixels (ratio 0.02 of all image pixels) are different.
+  - waiting 100ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - Expected an image 1280px by 1704px, received 1280px by 1756px.
+  - waiting 250ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - captured a stable screenshot
+  - Expected an image 1280px by 1436px, received 1280px by 1756px. 31870 pixels (ratio 0.02 of all image pixels) are different.
+
+    at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_V1.spec.ts:16:24
+```
+
+# Test source
+
+```ts
+   1 | import test, { expect } from "@playwright/test"
+   2 | import { TIMEOUT } from "dns/promises";
+   3 |
+   4 |
+   5 | test.beforeEach("Open the Order Capture URL", async ({ page }) => {
+   6 |     //fscmUI/redwood/wol-order-capture/main
+   7 |     await page.goto("https://egvh-dev1.fa.em3.oraclecloud.com/");
+   8 |     await page.getByPlaceholder("User ID").fill("ABB7375");
+   9 |     await page.getByPlaceholder("Password").fill("Varahi$$16");
+   10 |     await page.getByRole("button").filter({ hasText: 'Sign In ' }).click();
+   11 |     await page.waitForSelector("a[title='Home']");
+   12 |     await page.locator("a[title='Home']").click();
+   13 |     await page.waitForSelector("#groupNode_order_management",{timeout:6000});
+   14 |     await page.locator("#groupNode_order_management").click();
+   15 |     await page.getByRole('link',{name:'Wolseley Order Capture'}).waitFor({state:'visible',timeout:7000});
+>  16 |     await expect(page).toHaveScreenshot(["OrderCapture", "OrderCaptureUnderOrderMgmtFullScreenshot.png"], { fullPage: true });
+      |                        ^ Error: expect(page).toHaveScreenshot(expected)
+   17 |     const orderCaptureLink = page.getByRole('link',{name:'Wolseley Order Capture'});
+   18 |     await expect(orderCaptureLink).toBeVisible();
+   19 |     await page.getByRole('link',{name:'Wolseley Order Capture'}).click();
+   20 |     await page.locator("#ojHeader_pageTitle").filter({hasText:'Order Capture'}).waitFor({state:'visible',timeout:9000})
+   21 | })
+   22 |
+   23 | test("Order Capture - Full Page Screenshot", async ({ page }) => {
+   24 |     await expect(page).toHaveScreenshot(["OrderCapture", "OrderCaptureFullScreenshot.png"], { fullPage: true });
+   25 | })
+   26 |
+   27 | test("Validate Order Capture Header Text", async ({ page }) => {
+   28 |     expect(await page.locator("#ojHeader_pageTitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageHeader.txt"]);
+   29 |     expect(await page.locator("#ojHeader_pageSubtitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageSubHeader.txt"]);
+   30 | })
+   31 |
+   32 | test("Validate Product search input is present", async ({ page }) => {
+   33 |     const getSearchBarElement = page.getByRole('textbox', { name: 'Product Search' })
+   34 |     await expect(getSearchBarElement).toHaveAttribute('aria-label', 'Product Search')
+   35 | })
+   36 |
+   37 | test("Validate Submit button", async ({ page }) => {
+   38 |     const submitButton = page.getByRole("button", { name: 'Submit' });
+   39 |     await expect(submitButton).toHaveScreenshot(["OrderCapture/SubmitButton", "SubmitBtnOnOrderCapturePage.png"])
+   40 | })
+   41 |
+   42 | test("Validate Select Customer section info Slot", async ({ page }) => {
+   43 |     const customerTextAvailable = page.locator("span[title='Customer']");
+   44 |     const selectCustomerText = page.locator("div[title='Select Customer...']");
+   45 |     const clickToSelectCustomer = page.locator("span[title='Click to select a customer']");
+   46 |     const customerContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
+   47 |     const searchInputAvailableAfterClickCustomer = page.locator("input[aria-label='Customer Search']")
+   48 |
+   49 |
+   50 |     await expect(customerTextAvailable).toHaveText("Customer")
+   51 |     await expect(selectCustomerText).toHaveText("Select Customer...")
+   52 |     await expect(clickToSelectCustomer).toHaveText("Click to select a customer")
+   53 |     await expect(customerContentSlotSelection).toBeEnabled();
+   54 |     await customerContentSlotSelection.click();
+   55 |     await expect(searchInputAvailableAfterClickCustomer).toBeVisible()
+   56 |     await expect(searchInputAvailableAfterClickCustomer).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerSearchInputTextBox.png"])
+   57 |     await expect(customerContentSlotSelection).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerContentSlotClickable.png"])
+   58 | })
+   59 |
+   60 | test("Validate Payment section info Slot", async ({ page }) => {
+   61 |     const clickOnPaymentBtn = page.locator("span[title='Payment Method']");
+   62 |     const paymentTextAvailable = page.locator("span[title='Payment Method']");
+   63 |     const paymentContentSlotSelection = page.locator("oj-vb-fragment[name='wol-oc-payment']");
+   64 |     const paymentAccountButton = page.getByRole('button', {name:'Account'});
+   65 |
+   66 |     await clickOnPaymentBtn.click();
+   67 |     await expect(paymentTextAvailable).toHaveText("Payment Method")
+   68 |     await expect(paymentContentSlotSelection).toBeVisible();
+   69 |     await expect(paymentContentSlotSelection).toHaveScreenshot(["OrderCapture/PaymentContentSlot", "PaymentContentSlotClickable.png"])
+   70 |     await expect(paymentAccountButton).toBeVisible();
+   71 | })
+   72 |
+   73 | test("Validate Shipment method section layout", async({page})=> {
+   74 |     const shipmentMethodSection = page.locator("oj-sp-scoreboard-metric-card[card-title='Shipping Method']")
+   75 |     const shipmentContentAvaialble = page.locator("oj-vb-fragment[name='wol-oc-shipping']")
+   76 |     const getTextOfShippingDelivery = page.locator("oj-vb-fragment[name='wol-oc-shipping']").filter({has: page.locator("oj-vb-fragment-slot[name='content']")}).
+   77 |       filter({has:page.locator("div[class*='oj-flex']")}).filter({has:page.locator("span")});
+   78 |   
+   79 |     await expect(shipmentMethodSection).toBeVisible();
+   80 |     await shipmentMethodSection.click();
+   81 |     await expect(shipmentContentAvaialble).toBeVisible();
+   82 |     expect(await getTextOfShippingDelivery.textContent()).toContain("Shipping and Delivery")
+   83 |    
+   84 | })
+   85 |
+   86 | test("Validate Customer PO section info Slot", async ({ page }) => {
+   87 |     const customerPOTextAvailable = page.locator("span[title='Customer PO #']");
+   88 |     const customerPOContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer PO #']");
+   89 |     const customerPOContentHeaderAfterClick = page.locator("oj-vb-fragment[name='wol-oc-order-details']").filter({has: page.locator("oj-vb-fragment-slot[name='content']")}).
+   90 |     filter({has:page.locator("div[class*='oj-flex']")}).filter({has:page.locator("span")});
+   91 |     const customerOrderInputTextAVailable = page.getByLabel("Customer Order Number")
+   92 |     const requiredByDateInputAvailable = page.locator("div[class*='oj-inputdatetime-input-container']").filter({has: page.getByRole('combobox')})
+   93 |
+   94 |     await expect(customerPOTextAvailable).toHaveText("Customer PO #")
+   95 |     await expect(customerPOContentSlotSelection).toBeEnabled();
+   96 |     await expect(customerPOContentSlotSelection).toHaveScreenshot(["OrderCapture/CustomerPOContentSlot", "CustomerPOContentSlotClickable.png"])
+   97 |     await customerPOContentSlotSelection.click();
+   98 |     expect(await customerPOContentHeaderAfterClick.textContent()).toContain("Order Details")
+   99 |     await expect(customerOrderInputTextAVailable).toBeVisible();
+  100 |     await expect(requiredByDateInputAvailable).toBeVisible();
+  101 | })
+  102 |
+  103 |
+  104 | test("Validate filter buttons on Order Capture Page", async ({ page }) => {
+  105 |     const gridView = page.locator("span[role='toolbar']").filter({ has: page.getByLabel('Grid View') })
+  106 |
+  107 |     await expect(gridView).toHaveScreenshot(["OrderCapture/ContentSlotSection", "GridViewButtonOnContentSlotSection.png"])
+  108 | })
+  109 |
+  110 | test.skip("Validate Cancel and Save buttons on Payment Slot Page", async ({ page }) => {
+  111 |     await page.locator("oj-sp-scoreboard-metric-card[card-title='Payment Method']").click({ timeout: 2000 })
+  112 |     const cancelBtnOnContentSlot = page.getByRole('button', { name: 'Cancel' })
+  113 |     const saveBtnOnContentSlot = page.getByRole('button', { name: 'Save' })
+  114 |     await expect(cancelBtnOnContentSlot).toHaveScreenshot(["OrderCapture/PaymentContentSlotSection", "CancelButtonOnPaymentContentSlotSection.png"])
+  115 |     await expect(saveBtnOnContentSlot).toHaveScreenshot(["OrderCapture/PaymentContentSlotSection", "SaveButtonOnPaymentContentSlotSection.png"])
+  116 | })
+```

@@ -4,6 +4,8 @@
              "./node_modules/@types",
              "src/helper/types"
         ],
-        "resolveJsonModule": true
+        "types": ["@playwright/test", "node"],
+        "resolveJsonModule": true,
+        "include": ["**/*.ts"]
     }
  }

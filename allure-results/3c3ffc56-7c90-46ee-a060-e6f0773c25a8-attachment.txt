@@ -1,0 +1,1 @@
+A snapshot doesn't exist at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\DetailSlotSection\DetailSlotSectionOnOrderCapturePage-chromium-win32.png, writing actual.

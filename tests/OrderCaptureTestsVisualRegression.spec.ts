@@ -25,6 +25,7 @@ test("Validate Product search input is present", async ({ page }) => {
 
 test("test the data ", async ({ page }) => {
     console.log("sample test");
+    console.log("Good Test data")
 });
 
 test("Validate Submit button", async ({ page }) => {

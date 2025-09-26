@@ -1,0 +1,2 @@
+C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\CustomerContentSlot\CustomerSearchInputTextBox-chromium-win32.png is re-generated, writing actual.
+C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\CustomerContentSlot\CustomerContentSlotClickable-chromium-win32.png is re-generated, writing actual.

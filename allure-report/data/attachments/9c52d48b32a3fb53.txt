@@ -1,0 +1,2 @@
+A snapshot doesn't exist at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\CustomerPOContentSlotSection\CancelButtonOnCustomerPOContentSlotSection-chromium-win32.png, writing actual.
+A snapshot doesn't exist at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts-snapshots\OrderCapture\CustomerPOContentSlotSection\SaveButtonOnCustomerPOContentSlotSection-chromium-win32.png, writing actual.
