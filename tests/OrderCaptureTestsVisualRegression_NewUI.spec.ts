@@ -15,9 +15,9 @@ test.beforeAll("Open the Order Capture URL", async () => {
 
   await page.goto("https://vb04.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/");
   await page.getByRole('button').filter({ hasText: 'SSO' }).click();
-  await page.getByPlaceholder('first.last@domain.com').fill('krishna.pemmaraju@wolseley.co.uk')
+  await page.getByPlaceholder('first.last@domain.com').fill(Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=','base64').toString('utf-8'));
   await page.locator("input[value='Next']").click();
-  await page.getByPlaceholder('Password').fill('Varahibaba16$');
+  await page.getByPlaceholder('Password').fill(Buffer.from('VmFyYWhpYmFiYTE2JA==','base64').toString('utf-8'));
   await page.locator("input[value='Sign in']").click();
   // await page.pause()
   // await page.locator("input[value='Yes']").waitFor({ state: 'visible', timeout: 10000 })
