@@ -240,10 +240,26 @@ test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async ()
 
 
 test("Validate Order Dialog pop up with Print and Edit Options", async () => {
-    // await page.locator("input[aria-label='Product Search']").fill("D53216")
-    // await page.getByRole('button', { name: 'Add' }).waitFor({ state: 'visible', timeout: 15000 })
-    // const productSearchAddBtn = page.locator("button[aria-label='Add']")
-    // await productSearchAddBtn.click()
+    const customerContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
+    const customerSearchInputAvailable = page.locator("input[aria-label='Customer Search']");
+    const selectCustomerListed = page.getByText('7000D54')
+    const customerSearchResultsAvailable = page.locator('oj-c-list-view.customer-list');
+    const clickOnChangeButton =  page.locator('#btnChangeCustomer');
+    const clickOnClearAllBtn = page.locator("button[aria-label='Clear All']");
+    
+    await clickOnClearAllBtn.click();
+    await customerContentSlotSelection.click();
+    await page.locator("div[title='Customer Details']").waitFor({timeout: 7000})
+    if(await clickOnChangeButton.isVisible({timeout: 6000})){
+      await clickOnChangeButton.click(); }
+    await customerSearchInputAvailable.fill('7000D54')
+    await selectCustomerListed.waitFor({state:'visible', timeout: 6000});
+    await expect(customerSearchResultsAvailable).toBeVisible({timeout: 20000});
+    await selectCustomerListed.click();
+    await page.locator("input[aria-label='Product Search']").fill("508201")
+    await page.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 15000 })
+    const productSearchAddBtn = page.locator("button[aria-label='Add']")
+    await productSearchAddBtn.click()
     await page.waitForSelector("div[class='oj-listview-cell-element']", { state: 'visible', timeout: 16000 })
     const productSelAddToBsktList = page.locator("div[class='oj-listview-cell-element']")
     await expect(productSelAddToBsktList).toBeVisible({ timeout: 12000 });

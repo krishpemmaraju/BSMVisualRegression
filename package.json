@@ -8,7 +8,7 @@
   },
   "scripts": {
     "updatesnapshots": "npx playwright test --update-snapshots",
-    "test": "playwright test OrderCaptureTestsVisualRegression_NewUI.spec.ts --update-snapshots",
+    "test": "playwright test OrderCaptureTestsVisualRegression_NewUI.spec.ts --update-snapshots --headed",
     "report": "npx allure generate allure-results -o allure-report --clean",
     "reportclear": "allure generate --clean",
     "show-report": "npx allure open ./allure-report",
