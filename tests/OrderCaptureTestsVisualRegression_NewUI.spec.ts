@@ -45,8 +45,10 @@ test("Validate Submit button", async () => {
 })
 
 test("Validate Product List slot", async () => {
-  await page.locator("input[aria-label='Product Search']").waitFor({timeout:5000})
-    await page.locator("input[aria-label='Product Search']").fill("219500")
+  const prodSearchInputSlot = page.locator("input[aria-label='Product Search']");
+    await prodSearchInputSlot.waitFor({timeout:5000})
+    await prodSearchInputSlot.scrollIntoViewIfNeeded();
+    await prodSearchInputSlot.fill("219500")
     const productSearchSlot = page.getByRole('gridcell').filter({ has: page.locator("wol-product-card") , timeout: 25000})
     await expect(productSearchSlot).toBeVisible()
     await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
@@ -264,6 +266,10 @@ test("Validate Order Dialog pop up with Print and Edit Options", async () => {
     const productSelAddToBsktList = page.locator("div[class='oj-listview-cell-element']")
     await expect(productSelAddToBsktList).toBeVisible({ timeout: 12000 });
     const clickOnSubmitBtn = page.locator("button[aria-label='Submit']")
+    await clickOnSubmitBtn.waitFor({state:'visible',timeout:20000});
+    await page.waitForFunction(async (clickOnSubmitBtn) => {
+           return await clickOnSubmitBtn.isEnabled();
+    }, clickOnSubmitBtn)
     await clickOnSubmitBtn.click({ force: true });
     await page.getByRole('heading', { name: 'Checkout', exact: true }).waitFor({ state: 'visible' });
 
