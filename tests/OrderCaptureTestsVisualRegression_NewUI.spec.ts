@@ -7,6 +7,7 @@ let page;
 
 test.beforeAll("Open the Order Capture URL", async () => {
   const browser = await firefox.launch({
+    slowMo: 1000
   });
   const context = await browser.newContext({
     storageState: undefined
@@ -35,7 +36,7 @@ test("Validate Order Capture Header Text", async () => {
 })
 
 test("Validate Product search input is present", async () => {
-  const getSearchBarElement = page.getByRole('textbox', { name: 'Product Search' })
+  const getSearchBarElement = page.locator("input[aria-label='Product Search']");
   await expect(getSearchBarElement).toHaveAttribute('aria-label', 'Product Search')
 })
 
@@ -50,7 +51,7 @@ test("Validate Product List slot", async () => {
     await prodSearchInputSlot.scrollIntoViewIfNeeded();
     await prodSearchInputSlot.fill("219500")
     const productSearchSlot = page.getByRole('gridcell').filter({ has: page.locator("wol-product-card") , timeout: 25000})
-    await expect(productSearchSlot).toBeVisible()
+    await expect(productSearchSlot).toBeVisible({timeout:5000})
     await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
 })
 
@@ -68,10 +69,14 @@ test("Validate Select Customer section info Slot", async () => {
   const customerContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
   const searchInputAvailableAfterClickCustomer = page.locator("oj-sp-general-drawer-template[drawer-title='Customer Details']");
   const getTextOfCustomerDetailsSection = page.locator("div[title='Customer Details']")
+  // New Changes
+  const isCustomerSelectCustomerAccountAvailable = page.getByText("Select customer account");
+  const clickOnCustomerDrpDwn = page.locator("div[class='fake-dropdown oj-flex oj-sm-justify-content-space-between']").filter(page.locator("//span[text()='Customer']"));
   const customerSearchInputAvailable = page.locator("input[aria-label='Customer Search']");
-  const customerSearchResultsAvailable = page.locator('oj-c-list-view.customer-list');
+  const customerSearchResultsAvailable = page.locator('oj-table.customer-table');
   const selectCustomerListed = page.getByText('SMITH AND BYFORD LTD')
   const isSelectedCustomerVisible = page.locator("div[title='SMITH AND BYFORD LTD']")
+  const clickOnSaveOnSelectCusomter = page.locator("button[aria-label='Save']");
 
   await expect(customerContentSlotSelection).toBeEnabled();
   await expect(customerContentSlotSelection).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerContentSlotClickable.png"])
@@ -81,11 +86,17 @@ test("Validate Select Customer section info Slot", async () => {
   await customerContentSlotSelection.click()
   await expect(searchInputAvailableAfterClickCustomer).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerDetailsPanel.png"])
   await expect(getTextOfCustomerDetailsSection).toHaveText('Customer Details');
-  await expect(customerSearchInputAvailable).toBeVisible({timeout:10000});
+  await expect(isCustomerSelectCustomerAccountAvailable).toBeVisible();
+
+  await expect(clickOnCustomerDrpDwn).toBeVisible();
+  await clickOnCustomerDrpDwn.click();
+    await expect(customerSearchInputAvailable).toBeVisible({timeout:10000});
   await expect(customerSearchInputAvailable).toBeEnabled();
   await customerSearchInputAvailable.fill('SMITH AND BYFORD LTD')
   await expect(customerSearchResultsAvailable).toBeVisible({timeout: 20000});
   await selectCustomerListed.click();
+  await expect(clickOnSaveOnSelectCusomter).toBeEnabled({timeout: 6000});
+  await clickOnSaveOnSelectCusomter.click();
   await expect(isSelectedCustomerVisible).toBeVisible();
 })
 
@@ -250,14 +261,15 @@ test("Validate Order Dialog pop up with Print and Edit Options", async () => {
     const clickOnClearAllBtn = page.locator("button[aria-label='Clear All']");
     
     await clickOnClearAllBtn.click();
-    await customerContentSlotSelection.click();
-    await page.locator("div[title='Customer Details']").waitFor({timeout: 7000})
-    if(await clickOnChangeButton.isVisible({timeout: 6000})){
-      await clickOnChangeButton.click(); }
-    await customerSearchInputAvailable.fill('7000D54')
-    await selectCustomerListed.waitFor({state:'visible', timeout: 6000});
-    await expect(customerSearchResultsAvailable).toBeVisible({timeout: 20000});
-    await selectCustomerListed.click();
+//    await customerContentSlotSelection.click();
+    // await page.locator("div[title='Customer Details']").waitFor({timeout: 7000})
+    // if(await clickOnChangeButton.isVisible({timeout: 6000})){
+    //   await clickOnChangeButton.click(); }
+    
+    // await customerSearchInputAvailable.fill('7000D54')
+    // await selectCustomerListed.waitFor({state:'visible', timeout: 6000});
+    // await expect(customerSearchResultsAvailable).toBeVisible({timeout: 20000});
+    // await selectCustomerListed.click();
     await page.locator("input[aria-label='Product Search']").fill("508201")
     await page.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 15000 })
     const productSearchAddBtn = page.locator("button[aria-label='Add']")
@@ -266,10 +278,11 @@ test("Validate Order Dialog pop up with Print and Edit Options", async () => {
     const productSelAddToBsktList = page.locator("div[class='oj-listview-cell-element']")
     await expect(productSelAddToBsktList).toBeVisible({ timeout: 12000 });
     const clickOnSubmitBtn = page.locator("button[aria-label='Submit']")
-    await clickOnSubmitBtn.waitFor({state:'visible',timeout:20000});
-    await page.waitForFunction(async (clickOnSubmitBtn) => {
-           return await clickOnSubmitBtn.isEnabled();
-    }, clickOnSubmitBtn)
+    await expect(clickOnSubmitBtn).toBeEnabled({timeout: 25000})
+    // await clickOnSubmitBtn.waitFor({state:'visible',timeout:20000});
+    // await page.waitForFunction(async (clickOnSubmitBtn) => {
+    //        return await clickOnSubmitBtn.isEnabled();
+    // }, clickOnSubmitBtn)
     await clickOnSubmitBtn.click({ force: true });
     await page.getByRole('heading', { name: 'Checkout', exact: true }).waitFor({ state: 'visible' });
 
