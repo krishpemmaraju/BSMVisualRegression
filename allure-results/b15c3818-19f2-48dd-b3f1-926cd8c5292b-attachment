@@ -1,0 +1,232 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Validate Loyalty Program Section
+- Location: C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts:167:5
+
+# Error details
+
+```
+Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+Locator: locator('oj-sp-scoreboard-metric-card[card-title=\'Loyalty Program\']')
+Expected: visible
+Received: <element(s) not found>
+Call log:
+  - expect.toBeVisible with timeout 5000ms
+  - waiting for locator('oj-sp-scoreboard-metric-card[card-title=\'Loyalty Program\']')
+
+    at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegression_NewUI.spec.ts:169:47
+```
+
+# Test source
+
+```ts
+   69 |   const customerContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
+   70 |   const searchInputAvailableAfterClickCustomer = page.locator("oj-sp-general-drawer-template[drawer-title='Customer Details']");
+   71 |   const getTextOfCustomerDetailsSection = page.locator("div[title='Customer Details']")
+   72 |   // New Changes
+   73 |   const isCustomerSelectCustomerAccountAvailable = page.getByText("Select customer account");
+   74 |   const clickOnCustomerDrpDwn = page.locator("div[class='fake-dropdown oj-flex oj-sm-justify-content-space-between']").filter(page.locator("//span[text()='Customer']"));
+   75 |   const customerSearchInputAvailable = page.locator("input[aria-label='Customer Search']");
+   76 |   const customerSearchResultsAvailable = page.locator('oj-table.customer-table');
+   77 |   const selectCustomerListed = page.getByText('SMITH AND BYFORD LTD')
+   78 |   const isSelectedCustomerVisible = page.locator("div[title='SMITH AND BYFORD LTD']")
+   79 |   const clickOnSaveOnSelectCusomter = page.locator("button[aria-label='Save']");
+   80 |
+   81 |   await expect(customerContentSlotSelection).toBeEnabled();
+   82 |   await expect(customerContentSlotSelection).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerContentSlotClickable.png"])
+   83 |   await expect(customerTextAvailable).toHaveText("Customer")
+   84 |   await expect(selectCustomerText).toHaveText("Select Customer...")
+   85 |   await expect(clickToSelectCustomer).toHaveText("Click to select a customer")
+   86 |   await customerContentSlotSelection.click()
+   87 |   await expect(searchInputAvailableAfterClickCustomer).toHaveScreenshot(["OrderCapture/CustomerContentSlot", "CustomerDetailsPanel.png"])
+   88 |   await expect(getTextOfCustomerDetailsSection).toHaveText('Customer Details');
+   89 |   await expect(isCustomerSelectCustomerAccountAvailable).toBeVisible();
+   90 |
+   91 |   await expect(clickOnCustomerDrpDwn).toBeVisible();
+   92 |   await clickOnCustomerDrpDwn.click();
+   93 |     await expect(customerSearchInputAvailable).toBeVisible({timeout:10000});
+   94 |   await expect(customerSearchInputAvailable).toBeEnabled();
+   95 |   await customerSearchInputAvailable.fill('SMITH AND BYFORD LTD')
+   96 |   await expect(customerSearchResultsAvailable).toBeVisible({timeout: 20000});
+   97 |   await selectCustomerListed.click();
+   98 |   await expect(clickOnSaveOnSelectCusomter).toBeEnabled({timeout: 6000});
+   99 |   await clickOnSaveOnSelectCusomter.click();
+  100 |   await expect(isSelectedCustomerVisible).toBeVisible();
+  101 | })
+  102 |
+  103 | test("Validate Account Status Section", async () => {
+  104 |     const isAccountStatusVisible = page.locator("oj-sp-scoreboard-metric-card[card-title='Account Status']");
+  105 |     const isAccountStatusPanelAvailable = page.locator("oj-sp-general-drawer-template[drawer-title='Account Status']");
+  106 |     const isAccoutnStatusHeadingAvailable = page.locator("div[title='Account Status']")
+  107 |
+  108 |
+  109 |     await expect(isAccountStatusVisible).toBeVisible();
+  110 |     await isAccountStatusVisible.click();
+  111 |     await expect(isAccountStatusPanelAvailable).toBeVisible();
+  112 |     await expect(isAccoutnStatusHeadingAvailable).toHaveText('Account Status');
+  113 |     await page.locator("button[aria-label='Close']").scrollIntoViewIfNeeded();
+  114 |     await page.locator("button[aria-label='Close']").click({force: true});
+  115 | })
+  116 |
+  117 | test("Validate Available Balance Section", async() => {
+  118 |     const isAvailableBalanceVisible = page.locator("oj-sp-scoreboard-metric-card[card-title='Available Balance']");
+  119 |     const isAvailableBalancePanelAvailable = page.locator("oj-sp-general-drawer-template[drawer-title='Transaction History']");
+  120 |     const isAvailableBalanceHeadingAvailable = page.locator("div[title='Transaction History']")
+  121 |     const closeBtn = page.locator("button[aria-label='Close']")
+  122 |
+  123 |     await expect(isAvailableBalanceVisible).toBeVisible();
+  124 |     await isAvailableBalanceVisible.click()
+  125 |     await expect(isAvailableBalancePanelAvailable).toBeVisible();
+  126 |     await expect(isAvailableBalanceHeadingAvailable).toHaveText('Transaction History')
+  127 |     await closeBtn.scrollIntoViewIfNeeded();
+  128 |     await closeBtn.click({force: true});
+  129 | })
+  130 |
+  131 | test("Validate Required Section", async() => {
+  132 |         const isRequiredVisible = page.locator("oj-sp-scoreboard-metric-card[card-title='Required']");
+  133 |         
+  134 |         await expect(isRequiredVisible).toBeVisible();
+  135 | })
+  136 |
+  137 |
+  138 | test("Validate Customer PO section info Slot", async () => {
+  139 |   const customerPOTextAvailable = page.locator("span[title='Customer PO #']");
+  140 |   const customerPOContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer PO #']");
+  141 |   const customerPOPanelAvailable =  page.locator("oj-sp-general-drawer-template[drawer-title='Order Details']");
+  142 |   const isCustomerPOHeadingAvailable = page.locator("div[title='Order Details']")
+  143 |   const customerOrderInputTextAvailable = page.getByLabel("Customer Order Number")
+  144 |   const isCustomerOrderNumberTextBoxAvailable = page.locator("oj-c-input-text[label-hint='Customer Order Number'] input");
+  145 |   const isCancelBtnAvailableUnderCustPOSection = page.getByRole('button', {name:'Cancel'})
+  146 |   const isContinueBtnAvailableUnderCustPOSection = page.getByRole('button', {name:'Continue'})
+  147 |   const closeBtn = page.locator("button[aria-label='Close']")
+  148 |
+  149 |   await expect(customerPOTextAvailable).toHaveText("Customer PO #")
+  150 |   await expect(customerPOContentSlotSelection).toBeEnabled();
+  151 |   await expect(customerPOContentSlotSelection).toHaveScreenshot(["OrderCapture/CustomerPOContentSlot", "CustomerPOContentSlotClickable.png"])
+  152 |   await customerPOContentSlotSelection.click();
+  153 |   await expect(customerPOPanelAvailable).toBeVisible()
+  154 |   expect(await isCustomerPOHeadingAvailable.textContent()).toContain("Order Details")
+  155 |   await expect(customerOrderInputTextAvailable).toBeVisible();
+  156 |   await expect(isCustomerOrderNumberTextBoxAvailable).toBeVisible();
+  157 |   await expect(isCustomerOrderNumberTextBoxAvailable).toBeEnabled();
+  158 |   await expect(isCancelBtnAvailableUnderCustPOSection).toBeVisible();
+  159 |   await expect(isCancelBtnAvailableUnderCustPOSection).toBeEnabled();
+  160 |   await expect(isContinueBtnAvailableUnderCustPOSection).toBeVisible();
+  161 |   await expect(isContinueBtnAvailableUnderCustPOSection).toBeEnabled();
+  162 |   await closeBtn.scrollIntoViewIfNeeded();
+  163 |   await closeBtn.click({force: true});
+  164 |
+  165 | })
+  166 |
+  167 | test("Validate Loyalty Program Section", async() => {
+  168 |     const isLoyaltyProgramTextVisible = page.locator("oj-sp-scoreboard-metric-card[card-title='Loyalty Program']");
+> 169 |     await expect(isLoyaltyProgramTextVisible).toBeVisible();
+      |                                               ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+  170 | })
+  171 |
+  172 |
+  173 |
+  174 | test("Validate Product Details page", async()=> {
+  175 |     await page.locator("input[aria-label='Product Search']").waitFor({timeout: 6000});
+  176 |     await page.locator("input[aria-label='Product Search']").fill("219500")
+  177 |     await page.locator("#searchInputContainer_tbProductSearch").click()
+  178 |     await page.locator("wol-product-card[id*='219500']").click();
+  179 |     const getQuantityLabel = page.getByLabel("Quantity");
+  180 |     const addBtnOnProdDetailsPage = page.getByRole('button',{name:'Add to Basket'});
+  181 |     const productDetailsText = page.locator("div.oj-flex.oj-sm-flex-direction-column   div.oj-typography-body-md.oj-flex-item.oj-sm-flex-initial");
+  182 |     const getAlternateProductLink = page.locator("div.oj-collapsible-header-wrapper").nth(0);
+  183 |     const getRelatedProducts = page.locator("div.oj-collapsible-header-wrapper").nth(1);
+  184 |     await expect(getAlternateProductLink).toHaveText("Alternate Products");
+  185 |     await expect(getRelatedProducts).toHaveText("Related Products");
+  186 |     await page.locator("button[aria-label='Back']").click()
+  187 | })
+  188 |
+  189 |
+  190 |
+  191 | test("Validate Add button on Product Search Page section", async () => {
+  192 |     // await page.locator("input[aria-label='Product Search']").waitFor({timeout:5000})
+  193 |     // await page.locator("input[aria-label='Product Search']").fill('');
+  194 |     // await page.locator("input[aria-label='Product Search']").fill("D53216")
+  195 |     const isAtpDateVisible = page.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
+  196 |     const isAvailableStockVisible = page.locator('span.oj-badge.oj-badge-sm.custom-badge');
+  197 |     const productSearchAddBtn = page.locator("button[aria-label='Add']")
+  198 |     await productSearchAddBtn.scrollIntoViewIfNeeded()
+  199 |     await productSearchAddBtn.waitFor({state:'visible',timeout: 8000});
+  200 |     await expect(productSearchAddBtn).toBeVisible({timeout:8000})
+  201 |     await expect(isAtpDateVisible).toBeVisible();
+  202 |     await expect(isAvailableStockVisible).toBeVisible();
+  203 |     await expect(page.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
+  204 | })
+  205 |
+  206 | // test("Validate Add product to basket section", async ({ page }) => {
+  207 | //     await page.locator("input[aria-label='Product Search']").fill("219500")
+  208 | //     const productSearchAddBtn = page.getByRole('button', { name: 'Add' })
+  209 | //     await productSearchAddBtn.click()
+  210 | //     await page.waitForSelector("[class*='oj-listview-item']", { state: 'visible', timeout: 15000 })
+  211 | //     const productSelAddToBsktList = page.locator("[class='oj-listview-cell-element']")
+  212 | //     await expect(productSelAddToBsktList).toBeVisible()
+  213 | //     await expect(productSelAddToBsktList).toHaveScreenshot(["OrderCapture/AddToProductBasketSlotSection", "AddToProductBasketSlotSection.png"])
+  214 | // })
+  215 |
+  216 | test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
+  217 |     // await page.locator("input[aria-label='Product Search']").fill("D53216")
+  218 |     await page.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
+  219 |     const productSearchAddBtn = page.locator("button[aria-label='Add']")
+  220 |     await productSearchAddBtn.click()
+  221 |     await page.waitForSelector("[class*='oj-listview-item']", { state: 'visible', timeout: 15000 })
+  222 |     await expect(page.locator("button[aria-label='Save']")).toBeVisible({timeout: 15000});
+  223 |     const isCustomerAutoPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Customer'] div.oj-sp-scoreboard-metric-card-metric").textContent();
+  224 |     expect(isCustomerAutoPopulated).not.toBeNull();
+  225 |     // const isBillToAutoPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Bill to'] div.oj-sp-scoreboard-metric-card-metric").textContent();
+  226 |     // expect(isBillToAutoPopulated).not.toBeNull();
+  227 |     const isRequiredPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Required'] div.oj-sp-scoreboard-metric-card-metric").textContent();
+  228 |     expect(isRequiredPopulated).not.toBeNull();
+  229 |     // const isShippingMethodPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Shipping Method'] div.oj-sp-scoreboard-metric-card-metric").textContent();
+  230 |     // expect(isShippingMethodPopulated).not.toBeNull();
+  231 |     const isClearAllVisible = await page.locator("button[aria-label='Clear All']")
+  232 |     expect(isClearAllVisible).toBeVisible()
+  233 |     const productSelAddToBsktList = page.locator("[class='oj-listview-cell-element']")
+  234 |     await expect(productSelAddToBsktList).toBeVisible()
+  235 |     const addToBsktDecreaseBtn = page.locator("div.oj-listview-cell-element button[aria-label='Decrease']")
+  236 |     const addToBsktIncreaseBtn = page.locator("div.oj-listview-cell-element button[aria-label='Increase']")
+  237 |     const addToBsktDeleteBtn = page.locator("button[aria-label='Delete']")
+  238 |     const isSubTotalDisplayed =  page.getByText('Sub Total');
+  239 |     const isVATDisplayed =  page.getByText('VAT');
+  240 |     const isTotalDisplayed =  page.getByText('Total',{exact: true});
+  241 |     await expect(isSubTotalDisplayed).toBeVisible();
+  242 |     await expect(isVATDisplayed).toBeVisible();
+  243 |     await expect(isTotalDisplayed).toBeVisible();
+  244 |     await expect(addToBsktDecreaseBtn).toBeVisible();
+  245 |     await expect(addToBsktIncreaseBtn).toBeVisible();
+  246 |     await expect(addToBsktDeleteBtn).toBeVisible();
+  247 | })
+  248 |
+  249 | test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
+  250 |     const detailSlotSection = page.locator("oj-vb-fragment-slot[name='detail']")
+  251 |     await expect(detailSlotSection).toHaveScreenshot(["OrderCapture/DetailSlotSection", "DetailSlotSectionOnOrderCapturePage.png"])
+  252 | })
+  253 |
+  254 |
+  255 | test("Validate Order Dialog pop up with Print and Edit Options", async () => {
+  256 |     const customerContentSlotSelection = page.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
+  257 |     const customerSearchInputAvailable = page.locator("input[aria-label='Customer Search']");
+  258 |     const selectCustomerListed = page.getByText('7000D54')
+  259 |     const customerSearchResultsAvailable = page.locator('oj-c-list-view.customer-list');
+  260 |     const clickOnChangeButton =  page.locator('#btnChangeCustomer');
+  261 |     const clickOnClearAllBtn = page.locator("button[aria-label='Clear All']");
+  262 |     
+  263 |     await clickOnClearAllBtn.click();
+  264 | //    await customerContentSlotSelection.click();
+  265 |     // await page.locator("div[title='Customer Details']").waitFor({timeout: 7000})
+  266 |     // if(await clickOnChangeButton.isVisible({timeout: 6000})){
+  267 |     //   await clickOnChangeButton.click(); }
+  268 |     
+  269 |     // await customerSearchInputAvailable.fill('7000D54')
+```

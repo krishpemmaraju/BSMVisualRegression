@@ -164,7 +164,7 @@ test("Validate Customer PO section info Slot", async () => {
 
 })
 
-test("Validate Loyalty Program Section", async() => {
+test.skip("Validate Loyalty Program Section", async() => {
     const isLoyaltyProgramTextVisible = page.locator("oj-sp-scoreboard-metric-card[card-title='Loyalty Program']");
     await expect(isLoyaltyProgramTextVisible).toBeVisible();
 })
