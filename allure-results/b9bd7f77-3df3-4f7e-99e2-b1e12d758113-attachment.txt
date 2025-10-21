@@ -1,0 +1,1 @@
+A snapshot doesn't exist at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegressionNewUI.spec.ts-snapshots\OrderCapture\ContentSlotSection\GridViewButtonOnContentSlotSection-chromium-win32.png, writing actual.

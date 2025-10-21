@@ -1,1 +1,7 @@
-.
+DEV - 
+Oracle SCM - https://egvh-dev1.fa.em3.oraclecloud.com
+VBCS - https://vb04.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/
+
+TST - 
+Oracle SCM - https://egvh-dev2.fa.em3.oraclecloud.com
+VBCS - https://vb03.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/

@@ -1,18 +1,21 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.56.0",
     "@types/node": "^22.13.10",
     "allure-commandline": "^2.33.0",
     "allure-playwright": "^3.2.1",
+    "cross-env": "^10.1.0",
     "playwright": "^1.51.1"
   },
   "scripts": {
     "updatesnapshots": "npx playwright test --update-snapshots",
-    "test": "playwright test OrderCaptureTestsVisualRegression_NewUI.spec.ts --update-snapshots --headed",
+    "test:dev": "cross-env ENV=dev playwright test OrderCaptureTestsVisualRegressionNewUI.spec.ts --update-snapshots --headed",
+    "test:stg": "cross-env ENV=stg playwright test OrderCaptureTestsVisualRegressionNewUI.spec.ts --update-snapshots --headed",
+    "test:tst": "cross-env ENV=tst playwright test OrderCaptureTestsVisualRegressionNewUI.spec.ts --update-snapshots --headed",
     "report": "npx allure generate allure-results -o allure-report --clean",
     "reportclear": "allure generate --clean",
     "show-report": "npx allure open ./allure-report",
     "test:stop": "pm2 stop all && pm2 delete all",
     "test:report": "npm run test && npm run report && npm run show-report && npm run test:stop"
   }
-  }
+}

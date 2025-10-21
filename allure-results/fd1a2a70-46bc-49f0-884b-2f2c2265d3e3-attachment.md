@@ -1,0 +1,123 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - tooltip "Close" [ref=e3]:
+    - generic [ref=e5]: Close
+  - menu "More Actions" [active] [ref=e9]:
+    - menuitem "Save" [ref=e10] [cursor=pointer]:
+      - generic [ref=e12]: Save
+    - menuitem "Save and Exit" [ref=e13] [cursor=pointer]:
+      - generic [ref=e15]: Save and Exit
+  - generic [ref=e25]:
+    - generic [ref=e27]:
+      - generic:
+        - banner:
+          - generic [ref=e28]:
+            - generic [ref=e30]:
+              - button [ref=e34] [cursor=pointer]:
+                - generic [ref=e37]: 凌
+              - generic [ref=e39]:
+                - generic [ref=e40]:
+                  - heading [level=1] [ref=e41]: Order Capture
+                  - generic [ref=e43]: DOO_DRAFT
+                - generic [ref=e44]: 1BL|006541
+              - generic [ref=e45]:
+                - toolbar [ref=e46]:
+                  - button [expanded] [ref=e48] [cursor=pointer]:
+                    - generic [ref=e51]: 
+                  - button [ref=e53] [cursor=pointer]: Submit
+                - generic [ref=e58]: Updated just now
+            - generic [ref=e61]:
+              - generic [ref=e62]: 
+              - textbox [ref=e64]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                - text: "219500"
+    - generic [ref=e69]:
+      - generic [ref=e71] [cursor=pointer]:
+        - generic [ref=e75]: Customer
+        - generic [ref=e79]: SMITH AND BYFORD LTD
+        - generic [ref=e81]: 7060F14 (Credit)
+      - generic [ref=e82]:
+        - generic [ref=e84] [cursor=pointer]:
+          - generic [ref=e86]:
+            - generic [ref=e88]: Account Status
+            - generic [ref=e91]: OK
+          - generic [ref=e95]: OK to Trade
+        - generic [ref=e97] [cursor=pointer]:
+          - generic [ref=e101]: Available Balance
+          - generic [ref=e105]: £648894.35
+          - generic [ref=e107]: £3000000 Credit Limit
+      - generic [ref=e109] [cursor=pointer]:
+        - generic [ref=e113]: Required
+        - generic [ref=e117]: In Full
+        - generic [ref=e119]: 01 Jan
+      - generic [ref=e121] [cursor=pointer]:
+        - generic [ref=e125]: "Customer PO #"
+        - generic [ref=e129]: "--"
+    - generic [ref=e130]:
+      - generic [ref=e141]:
+        - toolbar [ref=e144]:
+          - generic [ref=e146] [cursor=pointer]:
+            - generic [ref=e149]: 
+            - radio [ref=e151]
+            - generic [ref=e152]: Grid View Large
+          - generic [ref=e154] [cursor=pointer]:
+            - generic [ref=e157]: 
+            - radio [ref=e159]
+            - generic [ref=e160]: Grid View
+          - generic [ref=e162] [cursor=pointer]:
+            - generic [ref=e165]: 
+            - radio [checked] [ref=e167]
+            - generic [ref=e168]: List
+        - grid [ref=e171]:
+          - row [ref=e172]:
+            - gridcell [ref=e174]:
+              - generic [ref=e182] [cursor=pointer]:
+                - generic [ref=e184]:
+                  - generic [ref=e186]: 219500 / TF106SC
+                  - generic [ref=e189]: "* TF 1087X600 STRAIGHT CHROM 1235B"
+                  - generic [ref=e192]:
+                    - generic [ref=e194]: 0 available
+                    - generic [ref=e197]: 01 Jan
+                - generic [ref=e198]:
+                  - generic [ref=e199]: £172.51
+                  - button [ref=e202]: Add
+      - generic [ref=e211]:
+        - generic [ref=e214]:
+          - grid [ref=e216]:
+            - row [ref=e217]:
+              - gridcell [ref=e218]:
+                - generic [ref=e220]:
+                  - generic [ref=e226]:
+                    - generic [ref=e228] [cursor=pointer]: "219500"
+                    - generic [ref=e229] [cursor=pointer]: "* @ TF 1087X600 STRAIGHT CHROM 1235B"
+                    - generic [ref=e233] [cursor=pointer]:
+                      - generic [ref=e235]: 0 available
+                      - generic [ref=e238]: 01 Jan
+                  - generic [ref=e241]:
+                    - button [disabled] [ref=e245]:
+                      - img [ref=e248]
+                    - spinbutton [ref=e251]: "1"
+                    - button [ref=e255] [cursor=pointer]:
+                      - img [ref=e258]
+                  - generic [ref=e260]:
+                    - generic [ref=e262]: £172.51
+                    - generic [ref=e264]: £172.51
+                  - button [ref=e267] [cursor=pointer]:
+                    - generic [ref=e270]: 
+          - generic [ref=e272]: Loading
+        - generic [ref=e276]:
+          - button [ref=e280] [cursor=pointer]: Clear All
+          - generic [ref=e281]:
+            - generic [ref=e282]:
+              - generic [ref=e283]: Sub Total
+              - generic [ref=e284]: £172.51
+            - generic [ref=e285]:
+              - generic [ref=e286]: VAT
+              - generic [ref=e287]: £0.00
+            - generic [ref=e288]:
+              - generic [ref=e289]: Total
+              - generic [ref=e290]: £172.51
+  - text:   
+```

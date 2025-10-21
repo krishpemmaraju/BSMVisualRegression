@@ -1,0 +1,149 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - text:  
+    - generic [ref=e10]:
+      - generic [ref=e14]:
+        - generic [ref=e19]:
+          - text:                                                                                                                                                                                 
+          - button "Navigator" [ref=e21] [cursor=pointer]:
+            - img "Navigator" [ref=e22]: 
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e25]
+        - generic [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e28]: 
+          - link "Notifications" [ref=e33] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e34]: 
+          - link "Settings and Actions" [ref=e39] [cursor=pointer]:
+            - /url: "#"
+            - img "Krishna Pemmaraju" [ref=e43]:
+              - generic [ref=e45]: KP
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e1]:
+          - dialog "Clear All" [ref=f1e3]:
+            - generic [ref=f1e4]:
+              - heading "Clear All" [level=1] [ref=f1e6]
+              - generic [ref=f1e10]:
+                - generic [ref=f1e11]: Are you sure you want to delete all items from the basket?
+                - generic [ref=f1e12]: This process is irreversible.
+              - generic [ref=f1e14]:
+                - button "Cancel" [ref=f1e16] [cursor=pointer]
+                - button "Continue" [ref=f1e18] [cursor=pointer]
+          - generic [ref=f1e28]:
+            - generic [ref=f1e30]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e31]:
+                    - generic [ref=f1e33]:
+                      - button [ref=f1e37] [cursor=pointer]:
+                        - generic [ref=f1e40]: 凌
+                      - generic [ref=f1e42]:
+                        - generic [ref=f1e43]:
+                          - heading [level=1] [ref=f1e44]: Order Capture
+                          - generic [ref=f1e46]: DOO_DRAFT
+                        - generic [ref=f1e47]: 1BL|006762
+                      - generic [ref=f1e48]:
+                        - toolbar [ref=f1e49]:
+                          - button [ref=f1e51] [cursor=pointer]:
+                            - generic [ref=f1e54]: 
+                          - button [ref=f1e56] [cursor=pointer]: Submit
+                        - generic [ref=f1e61]: Updated just now
+                    - generic [ref=f1e64]:
+                      - generic [ref=f1e65]: 
+                      - textbox [active] [ref=f1e67]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: "508201"
+            - generic [ref=f1e72]:
+              - generic [ref=f1e74] [cursor=pointer]:
+                - generic [ref=f1e78]: Customer
+                - generic [ref=f1e82]: SMITH AND BYFORD LTD
+                - generic [ref=f1e84]: 7060F14 (Credit)
+              - generic [ref=f1e85]:
+                - generic [ref=f1e87] [cursor=pointer]:
+                  - generic [ref=f1e89]:
+                    - generic [ref=f1e91]: Account Status
+                    - generic [ref=f1e94]: OK
+                  - generic [ref=f1e98]: OK to Trade
+                - generic [ref=f1e100] [cursor=pointer]:
+                  - generic [ref=f1e104]: Available Balance
+                  - generic [ref=f1e108]: £648894.35
+                  - generic [ref=f1e110]: £3000000 Credit Limit
+              - generic [ref=f1e112] [cursor=pointer]:
+                - generic [ref=f1e116]: Required
+                - generic [ref=f1e120]: In Full
+                - generic [ref=f1e122]: Now
+              - generic [ref=f1e124] [cursor=pointer]:
+                - generic [ref=f1e128]: "Customer PO #"
+                - generic [ref=f1e132]: "--"
+                - generic [ref=f1e134]: 21/10/2025
+            - generic [ref=f1e135]:
+              - generic [ref=f1e146]:
+                - toolbar [ref=f1e149]:
+                  - generic [ref=f1e151] [cursor=pointer]:
+                    - generic [ref=f1e154]: 
+                    - radio [ref=f1e156]
+                    - generic [ref=f1e157]: Grid View Large
+                  - generic [ref=f1e159] [cursor=pointer]:
+                    - generic [ref=f1e162]: 
+                    - radio [ref=f1e164]
+                    - generic [ref=f1e165]: Grid View
+                  - generic [ref=f1e167] [cursor=pointer]:
+                    - generic [ref=f1e170]: 
+                    - radio [checked] [ref=f1e172]
+                    - generic [ref=f1e173]: List
+                - grid [ref=f1e176]:
+                  - row [ref=f1e177]:
+                    - gridcell [ref=f1e179]:
+                      - generic [ref=f1e187] [cursor=pointer]:
+                        - generic [ref=f1e189]:
+                          - generic [ref=f1e191]: 508201 / X223
+                          - generic [ref=f1e194]: YORKEX 22MM COPPER TUBE (3M) PER MTR
+                          - generic [ref=f1e199]: 0 available
+                        - generic [ref=f1e200]:
+                          - generic [ref=f1e201]: £10.29
+                          - button [ref=f1e204]: Add
+              - generic [ref=f1e213]:
+                - generic [ref=f1e216]:
+                  - grid [ref=f1e218]:
+                    - row [ref=f1e219]:
+                      - gridcell [ref=f1e220]:
+                        - generic [ref=f1e222]:
+                          - generic [ref=f1e228]:
+                            - generic [ref=f1e230] [cursor=pointer]: R40003
+                            - generic [ref=f1e231] [cursor=pointer]: XPRESS CU S1 STRAIGHT COUPLING 22
+                            - generic [ref=f1e237] [cursor=pointer]: 94 available
+                          - generic [ref=f1e240]:
+                            - button [disabled] [ref=f1e244]:
+                              - img [ref=f1e247]
+                            - spinbutton [ref=f1e250]: "1"
+                            - button [ref=f1e254] [cursor=pointer]:
+                              - img [ref=f1e257]
+                          - generic [ref=f1e259]:
+                            - generic [ref=f1e261]: £5.01
+                            - generic [ref=f1e263]: £5.01
+                          - button [ref=f1e266] [cursor=pointer]:
+                            - generic [ref=f1e269]: 
+                  - generic [ref=f1e271]: Loading
+                - generic [ref=f1e275]:
+                  - button [ref=f1e279] [cursor=pointer]: Clear All
+                  - generic [ref=f1e280]:
+                    - generic [ref=f1e281]:
+                      - generic [ref=f1e282]: Sub Total
+                      - generic [ref=f1e283]: £5.01
+                    - generic [ref=f1e284]:
+                      - generic [ref=f1e285]: VAT
+                      - generic [ref=f1e286]: £0.00
+                    - generic [ref=f1e287]:
+                      - generic [ref=f1e288]: Total
+                      - generic [ref=f1e289]: £5.01
+          - text:   
+  - text:      北
+```

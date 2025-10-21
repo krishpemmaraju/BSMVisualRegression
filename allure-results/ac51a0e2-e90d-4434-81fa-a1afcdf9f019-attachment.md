@@ -1,0 +1,130 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - text:  
+    - generic [ref=e10]:
+      - generic [ref=e14]:
+        - generic [ref=e19]:
+          - text:                                                                                                                                                                                 
+          - button "Navigator" [ref=e21] [cursor=pointer]:
+            - img "Navigator" [ref=e22]: 
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e25]
+        - generic [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e28]: 
+          - link "Notifications" [ref=e33] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e34]: 
+          - link "Settings and Actions" [ref=e39] [cursor=pointer]:
+            - /url: "#"
+            - img "Krishna Pemmaraju" [ref=e43]:
+              - generic [ref=e45]: KP
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e1]:
+          - dialog [ref=f1e6]:
+            - generic [ref=f1e7]:
+              - generic [ref=f1e8]:
+                - heading [level=1]
+              - generic [ref=f1e12]:
+                - generic [ref=f1e13]: Adding product...
+                - progressbar [ref=f1e15]
+                - generic [ref=f1e17]: Step 1 of 2
+          - generic [ref=f1e28]:
+            - generic [ref=f1e30]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e31]:
+                    - generic [ref=f1e33]:
+                      - button [ref=f1e37] [cursor=pointer]:
+                        - generic [ref=f1e40]: 凌
+                      - generic [ref=f1e42]:
+                        - generic [ref=f1e43]:
+                          - heading [level=1] [ref=f1e44]: Order Capture
+                          - generic [ref=f1e46]: DOO_DRAFT
+                        - generic [ref=f1e47]: 1BL|006745
+                      - generic [ref=f1e48]:
+                        - toolbar [ref=f1e49]:
+                          - button [ref=f1e51] [cursor=pointer]:
+                            - generic [ref=f1e54]: 
+                          - button [disabled] [ref=f1e56]: Submit
+                        - generic [ref=f1e61]: Updated just now
+                    - generic [ref=f1e64]:
+                      - generic [ref=f1e65]: 
+                      - textbox [ref=f1e67]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: "508201"
+            - generic [ref=f1e72]:
+              - generic [ref=f1e74] [cursor=pointer]:
+                - generic [ref=f1e78]: Customer
+                - generic [ref=f1e82]: SMITH AND BYFORD LTD
+                - generic [ref=f1e84]: 7060F14 (Credit)
+              - generic [ref=f1e85]:
+                - generic [ref=f1e87] [cursor=pointer]:
+                  - generic [ref=f1e89]:
+                    - generic [ref=f1e91]: Account Status
+                    - generic [ref=f1e94]: OK
+                  - generic [ref=f1e98]: OK to Trade
+                - generic [ref=f1e100] [cursor=pointer]:
+                  - generic [ref=f1e104]: Available Balance
+                  - generic [ref=f1e108]: £648894.35
+                  - generic [ref=f1e110]: £3000000 Credit Limit
+              - generic [ref=f1e112] [cursor=pointer]:
+                - generic [ref=f1e116]: Required
+                - generic [ref=f1e120]: "--"
+              - generic [ref=f1e122] [cursor=pointer]:
+                - generic [ref=f1e126]: "Customer PO #"
+                - generic [ref=f1e130]: "--"
+            - generic [ref=f1e131]:
+              - generic [ref=f1e142]:
+                - toolbar [ref=f1e145]:
+                  - generic [ref=f1e147] [cursor=pointer]:
+                    - generic [ref=f1e150]: 
+                    - radio [ref=f1e152]
+                    - generic [ref=f1e153]: Grid View Large
+                  - generic [ref=f1e155] [cursor=pointer]:
+                    - generic [ref=f1e158]: 
+                    - radio [ref=f1e160]
+                    - generic [ref=f1e161]: Grid View
+                  - generic [ref=f1e163] [cursor=pointer]:
+                    - generic [ref=f1e166]: 
+                    - radio [checked] [ref=f1e168]
+                    - generic [ref=f1e169]: List
+                - grid [ref=f1e172]:
+                  - row [ref=f1e173]:
+                    - gridcell [ref=f1e175]:
+                      - generic [ref=f1e183] [cursor=pointer]:
+                        - generic [ref=f1e185]:
+                          - generic [ref=f1e187]: 508201 / X223
+                          - generic [ref=f1e190]: YORKEX 22MM COPPER TUBE (3M) PER MTR
+                          - generic [ref=f1e193]:
+                            - generic [ref=f1e195]: 0 available
+                            - generic [ref=f1e198]: 07 Nov
+                        - generic [ref=f1e199]:
+                          - generic [ref=f1e200]: £10.29
+                          - button [active] [ref=f1e203]: Add
+              - generic [ref=f1e212]:
+                - generic [ref=f1e215]:
+                  - grid [ref=f1e217]:
+                    - row [ref=f1e218]:
+                      - gridcell [ref=f1e219]: Your basket is empty
+                  - generic [ref=f1e221]: Loading
+                - generic [ref=f1e226]:
+                  - generic [ref=f1e227]:
+                    - generic [ref=f1e228]: Sub Total
+                    - generic [ref=f1e229]: £0.00
+                  - generic [ref=f1e230]:
+                    - generic [ref=f1e231]: VAT
+                    - generic [ref=f1e232]: £0.00
+                  - generic [ref=f1e233]:
+                    - generic [ref=f1e234]: Total
+                    - generic [ref=f1e235]: £0.00
+          - text:   
+  - text:      北
+```

@@ -1,0 +1,114 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - generic:
+        - banner:
+          - generic [ref=e14]:
+            - generic [ref=e16]:
+              - button [ref=e20] [cursor=pointer]:
+                - generic [ref=e23]: 凌
+              - generic [ref=e25]:
+                - generic [ref=e26]:
+                  - heading [level=1] [ref=e27]: Order Capture
+                  - generic [ref=e29]: DOO_DRAFT
+                - generic [ref=e30]: 1BL|006600
+              - generic [ref=e31]:
+                - toolbar [ref=e32]:
+                  - button [ref=e34] [cursor=pointer]:
+                    - generic [ref=e37]: 
+                  - button [ref=e39] [cursor=pointer]: Submit
+                - generic [ref=e44]: Updated just now
+            - generic [ref=e47]:
+              - generic [ref=e48]: 
+              - textbox [ref=e50]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                - text: "508201"
+    - generic [ref=e55]:
+      - generic [ref=e57] [cursor=pointer]:
+        - generic [ref=e61]: Customer
+        - generic [ref=e65]: SMITH AND BYFORD LTD
+        - generic [ref=e67]: 7060F14 (Credit)
+      - generic [ref=e68]:
+        - generic [ref=e70] [cursor=pointer]:
+          - generic [ref=e72]:
+            - generic [ref=e74]: Account Status
+            - generic [ref=e77]: OK
+          - generic [ref=e81]: OK to Trade
+        - generic [ref=e83] [cursor=pointer]:
+          - generic [ref=e87]: Available Balance
+          - generic [ref=e91]: £648894.35
+          - generic [ref=e93]: £3000000 Credit Limit
+      - generic [ref=e95] [cursor=pointer]:
+        - generic [ref=e99]: Required
+        - generic [ref=e103]: In Full
+        - generic [ref=e105]: Now
+      - generic [ref=e107] [cursor=pointer]:
+        - generic [ref=e111]: "Customer PO #"
+        - generic [ref=e115]: "--"
+    - generic [ref=e116]:
+      - generic [ref=e127]:
+        - toolbar [ref=e130]:
+          - generic [ref=e132] [cursor=pointer]:
+            - generic [ref=e135]: 
+            - radio [ref=e137]
+            - generic [ref=e138]: Grid View Large
+          - generic [ref=e140] [cursor=pointer]:
+            - generic [ref=e143]: 
+            - radio [ref=e145]
+            - generic [ref=e146]: Grid View
+          - generic [ref=e148] [cursor=pointer]:
+            - generic [ref=e151]: 
+            - radio [checked] [ref=e153]
+            - generic [ref=e154]: List
+        - grid [ref=e157]:
+          - row [ref=e158]:
+            - gridcell [ref=e160]:
+              - generic [ref=e168] [cursor=pointer]:
+                - generic [ref=e170]:
+                  - generic [ref=e172]: 508201 / X223
+                  - generic [ref=e175]: YORKEX 22MM COPPER TUBE (3M) PER MTR
+                  - generic [ref=e178]:
+                    - generic [ref=e180]: 19999977 available
+                    - generic [ref=e183]: 15 Oct
+                - generic [ref=e184]:
+                  - generic [ref=e185]: £10.29
+                  - button [ref=e188]: Add
+      - generic [ref=e197]:
+        - generic [ref=e200]:
+          - grid [ref=e202]:
+            - row [ref=e203]:
+              - gridcell [ref=e204]:
+                - generic [ref=e206]:
+                  - generic [ref=e212]:
+                    - generic [ref=e214] [cursor=pointer]: "508201"
+                    - generic [ref=e215] [cursor=pointer]: "@ YORKEX 22MM COPPER TUBE (3M) PER MTR"
+                    - generic [ref=e221] [cursor=pointer]: 19999977 available
+                  - generic [ref=e224]:
+                    - button [disabled] [ref=e228]:
+                      - img [ref=e231]
+                    - spinbutton [ref=e234]: "1"
+                    - button [ref=e238] [cursor=pointer]:
+                      - img [ref=e241]
+                  - generic [ref=e243]:
+                    - generic [ref=e245]: £10.29
+                    - generic [ref=e247]: £10.29
+                  - button [ref=e250] [cursor=pointer]:
+                    - generic [ref=e253]: 
+          - generic [ref=e255]: Loading
+        - generic [ref=e259]:
+          - button [ref=e263] [cursor=pointer]: Clear All
+          - generic [ref=e264]:
+            - generic [ref=e265]:
+              - generic [ref=e266]: Sub Total
+              - generic [ref=e267]: £10.29
+            - generic [ref=e268]:
+              - generic [ref=e269]: VAT
+              - generic [ref=e270]: £0.00
+            - generic [ref=e271]:
+              - generic [ref=e272]: Total
+              - generic [ref=e273]: £10.29
+  - text:     
+```

@@ -1,0 +1,94 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - text:  
+    - generic [ref=e10]:
+      - generic [ref=e14]:
+        - generic [ref=e19]:
+          - text:  
+          - button "Navigator" [ref=e21] [cursor=pointer]:
+            - img "Navigator" [ref=e22]: 
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e25]
+        - generic [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e28]: 
+          - link "Notifications" [ref=e33] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e34]: 
+          - link "Settings and Actions" [ref=e39] [cursor=pointer]:
+            - /url: "#"
+            - img "Krishna Pemmaraju" [ref=e43]:
+              - generic [ref=e45]: KP
+      - iframe [ref=e52]:
+        - generic [ref=f1e11]:
+          - generic [ref=f1e13]:
+            - generic:
+              - banner "Order Capture":
+                - generic [ref=f1e14]:
+                  - generic [ref=f1e16]:
+                    - button "Back" [ref=f1e20] [cursor=pointer]:
+                      - generic [ref=f1e23]: 凌
+                    - generic [ref=f1e25]:
+                      - heading "Order Capture" [level=1] [ref=f1e27]
+                      - generic "Create / Amend Sales Order" [ref=f1e28]
+                    - toolbar "Header" [ref=f1e30]:
+                      - button "Submit" [disabled] [ref=f1e32]
+                  - generic "Product Search" [ref=f1e35]:
+                    - generic [ref=f1e36]: 
+                    - textbox "Product Search" [ref=f1e38]:
+                      - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+          - generic [ref=f1e43]:
+            - generic [ref=f1e45] [cursor=pointer]:
+              - generic "Customer" [ref=f1e49]
+              - generic "Select Customer..." [ref=f1e53]
+              - generic "Click to select a customer" [ref=f1e55]
+            - generic [ref=f1e57] [cursor=pointer]:
+              - generic "Required" [ref=f1e61]
+              - generic "--" [ref=f1e65]
+            - generic [ref=f1e67] [cursor=pointer]:
+              - 'generic "Customer PO #" [ref=f1e71]'
+              - generic "--" [ref=f1e75]
+              - generic "21/10/2025" [ref=f1e77]
+          - generic [ref=f1e78]:
+            - generic [ref=f1e89]:
+              - toolbar [ref=f1e92]:
+                - generic [ref=f1e94] [cursor=pointer]:
+                  - generic [ref=f1e97]: 
+                  - radio " Grid View Large" [ref=f1e99]
+                  - generic [ref=f1e100]: Grid View Large
+                - generic [ref=f1e102] [cursor=pointer]:
+                  - generic [ref=f1e105]: 
+                  - radio " Grid View" [ref=f1e107]
+                  - generic [ref=f1e108]: Grid View
+                - generic [ref=f1e110] [cursor=pointer]:
+                  - generic [ref=f1e113]: 
+                  - radio " List" [checked] [ref=f1e115]
+                  - generic [ref=f1e116]: List
+              - grid [ref=f1e119]:
+                - row "No items to display" [ref=f1e120]:
+                  - gridcell "No items to display" [ref=f1e121]
+            - generic [ref=f1e130]:
+              - generic [ref=f1e133]:
+                - grid [ref=f1e135]:
+                  - row "Your basket is empty" [ref=f1e136]:
+                    - gridcell "Your basket is empty" [ref=f1e137]
+                - generic [ref=f1e139]: Loading
+              - generic [ref=f1e144]:
+                - generic [ref=f1e145]:
+                  - generic [ref=f1e146]: Sub Total
+                  - generic [ref=f1e147]: £0.00
+                - generic [ref=f1e148]:
+                  - generic [ref=f1e149]: VAT
+                  - generic [ref=f1e150]: £0.00
+                - generic [ref=f1e151]:
+                  - generic [ref=f1e152]: Total
+                  - generic [ref=f1e153]: £0.00
+  - text:      北
+```

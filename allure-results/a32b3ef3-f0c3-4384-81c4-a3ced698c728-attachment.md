@@ -1,0 +1,116 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - text:  
+    - generic [ref=e10]:
+      - generic [ref=e14]:
+        - generic [ref=e19]:
+          - text:                                                                                                                                                                                 
+          - button "Navigator" [ref=e21] [cursor=pointer]:
+            - img "Navigator" [ref=e22]: 
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e25]
+        - generic [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e28]: 
+          - link "Notifications" [ref=e33] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e34]: 
+          - link "Settings and Actions" [ref=e39] [cursor=pointer]:
+            - /url: "#"
+            - img "Krishna Pemmaraju" [ref=e43]:
+              - generic [ref=e45]: KP
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e14]:
+                    - generic [ref=f1e16]:
+                      - button [ref=f1e20] [cursor=pointer]:
+                        - generic [ref=f1e23]: 凌
+                      - generic [ref=f1e25]:
+                        - heading [level=1] [ref=f1e27]: Order Capture
+                        - generic [ref=f1e28]: Create / Amend Sales Order
+                      - toolbar [ref=f1e30]:
+                        - button [disabled] [ref=f1e32]: Submit
+                    - generic [ref=f1e35]:
+                      - generic [ref=f1e36]: 
+                      - textbox [active] [ref=f1e38]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: R40003
+            - generic [ref=f1e43]:
+              - generic [ref=f1e45] [cursor=pointer]:
+                - generic [ref=f1e49]: Customer
+                - generic [ref=f1e53]: SMITH AND BYFORD LTD
+                - generic [ref=f1e55]: 7060F14 (Credit)
+              - generic [ref=f1e56]:
+                - generic [ref=f1e58] [cursor=pointer]:
+                  - generic [ref=f1e60]:
+                    - generic [ref=f1e62]: Account Status
+                    - generic [ref=f1e65]: OK
+                  - generic [ref=f1e69]: OK to Trade
+                - generic [ref=f1e71] [cursor=pointer]:
+                  - generic [ref=f1e75]: Available Balance
+                  - generic [ref=f1e79]: £648894.35
+                  - generic [ref=f1e81]: £3000000 Credit Limit
+              - generic [ref=f1e83] [cursor=pointer]:
+                - generic [ref=f1e87]: Required
+                - generic [ref=f1e91]: "--"
+              - generic [ref=f1e93] [cursor=pointer]:
+                - generic [ref=f1e97]: "Customer PO #"
+                - generic [ref=f1e101]: "--"
+            - generic [ref=f1e102]:
+              - generic [ref=f1e113]:
+                - toolbar [ref=f1e116]:
+                  - generic [ref=f1e118] [cursor=pointer]:
+                    - generic [ref=f1e121]: 
+                    - radio [ref=f1e123]
+                    - generic [ref=f1e124]: Grid View Large
+                  - generic [ref=f1e126] [cursor=pointer]:
+                    - generic [ref=f1e129]: 
+                    - radio [ref=f1e131]
+                    - generic [ref=f1e132]: Grid View
+                  - generic [ref=f1e134] [cursor=pointer]:
+                    - generic [ref=f1e137]: 
+                    - radio [checked] [ref=f1e139]
+                    - generic [ref=f1e140]: List
+                - grid [ref=f1e143]:
+                  - row [ref=f1e144]:
+                    - gridcell [ref=f1e146]:
+                      - generic [ref=f1e154] [cursor=pointer]:
+                        - generic [ref=f1e156]:
+                          - generic [ref=f1e158]: R40003 / 38020
+                          - generic [ref=f1e161]: XPRESS CU S1 STRAIGHT COUPLING 22
+                          - generic [ref=f1e164]:
+                            - generic [ref=f1e166]: 94 available
+                            - generic [ref=f1e169]: 20 Oct
+                        - generic [ref=f1e170]:
+                          - generic [ref=f1e171]: £5.01
+                          - button [ref=f1e174]: Add
+              - generic [ref=f1e183]:
+                - generic [ref=f1e186]:
+                  - grid [ref=f1e188]:
+                    - row [ref=f1e189]:
+                      - gridcell [ref=f1e190]: Your basket is empty
+                  - generic [ref=f1e192]: Loading
+                - generic [ref=f1e197]:
+                  - generic [ref=f1e198]:
+                    - generic [ref=f1e199]: Sub Total
+                    - generic [ref=f1e200]: £0.00
+                  - generic [ref=f1e201]:
+                    - generic [ref=f1e202]: VAT
+                    - generic [ref=f1e203]: £0.00
+                  - generic [ref=f1e204]:
+                    - generic [ref=f1e205]: Total
+                    - generic [ref=f1e206]: £0.00
+          - text:   
+  - text:      北
+```

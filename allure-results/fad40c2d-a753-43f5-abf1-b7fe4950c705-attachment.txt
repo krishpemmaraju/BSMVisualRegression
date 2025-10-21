@@ -1,0 +1,51 @@
+locator.waitFor: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('heading', { name: 'Order Management' }) to be visible
+
+    at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegressionNewUI.spec.ts:66:67 {
+  name: 'TimeoutError',
+  Symbol(step): {
+    location: {
+      file: 'C:\\Automation\\AutomationNewSVN\\AutoMisc\\visualregression\\tests\\OrderCaptureTestsVisualRegressionNewUI.spec.ts',
+      line: 66,
+      column: 67
+    },
+    category: 'pw:api',
+    title: "Wait for selector getByRole('heading', { name: 'Order Management' })",
+    apiName: 'locator.waitFor',
+    params: {
+      selector: 'internal:role=heading[name="Order Management"i]',
+      strict: true,
+      omitReturnValue: true,
+      state: 'visible',
+      timeout: 15000
+    },
+    group: undefined,
+    stepId: 'pw:api@56',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@56',
+      _title: "Wait for selector getByRole('heading', { name: 'Order Management' })",
+      _parentStep: [TestStepInfoImpl],
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1760956754271,
+    error: {
+      message: 'TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByRole('heading', { name: 'Order Management' }) to be visible\x1B[22m\n",
+      stack: 'TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByRole('heading', { name: 'Order Management' }) to be visible\x1B[22m\n" +
+        '\n' +
+        '    at C:\\Automation\\AutomationNewSVN\\AutoMisc\\visualregression\\tests\\OrderCaptureTestsVisualRegressionNewUI.spec.ts:66:67',
+      cause: undefined
+    }
+  }
+}
+test

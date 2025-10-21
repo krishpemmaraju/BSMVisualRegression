@@ -1,0 +1,1 @@
+A snapshot doesn't exist at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegressionNewUIVBCS.spec.ts-snapshots\OrderCapture\OrderConfirmation\OrderConfirmationHeader-chromium-win32.txt, writing actual.

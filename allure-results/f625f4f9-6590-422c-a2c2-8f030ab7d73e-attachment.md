@@ -1,0 +1,199 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - dialog [ref=e4]:
+    - generic [ref=e8]:
+      - banner "Order Details" [ref=e10]:
+        - generic [ref=e11]:
+          - img "Order Details" [ref=e14]
+          - heading "Order Details" [level=2] [ref=e18]
+          - button "Close" [ref=e22] [cursor=pointer]:
+            - generic [ref=e25]: 
+      - generic [ref=e32]:
+        - generic [ref=e37]:
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - generic [ref=e42]: Requested Date
+              - generic [ref=e43]: When does the customer want this?
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e49]: Required By Date
+                - combobox "Required By Date" [expanded] [ref=e50]
+              - generic [ref=e51]:
+                - generic "Select Date Time." [ref=e52] [cursor=pointer]: 
+                - generic [ref=e53]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: Customer Order Number
+              - generic [ref=e60]: Usually found on the customer purchase order.
+            - generic [ref=e63]:
+              - generic [ref=e64]: Customer Order Number
+              - textbox "Customer Order Number" [ref=e65]
+        - generic [ref=e69]:
+          - button "Cancel" [ref=e71] [cursor=pointer]
+          - button "Continue" [ref=e73] [cursor=pointer]
+  - dialog "Date and Time Picker" [ref=e74]:
+    - region [ref=e75]:
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic "Previous" [ref=e78]: 
+          - button "Next" [ref=e79] [cursor=pointer]: 
+          - generic [ref=e80]:
+            - button "October" [ref=e81] [cursor=pointer]
+            - button "2025" [ref=e82] [cursor=pointer]
+            - generic [ref=e83]: Picker
+            - generic [ref=e84]: October 2025
+            - generic [ref=e85]: Date Picker
+        - grid "October 2025" [active] [ref=e86]:
+          - row "Monday Tuesday Wednesday Thursday Friday Saturday Sunday" [ref=e87]:
+            - columnheader "Monday" [ref=e88]: M
+            - columnheader "Tuesday" [ref=e89]: T
+            - columnheader "Wednesday" [ref=e90]: W
+            - columnheader "Thursday" [ref=e91]: T
+            - columnheader "Friday" [ref=e92]: F
+            - columnheader "Saturday" [ref=e93]: S
+            - columnheader "Sunday" [ref=e94]: S
+          - row "1 2 3 4 5" [ref=e95]:
+            - gridcell [disabled] [ref=e96]
+            - gridcell [disabled] [ref=e97]
+            - gridcell "1" [disabled] [ref=e98]:
+              - generic [ref=e99]: "1"
+            - gridcell "2" [disabled] [ref=e100]:
+              - generic [ref=e101]: "2"
+            - gridcell "3" [disabled] [ref=e102]:
+              - generic [ref=e103]: "3"
+            - gridcell "4" [disabled] [ref=e104]:
+              - generic [ref=e105]: "4"
+            - gridcell "5" [disabled] [ref=e106]:
+              - generic [ref=e107]: "5"
+          - row "6 7 8 9 10 11 12" [ref=e108]:
+            - gridcell "6" [disabled] [ref=e109]:
+              - generic [ref=e110]: "6"
+            - gridcell "7" [disabled] [ref=e111]:
+              - generic [ref=e112]: "7"
+            - gridcell "8" [disabled] [ref=e113]:
+              - generic [ref=e114]: "8"
+            - gridcell "9" [disabled] [ref=e115]:
+              - generic [ref=e116]: "9"
+            - gridcell "10" [disabled] [ref=e117]:
+              - generic [ref=e118]: "10"
+            - gridcell "11" [disabled] [ref=e119]:
+              - generic [ref=e120]: "11"
+            - gridcell "12" [disabled] [ref=e121]:
+              - generic [ref=e122]: "12"
+          - row "13 14 15 16 17 18 19" [ref=e123]:
+            - gridcell "13" [selected] [ref=e124]:
+              - button "13" [ref=e125] [cursor=pointer]
+            - gridcell "14" [ref=e126]:
+              - button "14" [ref=e127] [cursor=pointer]
+            - gridcell "15" [ref=e128]:
+              - button "15" [ref=e129] [cursor=pointer]
+            - gridcell "16" [ref=e130]:
+              - button "16" [ref=e131] [cursor=pointer]
+            - gridcell "17" [ref=e132]:
+              - button "17" [ref=e133] [cursor=pointer]
+            - gridcell "18" [ref=e134]:
+              - button "18" [ref=e135] [cursor=pointer]
+            - gridcell "19" [ref=e136]:
+              - button "19" [ref=e137] [cursor=pointer]
+          - row "20 21 22 23 24 25 26" [ref=e138]:
+            - gridcell "20" [ref=e139]:
+              - button "20" [ref=e140] [cursor=pointer]
+            - gridcell "21" [ref=e141]:
+              - button "21" [ref=e142] [cursor=pointer]
+            - gridcell "22" [ref=e143]:
+              - button "22" [ref=e144] [cursor=pointer]
+            - gridcell "23" [ref=e145]:
+              - button "23" [ref=e146] [cursor=pointer]
+            - gridcell "24" [ref=e147]:
+              - button "24" [ref=e148] [cursor=pointer]
+            - gridcell "25" [ref=e149]:
+              - button "25" [ref=e150] [cursor=pointer]
+            - gridcell "26" [ref=e151]:
+              - button "26" [ref=e152] [cursor=pointer]
+          - row "27 28 29 30 31" [ref=e153]:
+            - gridcell "27" [ref=e154]:
+              - button "27" [ref=e155] [cursor=pointer]
+            - gridcell "28" [ref=e156]:
+              - button "28" [ref=e157] [cursor=pointer]
+            - gridcell "29" [ref=e158]:
+              - button "29" [ref=e159] [cursor=pointer]
+            - gridcell "30" [ref=e160]:
+              - button "30" [ref=e161] [cursor=pointer]
+            - gridcell "31" [ref=e162]:
+              - button "31" [ref=e163] [cursor=pointer]
+            - gridcell [disabled] [ref=e164]
+            - gridcell [disabled] [ref=e165]
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - generic [ref=e168] [cursor=pointer]: 
+        - button "13/10/2025" [ref=e169] [cursor=pointer]
+      - generic [ref=e170]:
+        - button "Done" [ref=e171] [cursor=pointer]
+        - button "Cancel" [ref=e172] [cursor=pointer]
+  - generic [ref=e182]:
+    - generic [ref=e184]:
+      - generic:
+        - banner:
+          - generic [ref=e185]:
+            - generic [ref=e187]:
+              - button [ref=e191] [cursor=pointer]:
+                - generic [ref=e194]: 凌
+              - generic [ref=e196]:
+                - heading [level=1] [ref=e198]: Order Capture
+                - generic [ref=e199]: Create / Amend Sales Order
+              - toolbar [ref=e201]:
+                - button [disabled] [ref=e203]: Submit
+            - generic [ref=e206]:
+              - generic [ref=e207]: 
+              - textbox [ref=e209]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+    - generic [ref=e214]:
+      - generic [ref=e216] [cursor=pointer]:
+        - generic [ref=e220]: Customer
+        - generic [ref=e224]: Select Customer...
+        - generic [ref=e226]: Click to select a customer
+      - generic [ref=e228] [cursor=pointer]:
+        - generic [ref=e232]: Required
+        - generic [ref=e236]: "--"
+      - generic [ref=e238] [cursor=pointer]:
+        - generic [ref=e242]: "Customer PO #"
+        - generic [ref=e246]: "--"
+    - generic [ref=e247]:
+      - generic [ref=e258]:
+        - toolbar [ref=e261]:
+          - generic [ref=e263] [cursor=pointer]:
+            - generic [ref=e266]: 
+            - radio [ref=e268]
+            - generic [ref=e269]: Grid View Large
+          - generic [ref=e271] [cursor=pointer]:
+            - generic [ref=e274]: 
+            - radio [ref=e276]
+            - generic [ref=e277]: Grid View
+          - generic [ref=e279] [cursor=pointer]:
+            - generic [ref=e282]: 
+            - radio [checked] [ref=e284]
+            - generic [ref=e285]: List
+        - grid [ref=e288]:
+          - row [ref=e289]:
+            - gridcell [ref=e290]: No items to display
+      - generic [ref=e299]:
+        - generic [ref=e302]:
+          - grid [ref=e304]:
+            - row [ref=e305]:
+              - gridcell [ref=e306]: Your basket is empty
+          - generic [ref=e308]: Loading
+        - generic [ref=e313]:
+          - generic [ref=e314]:
+            - generic [ref=e315]: Sub Total
+            - generic [ref=e316]: £0.00
+          - generic [ref=e317]:
+            - generic [ref=e318]: VAT
+            - generic [ref=e319]: £0.00
+          - generic [ref=e320]:
+            - generic [ref=e321]: Total
+            - generic [ref=e322]: £0.00
+  - log [ref=e323]:
+    - generic [ref=e324]: Pop-up opened. Press F6 to navigate between the pop-up and associated control.
+```

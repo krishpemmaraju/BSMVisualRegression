@@ -1,0 +1,100 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - dialog [ref=e4]:
+    - generic [ref=e8]:
+      - banner "Order Details" [ref=e10]:
+        - generic [ref=e11]:
+          - img "Order Details" [ref=e14]
+          - heading "Order Details" [level=2] [ref=e18]
+          - button "Close" [active] [ref=e22] [cursor=pointer]:
+            - generic [ref=e25]: 
+      - generic [ref=e32]:
+        - generic [ref=e37]:
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - generic [ref=e42]: Requested Date
+              - generic [ref=e43]: When does the customer want this?
+            - generic [ref=e44]:
+              - text: 
+              - generic [ref=e45]:
+                - generic [ref=e46]:
+                  - generic [ref=e49]: Required By Date
+                  - combobox "Required By Date" [ref=e50]
+                - generic [ref=e51]:
+                  - generic "Select Date Time." [ref=e52] [cursor=pointer]: 
+                  - generic [ref=e53]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: Customer Order Number
+              - generic [ref=e60]: Usually found on the customer purchase order.
+            - generic [ref=e63]:
+              - generic [ref=e64]: Customer Order Number
+              - textbox "Customer Order Number" [ref=e65]
+        - generic [ref=e69]:
+          - button "Cancel" [ref=e71] [cursor=pointer]
+          - button "Continue" [ref=e73] [cursor=pointer]
+  - generic [ref=e83]:
+    - generic [ref=e85]:
+      - generic:
+        - banner:
+          - generic [ref=e86]:
+            - generic [ref=e88]:
+              - button [ref=e92] [cursor=pointer]:
+                - generic [ref=e95]: 凌
+              - generic [ref=e97]:
+                - heading [level=1] [ref=e99]: Order Capture
+                - generic [ref=e100]: Create / Amend Sales Order
+              - toolbar [ref=e102]:
+                - button [disabled] [ref=e104]: Submit
+            - generic [ref=e107]:
+              - generic [ref=e108]: 
+              - textbox [ref=e110]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+    - generic [ref=e115]:
+      - generic [ref=e117] [cursor=pointer]:
+        - generic [ref=e121]: Customer
+        - generic [ref=e125]: Select Customer...
+        - generic [ref=e127]: Click to select a customer
+      - generic [ref=e129] [cursor=pointer]:
+        - generic [ref=e133]: Required
+        - generic [ref=e137]: "--"
+      - generic [ref=e139] [cursor=pointer]:
+        - generic [ref=e143]: "Customer PO #"
+        - generic [ref=e147]: "--"
+    - generic [ref=e148]:
+      - generic [ref=e159]:
+        - toolbar [ref=e162]:
+          - generic [ref=e164] [cursor=pointer]:
+            - generic [ref=e167]: 
+            - radio [ref=e169]
+            - generic [ref=e170]: Grid View Large
+          - generic [ref=e172] [cursor=pointer]:
+            - generic [ref=e175]: 
+            - radio [ref=e177]
+            - generic [ref=e178]: Grid View
+          - generic [ref=e180] [cursor=pointer]:
+            - generic [ref=e183]: 
+            - radio [checked] [ref=e185]
+            - generic [ref=e186]: List
+        - grid [ref=e189]:
+          - row [ref=e190]:
+            - gridcell [ref=e191]: No items to display
+      - generic [ref=e200]:
+        - generic [ref=e203]:
+          - grid [ref=e205]:
+            - row [ref=e206]:
+              - gridcell [ref=e207]: Your basket is empty
+          - generic [ref=e209]: Loading
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - generic [ref=e216]: Sub Total
+            - generic [ref=e217]: £0.00
+          - generic [ref=e218]:
+            - generic [ref=e219]: VAT
+            - generic [ref=e220]: £0.00
+          - generic [ref=e221]:
+            - generic [ref=e222]: Total
+            - generic [ref=e223]: £0.00
+```

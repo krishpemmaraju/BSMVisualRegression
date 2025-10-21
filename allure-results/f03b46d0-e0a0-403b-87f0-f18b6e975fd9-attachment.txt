@@ -1,0 +1,113 @@
+20
+Order Management
+locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('#navmenu-wrapper a').nth(9)
+    - locator resolved to <a href="#" tabindex="-1" data-index="9" class="flat-tabs-text" id="groupNode_order_management" name="groupNode_order_management">Order Management</a>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not stable
+    - retrying click action
+      - waiting 100ms
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  14 × retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - element is outside of the viewport
+  - retrying click action
+    - waiting 500ms
+
+    at C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegressionNewUI.spec.ts:60:41 {
+  Symbol(step): {
+    location: {
+      file: 'C:\\Automation\\AutomationNewSVN\\AutoMisc\\visualregression\\tests\\OrderCaptureTestsVisualRegressionNewUI.spec.ts',
+      line: 60,
+      column: 41
+    },
+    category: 'pw:api',
+    title: "Click locator('#navmenu-wrapper a').nth(9)",
+    apiName: 'locator.click',
+    params: {
+      selector: '#navmenu-wrapper a >> nth=9',
+      strict: true,
+      timeout: 0
+    },
+    group: undefined,
+    stepId: 'pw:api@87',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@87',
+      _title: "Click locator('#navmenu-wrapper a').nth(9)",
+      _parentStep: [TestStepInfoImpl],
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1760963658048,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('#navmenu-wrapper a').nth(9)\x1B[22m\n" +
+        '\x1B[2m    - locator resolved to <a href="#" tabindex="-1" data-index="9" class="flat-tabs-text" id="groupNode_order_management" name="groupNode_order_management">Order Management</a>\x1B[22m\n' +
+        '\x1B[2m  - attempting click action\x1B[22m\n' +
+        '\x1B[2m    2 × waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m      - element is not stable\x1B[22m\n' +
+        '\x1B[2m    - retrying click action\x1B[22m\n' +
+        '\x1B[2m    - waiting 20ms\x1B[22m\n' +
+        '\x1B[2m    2 × waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m      - element is not stable\x1B[22m\n' +
+        '\x1B[2m    - retrying click action\x1B[22m\n' +
+        '\x1B[2m      - waiting 100ms\x1B[22m\n' +
+        '\x1B[2m    - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - element is not stable\x1B[22m\n' +
+        '\x1B[2m  14 × retrying click action\x1B[22m\n' +
+        '\x1B[2m       - waiting 500ms\x1B[22m\n' +
+        '\x1B[2m       - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m       - element is visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m       - scrolling into view if needed\x1B[22m\n' +
+        '\x1B[2m       - done scrolling\x1B[22m\n' +
+        '\x1B[2m       - element is outside of the viewport\x1B[22m\n' +
+        '\x1B[2m  - retrying click action\x1B[22m\n' +
+        '\x1B[2m    - waiting 500ms\x1B[22m\n',
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('#navmenu-wrapper a').nth(9)\x1B[22m\n" +
+        '\x1B[2m    - locator resolved to <a href="#" tabindex="-1" data-index="9" class="flat-tabs-text" id="groupNode_order_management" name="groupNode_order_management">Order Management</a>\x1B[22m\n' +
+        '\x1B[2m  - attempting click action\x1B[22m\n' +
+        '\x1B[2m    2 × waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m      - element is not stable\x1B[22m\n' +
+        '\x1B[2m    - retrying click action\x1B[22m\n' +
+        '\x1B[2m    - waiting 20ms\x1B[22m\n' +
+        '\x1B[2m    2 × waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m      - element is not stable\x1B[22m\n' +
+        '\x1B[2m    - retrying click action\x1B[22m\n' +
+        '\x1B[2m      - waiting 100ms\x1B[22m\n' +
+        '\x1B[2m    - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m    - element is not stable\x1B[22m\n' +
+        '\x1B[2m  14 × retrying click action\x1B[22m\n' +
+        '\x1B[2m       - waiting 500ms\x1B[22m\n' +
+        '\x1B[2m       - waiting for element to be visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m       - element is visible, enabled and stable\x1B[22m\n' +
+        '\x1B[2m       - scrolling into view if needed\x1B[22m\n' +
+        '\x1B[2m       - done scrolling\x1B[22m\n' +
+        '\x1B[2m       - element is outside of the viewport\x1B[22m\n' +
+        '\x1B[2m  - retrying click action\x1B[22m\n' +
+        '\x1B[2m    - waiting 500ms\x1B[22m\n' +
+        '\n' +
+        '    at C:\\Automation\\AutomationNewSVN\\AutoMisc\\visualregression\\tests\\OrderCaptureTestsVisualRegressionNewUI.spec.ts:60:41',
+      cause: undefined
+    }
+  }
+}
+test
