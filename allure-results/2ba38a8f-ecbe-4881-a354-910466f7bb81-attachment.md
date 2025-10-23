@@ -1,0 +1,130 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - text:  
+    - generic [ref=e10]:
+      - generic [ref=e14]:
+        - generic [ref=e19]:
+          - text:                                                                                                                                                                                 
+          - button "Navigator" [ref=e21] [cursor=pointer]:
+            - img "Navigator" [ref=e22]: 
+        - link "Home" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e25]
+        - generic [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e28]: 
+          - link "Notifications" [ref=e33] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e34]: 
+          - link "Settings and Actions" [ref=e39] [cursor=pointer]:
+            - /url: "#"
+            - img "Krishna Pemmaraju" [ref=e43]:
+              - generic [ref=e45]: KP
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e14]:
+                    - generic [ref=f1e16]:
+                      - button [ref=f1e20] [cursor=pointer]:
+                        - generic [ref=f1e23]: 凌
+                      - generic [ref=f1e25]:
+                        - heading [level=1] [ref=f1e27]: Order Capture
+                        - generic [ref=f1e28]: Create / Amend Sales Order
+                      - toolbar [ref=f1e30]:
+                        - button [disabled] [ref=f1e32]: Submit
+                    - generic [ref=f1e35]:
+                      - generic [ref=f1e36]: 
+                      - textbox [active] [ref=f1e38]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: R40003
+            - generic [ref=f1e43]:
+              - generic [ref=f1e45] [cursor=pointer]:
+                - generic [ref=f1e49]: Customer
+                - generic [ref=f1e53]: SMITH AND BYFORD LTD
+                - generic [ref=f1e55]: 7060F14 (Credit)
+              - generic [ref=f1e56]:
+                - generic [ref=f1e58] [cursor=pointer]:
+                  - generic [ref=f1e60]:
+                    - generic [ref=f1e62]: Account Status
+                    - generic [ref=f1e65]: OK
+                  - generic [ref=f1e69]: OK to Trade
+                - generic [ref=f1e71] [cursor=pointer]:
+                  - generic [ref=f1e75]: Available Balance
+                  - generic [ref=f1e79]: £648894.35
+                  - generic [ref=f1e81]: £3000000 Credit Limit
+              - generic [ref=f1e83] [cursor=pointer]:
+                - generic [ref=f1e87]: Required
+                - generic [ref=f1e91]: "--"
+              - generic [ref=f1e93] [cursor=pointer]:
+                - generic [ref=f1e97]: "Customer PO #"
+                - generic [ref=f1e101]: "--"
+                - generic [ref=f1e103]: 23/10/2025
+            - generic [ref=f1e104]:
+              - generic [ref=f1e114]:
+                - button [ref=f1e118] [cursor=pointer]:
+                  - generic [ref=f1e119]:
+                    - generic [ref=f1e121]: 烈
+                    - generic [ref=f1e122]: Back
+                - generic [ref=f1e126]:
+                  - generic [ref=f1e131]:
+                    - img [ref=f1e133]
+                    - generic [ref=f1e135]:
+                      - generic [ref=f1e136]:
+                        - text: "PRODUCT CODE: R40003"
+                        - generic [ref=f1e137]: / 38020
+                      - generic [ref=f1e138]: XPRESS CU S1 STRAIGHT COUPLING 22
+                      - button [ref=f1e142] [cursor=pointer]: 88 available
+                      - generic [ref=f1e143]: £5.01
+                      - generic [ref=f1e144]: Made of copper, this VSH Xpress S1/7270 22 x 22mm coupler incorporates press-fit end connections for jointing copper tube and Leak Before Press technology, developed to provide instant identification of joints that are correctly assembled but mistakenly unpressed, saving on time, money and expensive call-outs. Offering quick and effective copper tube jointing to BS EN 1057 R250 and R290 standards, XPress fittings are suitable for use on hot and cold water services, vented and unvented closed circuit heating, chilled water and oil-free compressed air within permissible pressure and temperature limits. more
+                      - generic [ref=f1e152]:
+                        - generic [ref=f1e154]:
+                          - generic [ref=f1e155]:
+                            - generic [ref=f1e156]: Quantity
+                            - spinbutton [ref=f1e157]: "1"
+                          - generic [ref=f1e160]:
+                            - button [disabled] [ref=f1e162]:
+                              - img [ref=f1e165]
+                            - button [ref=f1e168] [cursor=pointer]:
+                              - img [ref=f1e171]
+                        - button [ref=f1e175] [cursor=pointer]: Add to Basket
+                  - generic [ref=f1e176]:
+                    - generic [ref=f1e177]:
+                      - generic [ref=f1e178]:
+                        - button [ref=f1e179] [cursor=pointer]: 
+                        - generic [ref=f1e180]: Alternate Products
+                      - text:          
+                    - generic [ref=f1e181]:
+                      - generic [ref=f1e182]:
+                        - button [expanded] [ref=f1e183] [cursor=pointer]: 
+                        - generic [ref=f1e184]: Related Products
+                      - grid [ref=f1e187]:
+                        - row [ref=f1e188]:
+                          - gridcell [ref=f1e189]: No items to display
+              - generic [ref=f1e198]:
+                - generic [ref=f1e201]:
+                  - grid [ref=f1e203]:
+                    - row [ref=f1e204]:
+                      - gridcell [ref=f1e205]: Your basket is empty
+                  - generic [ref=f1e207]: Loading
+                - generic [ref=f1e212]:
+                  - generic [ref=f1e213]:
+                    - generic [ref=f1e214]: Sub Total
+                    - generic [ref=f1e215]: £0.00
+                  - generic [ref=f1e216]:
+                    - generic [ref=f1e217]: VAT
+                    - generic [ref=f1e218]: £0.00
+                  - generic [ref=f1e219]:
+                    - generic [ref=f1e220]: Total
+                    - generic [ref=f1e221]: £0.00
+          - text:   
+  - text:      北
+```

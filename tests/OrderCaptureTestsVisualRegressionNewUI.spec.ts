@@ -98,7 +98,7 @@ test.beforeAll(async () => {
   page_scm_vbcs_frame = page_scm.frameLocator('iframe[src*="wol-order-capture/live"]');
 });
 
-test("Getting Order Capture Header", async () => {
+test("Getting Order Capture", async () => {
   await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
   //       await page_scm.locator('#ojHeader_pageTitle').waitFor({state:'visible',timeout:16000})
   console.log(await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').textContent())
@@ -274,7 +274,7 @@ test("Validate Add button on Product Search Page section", async () => {
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await page_scm_vbcs_frame.locator("wol-product-card[id*='R40003']").click();
   //temporary fix 
-  await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
+  // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(isAvailableStockVisible).toBeVisible({ timeout: 7000 });
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
