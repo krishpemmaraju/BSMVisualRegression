@@ -21,7 +21,7 @@ test.beforeAll(async () => {
     vbcs_url = "https://vb02.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
     scm_url = "https://egvh-tst.fa.em3.oraclecloud.com/";
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
-    vbcs_password = Buffer.from('VmFyYWhpYmFiYTE2JA==', 'base64').toString('utf-8');
+    vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
     scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
   }
@@ -29,7 +29,7 @@ test.beforeAll(async () => {
     vbcs_url = "https://vb03.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
     scm_url = "https://egvh-dev2.fa.em3.oraclecloud.com/";
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
-    vbcs_password = Buffer.from('VmFyYWhpYmFiYTE2JA==', 'base64').toString('utf-8');
+    vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
     scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
   }
@@ -37,7 +37,7 @@ test.beforeAll(async () => {
     vbcs_url = "https://vb04.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
     scm_url = "https://egvh-dev1.fa.em3.oraclecloud.com/";
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
-    vbcs_password = Buffer.from('VmFyYWhpYmFiYTE2JA==', 'base64').toString('utf-8');
+    vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QUJCNzM3NQ==', 'base64').toString('utf-8')
     scm_password = Buffer.from('VmFyYWhpMTYk', 'base64').toString('utf-8')
   }
