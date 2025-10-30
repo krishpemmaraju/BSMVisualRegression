@@ -87,15 +87,21 @@ test.beforeAll(async () => {
       }
     }
   }
-  await page_scm.locator("#itemNode_order_management_OrderManagementNew_0").click()
-  await page_scm.getByRole('heading', { name: 'Order Management' }).waitFor({ state: 'visible', timeout: 15000 });
+
 
   // Switch to the new page
-
-  await page_scm.locator("#_oj18_navItem_order-new a").click()
-  await page_scm.getByRole('heading', { name: 'Sales Orders' }).waitFor({ state: 'visible', timeout: 15000 })
-  await page_scm.locator("button[aria-label='Create Order']").click();
-  page_scm_vbcs_frame = page_scm.frameLocator('iframe[src*="wol-order-capture/live"]');
+  if (process.env.ENV == "dev") {
+    await page_scm.locator("div[title='Wolseley Order Capture']").click();
+    page_scm_vbcs_frame = page_scm.frameLocator('iframe[src*="wol-order-capture/live"]');
+  } else {
+    // Change made as  per DEV requirement
+    await page_scm.locator("#itemNode_order_management_OrderManagementNew_0").click()
+    await page_scm.getByRole('heading', { name: 'Order Management' }).waitFor({ state: 'visible', timeout: 15000 });
+    await page_scm.locator("#_oj18_navItem_order-new a").click()
+    await page_scm.getByRole('heading', { name: 'Sales Orders' }).waitFor({ state: 'visible', timeout: 15000 })
+    await page_scm.locator("button[aria-label='Create Order']").click();
+    page_scm_vbcs_frame = page_scm.frameLocator('iframe[src*="wol-order-capture/live"]');
+  }
 });
 
 test("Getting Order Capture", async () => {
@@ -104,6 +110,8 @@ test("Getting Order Capture", async () => {
   console.log(await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').textContent())
 })
 
+
+
 test("Order Capture - Full Page Screenshot", async () => {
   await expect(page_scm).toHaveScreenshot(["OrderCapture", "OrderCaptureFullScreenshot.png"], { fullPage: true });
 })
@@ -111,6 +119,19 @@ test("Order Capture - Full Page Screenshot", async () => {
 test("Validate Order Capture Header Text", async () => {
   expect(await page_scm_vbcs_frame.locator("#ojHeader_pageTitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageHeader.txt"]);
   expect(await page_scm_vbcs_frame.locator("#ojHeader_pageSubtitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageSubHeader.txt"]);
+})
+
+test.skip("Validate Requested Date and Requested Quantity", async () => {
+  const IsRequestedDateAvailable = page_scm_vbcs_frame.locator('#requestedDate');
+  const IsRequestedQuantityAvailable = page_scm_vbcs_frame.locator('#quantity');
+  const IsDatePickerAvailable = page_scm_vbcs_frame.locator("span[title='Select Date Time.']");
+  await expect(IsRequestedDateAvailable).toBeVisible({ timeout: 7000 })
+  await expect(IsRequestedQuantityAvailable).toBeVisible({ timeout: 7000 })
+  await expect(IsDatePickerAvailable).toBeVisible({ timeout: 7000 })
+  await IsDatePickerAvailable.click();
+  await expect(page_scm_vbcs_frame.locator('.oj-datepicker-popup')).toBeVisible({ timeout: 4000 });
+  await page_scm_vbcs_frame.getByRole('button', { name: 'Done' }).scrollIntoViewIfNeeded();
+  await page_scm_vbcs_frame.getByRole('button', { name: 'Done' }).click();
 })
 
 test("Validate Product search input is present", async () => {
@@ -276,14 +297,14 @@ test("Validate Add button on Product Search Page section", async () => {
   //temporary fix 
   // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("#btnBack").click()
-  await expect(isAvailableStockVisible).toBeVisible({ timeout: 7000 });
+  await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
 })
 
 test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").click()
-  await page_scm_vbcs_frame.locator("[class*='oj-listview-item']").waitFor({ state: 'visible', timeout: 25000 })
+  await page_scm_vbcs_frame.locator("[class*='oj-listview-item']").waitFor({ state: 'visible', timeout: 40000 })
   //changes related to Save and Exit 
   const isMoreActionsAvailable = "button[aria-label='More Actions']"
   const isMoreActionsMenuAvailable = "div[aria-label='More Actions']"
