@@ -1,0 +1,156 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - generic [ref=e79]:
+            - link "Notifications (1 unread)" [ref=e80] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e81]
+            - generic "Notifications (1 unread)" [ref=e90] [cursor=pointer]: "1"
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e99] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e103]
+      - iframe [active] [ref=e143]:
+        - generic [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e14]:
+                    - generic [ref=f1e16]:
+                      - button [ref=f1e20] [cursor=pointer]:
+                        - generic [ref=f1e23]: 凌
+                      - generic [ref=f1e25]:
+                        - heading [level=1] [ref=f1e27]: Order Capture
+                        - generic [ref=f1e28]: Create / Amend Sales Order
+                      - toolbar [ref=f1e30]:
+                        - button [disabled] [ref=f1e32]: Checkout
+                    - generic [ref=f1e35]:
+                      - generic [ref=f1e36]: 
+                      - textbox [ref=f1e38]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: R40003
+            - generic [ref=f1e43]:
+              - alert [ref=f1e45]:
+                - generic [ref=f1e46]:
+                  - img [ref=f1e48]:
+                    - img [ref=f1e49]
+                  - generic [ref=f1e52]:
+                    - heading [level=2] [ref=f1e53]: Application Error
+                    - generic [ref=f1e54]: 11:20 AM
+                    - generic [ref=f1e55]: Failed to create order
+                  - button [ref=f1e57] [cursor=pointer]:
+                    - img [ref=f1e60]
+              - alert [ref=f1e64]:
+                - generic [ref=f1e65]:
+                  - img [ref=f1e67]:
+                    - img [ref=f1e68]
+                  - generic [ref=f1e71]:
+                    - heading [level=2] [ref=f1e72]: Application Error
+                    - generic [ref=f1e73]: 11:20 AM
+                    - generic [ref=f1e74]: "Sales Order API reported an issue: The Copy Ship To Address extension during the On Save event couldn't be completed. No such property: JB123 for class: ExID300009795683838__17. (DOO-2685874)"
+                  - button [ref=f1e76] [cursor=pointer]:
+                    - img [ref=f1e79]
+              - generic [ref=f1e82]: Messages region has new messages. Press F6 to navigate to the most recent message region.
+            - generic [ref=f1e87]:
+              - generic [ref=f1e89] [cursor=pointer]:
+                - generic [ref=f1e93]: Customer
+                - generic [ref=f1e97]: SMITH AND BYFORD LTD
+                - generic [ref=f1e99]: 7060F14 (Credit)
+              - generic [ref=f1e100]:
+                - generic [ref=f1e102] [cursor=pointer]:
+                  - generic [ref=f1e104]:
+                    - generic [ref=f1e106]: Account Status
+                    - generic [ref=f1e109]: OK
+                  - generic [ref=f1e113]: OK to Trade
+                - generic [ref=f1e115] [cursor=pointer]:
+                  - generic [ref=f1e119]: Available Balance
+                  - generic [ref=f1e123]: £648,894.35
+                  - generic [ref=f1e125]: £3,000,000 Credit Limit
+              - generic [ref=f1e127] [cursor=pointer]:
+                - generic [ref=f1e131]: "Customer PO #"
+                - generic [ref=f1e135]: "--"
+            - generic [ref=f1e136]:
+              - generic [ref=f1e147]:
+                - generic [ref=f1e148]:
+                  - generic [ref=f1e149]:
+                    - generic [ref=f1e150]:
+                      - text: 
+                      - generic [ref=f1e151]:
+                        - generic [ref=f1e152]:
+                          - generic [ref=f1e155]: Requested Date
+                          - combobox [ref=f1e156]: 02/12/2025
+                        - generic [ref=f1e157]:
+                          - generic [ref=f1e158] [cursor=pointer]: 
+                          - generic [ref=f1e159]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                    - generic [ref=f1e162]:
+                      - generic [ref=f1e163]: Requested Quantity
+                      - textbox [ref=f1e164]: "1"
+                  - toolbar [ref=f1e166]:
+                    - generic [ref=f1e168] [cursor=pointer]:
+                      - generic [ref=f1e171]: 
+                      - radio [ref=f1e173]
+                      - generic [ref=f1e174]: Grid View Large
+                    - generic [ref=f1e176] [cursor=pointer]:
+                      - generic [ref=f1e179]: 
+                      - radio [ref=f1e181]
+                      - generic [ref=f1e182]: Grid View
+                    - generic [ref=f1e184] [cursor=pointer]:
+                      - generic [ref=f1e187]: 
+                      - radio [checked] [ref=f1e189]
+                      - generic [ref=f1e190]: List
+                - grid [ref=f1e193]:
+                  - row [ref=f1e194]:
+                    - gridcell [ref=f1e196]:
+                      - generic [ref=f1e204] [cursor=pointer]:
+                        - generic [ref=f1e206]:
+                          - generic [ref=f1e208]: R40003 / 38020
+                          - generic [ref=f1e211]: XPRESS CU S1 STRAIGHT COUPLING 22
+                          - generic [ref=f1e213]:
+                            - generic [ref=f1e216]: 0 available
+                            - generic [ref=f1e217]:
+                              - generic [ref=f1e219]: F1
+                              - generic [ref=f1e221]: 03 Dec
+                              - generic [ref=f1e223]: "1384"
+                        - generic [ref=f1e224]:
+                          - generic [ref=f1e225]: £5.01
+                          - button [active] [ref=f1e228]: Add
+              - generic [ref=f1e237]:
+                - generic [ref=f1e242]: Your basket is empty
+                - generic [ref=f1e247]:
+                  - generic [ref=f1e248]:
+                    - generic [ref=f1e249]: Sub Total
+                    - generic [ref=f1e250]: £0.00
+                  - generic [ref=f1e251]:
+                    - generic [ref=f1e252]: VAT
+                    - generic [ref=f1e253]: £0.00
+                  - generic [ref=f1e254]:
+                    - generic [ref=f1e255]: Total
+                    - generic [ref=f1e256]: £0.00
+          - text: 
+```

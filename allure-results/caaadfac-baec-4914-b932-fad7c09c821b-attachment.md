@@ -1,0 +1,139 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - tooltip "Close" [ref=e3]:
+    - generic [ref=e5]: Close
+  - generic [ref=e15]:
+    - generic [ref=e17]:
+      - generic:
+        - banner:
+          - generic [ref=e18]:
+            - generic [ref=e20]:
+              - button [ref=e24] [cursor=pointer]:
+                - generic [ref=e27]: 凌
+              - generic [ref=e29]:
+                - generic [ref=e30]:
+                  - heading [level=1] [ref=e31]: Order Capture
+                  - generic [ref=e33]: DOO_DRAFT
+                - generic [ref=e34]: 1BL|007242
+              - generic [ref=e35]:
+                - toolbar [ref=e36]:
+                  - button [ref=e38] [cursor=pointer]:
+                    - generic [ref=e41]: 
+                  - button [active] [ref=e43] [cursor=pointer]: Submit
+                - generic [ref=e48]: Updated just now
+            - generic [ref=e51]:
+              - generic [ref=e52]: 
+              - textbox [ref=e54]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                - text: R40003
+    - generic [ref=e59]:
+      - alert [ref=e61]:
+        - generic [ref=e62]:
+          - img [ref=e64]:
+            - img [ref=e65]
+          - generic [ref=e68]:
+            - heading [level=2] [ref=e69]: Unknown Error
+            - generic [ref=e70]: 04:06 PM
+            - generic [ref=e71]: Action chain validateInputs does not exist.
+          - button [ref=e73] [cursor=pointer]:
+            - img [ref=e76]
+      - alert [ref=e80]:
+        - generic [ref=e81]:
+          - img [ref=e83]:
+            - img [ref=e84]
+          - generic [ref=e87]:
+            - heading [level=2] [ref=e88]: Unknown Error
+            - generic [ref=e89]: 04:05 PM
+            - generic [ref=e90]: Action chain validateInputs does not exist.
+          - button [ref=e92] [cursor=pointer]:
+            - img [ref=e95]
+      - generic [ref=e98]: Messages region has new messages. Press F6 to navigate to the most recent message region.
+    - generic [ref=e103]:
+      - generic [ref=e105] [cursor=pointer]:
+        - generic [ref=e109]: Customer
+        - generic [ref=e113]: SMITH AND BYFORD LTD
+        - generic [ref=e115]: 7060F14 (Credit)
+      - generic [ref=e116]:
+        - generic [ref=e118] [cursor=pointer]:
+          - generic [ref=e120]:
+            - generic [ref=e122]: Account Status
+            - generic [ref=e125]: OK
+          - generic [ref=e129]: OK to Trade
+        - generic [ref=e131] [cursor=pointer]:
+          - generic [ref=e135]: Available Balance
+          - generic [ref=e139]: £648,894.35
+          - generic [ref=e141]: £3,000,000 Credit Limit
+      - generic [ref=e143] [cursor=pointer]:
+        - generic [ref=e147]: Required
+        - generic [ref=e151]: In Full
+        - generic [ref=e153]: 12 Nov
+      - generic [ref=e155] [cursor=pointer]:
+        - generic [ref=e159]: "Customer PO #"
+        - generic [ref=e163]: "--"
+        - generic [ref=e165]: 10/11/2025
+    - generic [ref=e166]:
+      - generic [ref=e177]:
+        - toolbar [ref=e180]:
+          - generic [ref=e182] [cursor=pointer]:
+            - generic [ref=e185]: 
+            - radio [ref=e187]
+            - generic [ref=e188]: Grid View Large
+          - generic [ref=e190] [cursor=pointer]:
+            - generic [ref=e193]: 
+            - radio [ref=e195]
+            - generic [ref=e196]: Grid View
+          - generic [ref=e198] [cursor=pointer]:
+            - generic [ref=e201]: 
+            - radio [checked] [ref=e203]
+            - generic [ref=e204]: List
+        - grid [ref=e207]:
+          - row [ref=e208]:
+            - gridcell [ref=e210]:
+              - generic [ref=e218] [cursor=pointer]:
+                - generic [ref=e220]:
+                  - generic [ref=e222]: R40003 / 38020
+                  - generic [ref=e225]: XPRESS CU S1 STRAIGHT COUPLING 22
+                  - generic [ref=e230]: 0 available
+                - generic [ref=e231]:
+                  - generic [ref=e232]: £5.01
+                  - button [ref=e235]: Add
+      - generic [ref=e244]:
+        - generic [ref=e247]:
+          - grid [ref=e249]:
+            - row [ref=e250]:
+              - gridcell [ref=e251]:
+                - generic [ref=e253]:
+                  - generic [ref=e259]:
+                    - generic [ref=e261] [cursor=pointer]: R40003
+                    - generic [ref=e262] [cursor=pointer]: XPRESS CU S1 STRAIGHT COUPLING 22
+                    - generic [ref=e266] [cursor=pointer]:
+                      - generic [ref=e268]: 0 available
+                      - generic [ref=e271]: 12 Nov
+                  - generic [ref=e274]:
+                    - button [disabled] [ref=e278]:
+                      - img [ref=e281]
+                    - spinbutton [ref=e284]: "1"
+                    - button [ref=e288] [cursor=pointer]:
+                      - img [ref=e291]
+                  - generic [ref=e293]:
+                    - generic [ref=e295]: £5.01
+                    - generic [ref=e297]: £5.01
+                  - button [ref=e300] [cursor=pointer]:
+                    - generic [ref=e303]: 
+          - generic [ref=e305]: Loading
+        - generic [ref=e309]:
+          - button [ref=e313] [cursor=pointer]: Clear All
+          - generic [ref=e314]:
+            - generic [ref=e315]:
+              - generic [ref=e316]: Sub Total
+              - generic [ref=e317]: £5.01
+            - generic [ref=e318]:
+              - generic [ref=e319]: VAT
+              - generic [ref=e320]: £0.00
+            - generic [ref=e321]:
+              - generic [ref=e322]: Total
+              - generic [ref=e323]: £5.01
+  - text:   
+```

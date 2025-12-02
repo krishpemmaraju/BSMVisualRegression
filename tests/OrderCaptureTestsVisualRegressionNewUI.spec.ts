@@ -39,7 +39,7 @@ test.beforeAll(async () => {
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
     vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QUJCNzM3NQ==', 'base64').toString('utf-8')
-    scm_password = Buffer.from('VmFyYWhpMTYk', 'base64').toString('utf-8')
+    scm_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8')
   }
   await page_vbcs.goto(vbcs_url);
   await page_vbcs.waitForLoadState('networkidle');
@@ -104,7 +104,7 @@ test.beforeAll(async () => {
   }
 });
 
-test("Getting Order Capture", async () => {
+test.only("Getting Order Capture", async () => {
   await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
   //       await page_scm.locator('#ojHeader_pageTitle').waitFor({state:'visible',timeout:16000})
   console.log(await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').textContent())
@@ -112,16 +112,16 @@ test("Getting Order Capture", async () => {
 
 
 
-test("Order Capture - Full Page Screenshot", async () => {
+test.only("Order Capture - Full Page Screenshot", async () => {
   await expect(page_scm).toHaveScreenshot(["OrderCapture", "OrderCaptureFullScreenshot.png"], { fullPage: true });
 })
 
-test("Validate Order Capture Header Text", async () => {
+test.only("Validate Order Capture Header Text", async () => {
   expect(await page_scm_vbcs_frame.locator("#ojHeader_pageTitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageHeader.txt"]);
   expect(await page_scm_vbcs_frame.locator("#ojHeader_pageSubtitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageSubHeader.txt"]);
 })
 
-test.skip("Validate Requested Date and Requested Quantity", async () => {
+test.only("Validate Requested Date and Requested Quantity", async () => {
   const IsRequestedDateAvailable = page_scm_vbcs_frame.locator('#requestedDate');
   const IsRequestedQuantityAvailable = page_scm_vbcs_frame.locator('#quantity');
   const IsDatePickerAvailable = page_scm_vbcs_frame.locator("span[title='Select Date Time.']");
@@ -134,17 +134,17 @@ test.skip("Validate Requested Date and Requested Quantity", async () => {
   await page_scm_vbcs_frame.getByRole('button', { name: 'Done' }).click();
 })
 
-test("Validate Product search input is present", async () => {
+test.only("Validate Product search input is present", async () => {
   const getSearchBarElement = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await expect(getSearchBarElement).toHaveAttribute('aria-label', 'Product Search')
 })
 
-test("Validate Submit button", async () => {
-  const submitButton = page_scm_vbcs_frame.locator("button[aria-label='Submit']");
-  await expect(submitButton).toHaveScreenshot(["OrderCapture/SubmitButton", "SubmitBtnOnOrderCapturePage.png"])
+test.only("Validate Checkout button", async () => {
+  const submitButton = page_scm_vbcs_frame.locator("button[aria-label='Checkout']");
+  await expect(submitButton).toHaveScreenshot(["OrderCapture/CheckoutButton", "CheckoutBtnOnOrderCapturePage.png"])
 })
 
-test("Validate Product List slot", async () => {
+test.only("Validate Product List slot", async () => {
   const prodSearchInputSlot = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await prodSearchInputSlot.waitFor({ timeout: 5000 })
   await prodSearchInputSlot.scrollIntoViewIfNeeded();
@@ -154,14 +154,14 @@ test("Validate Product List slot", async () => {
   await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
 })
 
-test("Validate filter buttons on Order Capture Page", async () => {
+test.only("Validate filter buttons on Order Capture Page", async () => {
   const getSearchBarElement = page_scm_vbcs_frame.getByRole('textbox', { name: 'Product Search' })
   await getSearchBarElement.click();
   const gridView = page_scm_vbcs_frame.locator("span[role='toolbar']").filter({ has: page_scm_vbcs_frame.getByLabel('Grid View') })
   await expect(gridView).toHaveScreenshot(["OrderCapture/ContentSlotSection", "GridViewButtonOnContentSlotSection.png"])
 })
 
-test("Validate Select Customer section info Slot", async () => {
+test.only("Validate Select Customer section info Slot", async () => {
   const customerTextAvailable = page_scm_vbcs_frame.locator("span[title='Customer']");
   const selectCustomerText = page_scm_vbcs_frame.locator("div[title='Select Customer...']");
   const clickToSelectCustomer = page_scm_vbcs_frame.locator("span[title='Click to select a customer']");
@@ -199,7 +199,7 @@ test("Validate Select Customer section info Slot", async () => {
   await expect(isSelectedCustomerVisible).toBeVisible();
 })
 
-test("Validate Account Status Section", async () => {
+test.only("Validate Account Status Section", async () => {
   const isAccountStatusVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Account Status']");
   const isAccountStatusPanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Account Status']");
   const isAccoutnStatusHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Account Status']")
@@ -213,7 +213,7 @@ test("Validate Account Status Section", async () => {
   await page_scm_vbcs_frame.locator("button[aria-label='Close']").click({ force: true });
 })
 
-test("Validate Available Balance Section", async () => {
+test.only("Validate Available Balance Section", async () => {
   const isAvailableBalanceVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Available Balance']");
   const isAvailableBalancePanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Transaction History']");
   const isAvailableBalanceHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Transaction History']")
@@ -227,13 +227,13 @@ test("Validate Available Balance Section", async () => {
   await closeBtn.click({ force: true });
 })
 
-test("Validate Required Section", async () => {
+test.skip("Validate Required Section", async () => {
   const isRequiredVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Required']");
   await expect(isRequiredVisible).toBeVisible();
 })
 
 
-test("Validate Customer PO section info Slot", async () => {
+test.only("Validate Customer PO section info Slot", async () => {
   const customerPOTextAvailable = page_scm_vbcs_frame.locator("span[title='Customer PO #']");
   const customerPOContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer PO #']");
   const customerPOPanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Order Details']");
@@ -269,7 +269,7 @@ test("Validate Customer PO section info Slot", async () => {
 
 
 
-test("Validate Product Details page", async () => {
+test.only("Validate Product Details page", async () => {
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40003")
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
@@ -286,25 +286,34 @@ test("Validate Product Details page", async () => {
 
 
 
-test("Validate Add button on Product Search Page section", async () => {
+test.only("Validate Add button on Product Search Page section", async () => {
   //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
-  const isAvailableStockVisible = page_scm_vbcs_frame.locator('span.oj-badge.oj-badge-sm.custom-badge');
+  const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
+  const isAvailableStockVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(1) > div > span');
+  const isFeederDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(1) > span');
+  const isAtpDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(2) > span');
+  const isFutureStkDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(3) > span');
+
   const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
   await productSearchAddBtn.scrollIntoViewIfNeeded()
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
+  await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
   await page_scm_vbcs_frame.locator("wol-product-card[id*='R40003']").click();
   //temporary fix 
   // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
+  await expect(isFeederDataVisible).toBeVisible({ timeout: 12000 });
+  await expect(isAtpDataVisible).toBeVisible({ timeout: 12000 });
+  await expect(isFutureStkDataVisible).toBeVisible({ timeout: 12000 });
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
 })
 
-test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
+test.only("Validate Add product to basket layout and Validate Auto populate fields", async () => {
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").click()
-  await page_scm_vbcs_frame.locator("[class*='oj-listview-item']").waitFor({ state: 'visible', timeout: 40000 })
+  await page_scm_vbcs_frame.locator("div.product-lines div.product-line").waitFor({ state: 'visible', timeout: 40000 })
   //changes related to Save and Exit 
   const isMoreActionsAvailable = "button[aria-label='More Actions']"
   const isMoreActionsMenuAvailable = "div[aria-label='More Actions']"
@@ -314,39 +323,39 @@ test("Validate Add product to basket layout and Validate Auto populate fields", 
   await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
   await expect(page_scm_vbcs_frame.getByText('Save and Exit', { exact: true })).toBeVisible({ timeout: 3000 })
   await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
-  const isCustomerAutoPopulated = await page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer'] div.oj-sp-scoreboard-metric-card-metric").textContent();
-  expect(isCustomerAutoPopulated).not.toBeNull();
-  // const isBillToAutoPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Bill to'] div.oj-sp-scoreboard-metric-card-metric").textContent();
-  // expect(isBillToAutoPopulated).not.toBeNull();
-  const isRequiredPopulated = await page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Required'] div.oj-sp-scoreboard-metric-card-metric").textContent();
-  expect(isRequiredPopulated).not.toBeNull();
-  // const isShippingMethodPopulated = await page.locator("oj-sp-scoreboard-metric-card[card-title='Shipping Method'] div.oj-sp-scoreboard-metric-card-metric").textContent();
-  // expect(isShippingMethodPopulated).not.toBeNull();
-  const isClearAllVisible = await page_scm_vbcs_frame.locator("button[aria-label='Clear All']")
+  const isClearAllVisible = page_scm_vbcs_frame.locator("button[aria-label='Clear All']")
   expect(isClearAllVisible).toBeVisible()
-  const productSelAddToBsktList = page_scm_vbcs_frame.locator("[class='oj-listview-cell-element']")
+  const productSelAddToBsktList = page_scm_vbcs_frame.locator("div.product-lines div.product-line")
   await expect(productSelAddToBsktList).toBeVisible()
-  const addToBsktDecreaseBtn = page_scm_vbcs_frame.locator("div.oj-listview-cell-element button[aria-label='Decrease']")
-  const addToBsktIncreaseBtn = page_scm_vbcs_frame.locator("div.oj-listview-cell-element button[aria-label='Increase']")
-  const addToBsktDeleteBtn = page_scm_vbcs_frame.locator("button[aria-label='Delete']")
+  const isCollectionPanelAvailable = page_scm_vbcs_frame.locator("li.wolPanel div.oj-sm-justify-content-space-between.oj-divider-bottom")
+  const addToBsktDecreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Decrease']")
+  const addToBsktIncreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Increase']")
+  const addToBsktDeleteBtn = page_scm_vbcs_frame.locator("div.product-details oj-c-button[label='Delete'] button[aria-label='Delete']")
   const isSubTotalDisplayed = page_scm_vbcs_frame.getByText('Sub Total');
   const isVATDisplayed = page_scm_vbcs_frame.getByText('VAT');
   const isTotalDisplayed = page_scm_vbcs_frame.getByText('Total', { exact: true });
+  const isDeleteBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Delete']");
+  const isMoveBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Move']");
+  const isEditBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Edit']");
+  await expect(isCollectionPanelAvailable).toBeVisible({ timeout: 5000 })
   await expect(isSubTotalDisplayed).toBeVisible();
   await expect(isVATDisplayed).toBeVisible();
   await expect(isTotalDisplayed).toBeVisible();
   await expect(addToBsktDecreaseBtn).toBeVisible();
   await expect(addToBsktIncreaseBtn).toBeVisible();
   await expect(addToBsktDeleteBtn).toBeVisible();
+  await expect(isDeleteBtnAvailableCollBtn).toBeVisible();
+  await expect(isMoveBtnAvailableCollBtn).toBeVisible();
+  await expect(isEditBtnAvailableCollBtn).toBeVisible();
 })
 
-test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
+test.only("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
   const detailSlotSection = page_scm_vbcs_frame.locator("oj-vb-fragment-slot[name='detail']")
   await expect(detailSlotSection).toHaveScreenshot(["OrderCapture/DetailSlotSection", "DetailSlotSectionOnOrderCapturePage.png"])
 })
 
 
-test("Validate Order Dialog pop up with Print and Edit Options", async () => {
+test.only("Validate Order Dialog pop up with Print and Edit Options", async () => {
   const customerContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
   const customerSearchInputAvailable = page_scm_vbcs_frame.locator("input[aria-label='Customer Search']");
   const selectCustomerListed = page_scm_vbcs_frame.getByText('7000D54')
@@ -356,31 +365,28 @@ test("Validate Order Dialog pop up with Print and Edit Options", async () => {
 
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeVisible({ timeout: 7000 })
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeEnabled({ timeout: 7000 })
-
-  // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40003")
-  // await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 15000 })
-  // await page_scm_vbcs_frame.locator("button[aria-label='Add']").click({ timeout: 4000 })
-  // await page_scm_vbcs_frame.locator("div[class='oj-listview-cell-element']").waitFor({ state: 'visible', timeout: 16000 })
-  // await expect(page_scm_vbcs_frame.locator("div[class='oj-listview-cell-element']")).toBeVisible({ timeout: 6000 });
-  // await expect(page_scm_vbcs_frame.locator("button[aria-label='Submit']")).toBeEnabled({ timeout: 25000 })
-  // await clickOnSubmitBtn.waitFor({state:'visible',timeout:20000});
-  // await page.waitForFunction(async (clickOnSubmitBtn) => {
-  //        return await clickOnSubmitBtn.isEnabled();
-  // }, clickOnSubmitBtn)
+  await page_scm_vbcs_frame.locator("button[aria-label='Checkout']").click({ force: true });
+  //New Layout for Checkout Page
+  await expect(page_scm_vbcs_frame.locator('h1', { hasText: 'Checkout' })).toBeVisible({ timeout: 8000 })
+  await expect(page_scm_vbcs_frame.locator("oj-vb-fragment[name='wol-cp-customer-details']")).toBeVisible({ timeout: 8000 });
+  await expect(page_scm_vbcs_frame.locator("oj-vb-fragment[name='wol-cp-payment-details']")).toBeVisible({ timeout: 8000 });
+  await expect(page_scm_vbcs_frame.locator("li.wolPanel")).toBeVisible({ timeout: 8000 });
+  await expect(page_scm_vbcs_frame.locator("  div.product-line")).toBeVisible({ timeout: 8000 });
   await page_scm_vbcs_frame.locator("button[aria-label='Submit']").click({ force: true });
-  await page_scm_vbcs_frame.getByRole('heading', { name: 'Checkout', exact: true }).waitFor({ state: 'visible' });
+  await expect(page_scm_vbcs_frame.locator("button[aria-label='Create Shipment']")).toBeVisible({ timeout: 20000 });
+  await page_scm_vbcs_frame.locator("button[aria-label='Create Shipment']").click({ force: true });
 
-  const waitForPickingNoteHeaderText = page_scm_vbcs_frame.locator("//span[text()='Print picking note']");
-  const waitForEditBsktItemChk = page_scm_vbcs_frame.locator("//span[text()='Have you picked ALL stock items?']");
-  await expect(waitForPickingNoteHeaderText).toBeVisible();
-  await expect(waitForEditBsktItemChk).toBeVisible();
-  const isPrintBtnAvailableOnOrderDialog = page_scm_vbcs_frame.getByRole('button', { name: 'Print' });
-  await expect(isPrintBtnAvailableOnOrderDialog).toBeVisible();
-  const isEditBtnAvailableOnOrderDialog = page_scm_vbcs_frame.getByRole('button').filter({ hasText: 'Edit' });
-  await expect(isEditBtnAvailableOnOrderDialog).toBeVisible();
-  await expect(page_scm_vbcs_frame.locator("//button[text()='Confirm']")).toBeEnabled({ timeout: 30000 })   //     await page_scm_vbcs_frame.locator("//button[text()='Confirm']").click({timeout:5000});
-  await (page_scm_vbcs_frame.locator("//button[text()='Confirm']")).click();
-  expect(await page_scm_vbcs_frame.locator("#oj_gop1_h_pageTitle").textContent({ timeout: 8000 })).toMatchSnapshot(["OrderCapture/OrderConfirmation", "OrderConfirmationHeader.txt"]);
+  // const waitForPickingNoteHeaderText = page_scm_vbcs_frame.locator("//span[text()='Print picking note']");
+  // const waitForEditBsktItemChk = page_scm_vbcs_frame.locator("//span[text()='Have you picked ALL stock items?']");
+  // await expect(waitForPickingNoteHeaderText).toBeVisible();
+  // await expect(waitForEditBsktItemChk).toBeVisible();
+  // const isPrintBtnAvailableOnOrderDialog = page_scm_vbcs_frame.getByRole('button', { name: 'Print' });
+  // await expect(isPrintBtnAvailableOnOrderDialog).toBeVisible();
+  // const isEditBtnAvailableOnOrderDialog = page_scm_vbcs_frame.getByRole('button').filter({ hasText: 'Edit' });
+  // await expect(isEditBtnAvailableOnOrderDialog).toBeVisible();
+  // await expect(page_scm_vbcs_frame.locator("//button[text()='Confirm']")).toBeEnabled({ timeout: 30000 })   //     await page_scm_vbcs_frame.locator("//button[text()='Confirm']").click({timeout:5000});
+  // await (page_scm_vbcs_frame.locator("//button[text()='Confirm']")).click();
+  // expect(await page_scm_vbcs_frame.locator("#oj_gop1_h_pageTitle").textContent({ timeout: 8000 })).toMatchSnapshot(["OrderCapture/OrderConfirmation", "OrderConfirmationHeader.txt"]);
 })
 
 

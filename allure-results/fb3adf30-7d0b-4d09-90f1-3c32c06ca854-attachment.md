@@ -1,0 +1,67 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e11]:
+  - generic [ref=e13]:
+    - generic:
+      - banner "Order Capture":
+        - generic [ref=e14]:
+          - generic [ref=e16]:
+            - button "Back" [ref=e20] [cursor=pointer]:
+              - generic [ref=e23]: 凌
+            - generic [ref=e25]:
+              - heading "Order Capture" [level=1] [ref=e27]
+              - generic "Create / Amend Sales Order" [ref=e28]
+            - toolbar "Header" [ref=e30]:
+              - button "Submit" [disabled] [ref=e32]
+          - generic "Product Search" [ref=e35]:
+            - generic [ref=e36]: 
+            - textbox "Product Search" [ref=e38]:
+              - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+  - generic [ref=e43]:
+    - generic [ref=e45] [cursor=pointer]:
+      - generic "Customer" [ref=e49]
+      - generic "Select Customer..." [ref=e53]
+      - generic "Click to select a customer" [ref=e55]
+    - generic [ref=e57] [cursor=pointer]:
+      - generic "Required" [ref=e61]
+      - generic "--" [ref=e65]
+    - generic [ref=e67] [cursor=pointer]:
+      - 'generic "Customer PO #" [ref=e71]'
+      - generic "--" [ref=e75]
+      - generic "10/11/2025" [ref=e77]
+  - generic [ref=e78]:
+    - generic [ref=e89]:
+      - toolbar [ref=e92]:
+        - generic [ref=e94] [cursor=pointer]:
+          - generic [ref=e97]: 
+          - radio " Grid View Large" [ref=e99]
+          - generic [ref=e100]: Grid View Large
+        - generic [ref=e102] [cursor=pointer]:
+          - generic [ref=e105]: 
+          - radio " Grid View" [ref=e107]
+          - generic [ref=e108]: Grid View
+        - generic [ref=e110] [cursor=pointer]:
+          - generic [ref=e113]: 
+          - radio " List" [checked] [ref=e115]
+          - generic [ref=e116]: List
+      - grid [ref=e119]:
+        - row "No items to display" [ref=e120]:
+          - gridcell "No items to display" [ref=e121]
+    - generic [ref=e130]:
+      - generic [ref=e133]:
+        - grid [ref=e135]:
+          - row "Your basket is empty" [ref=e136]:
+            - gridcell "Your basket is empty" [ref=e137]
+        - generic [ref=e139]: Loading
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]: Sub Total
+          - generic [ref=e147]: £0.00
+        - generic [ref=e148]:
+          - generic [ref=e149]: VAT
+          - generic [ref=e150]: £0.00
+        - generic [ref=e151]:
+          - generic [ref=e152]: Total
+          - generic [ref=e153]: £0.00
+```
