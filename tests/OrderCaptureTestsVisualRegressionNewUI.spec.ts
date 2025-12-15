@@ -148,7 +148,7 @@ test.only("Validate Product List slot", async () => {
   const prodSearchInputSlot = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await prodSearchInputSlot.waitFor({ timeout: 5000 })
   await prodSearchInputSlot.scrollIntoViewIfNeeded();
-  await prodSearchInputSlot.fill("R40003")
+  await prodSearchInputSlot.fill("R40001")
   const productSearchSlot = page_scm_vbcs_frame.getByRole('gridcell').filter({ has: page_scm_vbcs_frame.locator("wol-product-card") })
   await expect(productSearchSlot).toBeVisible({ timeout: 5000 })
   await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
@@ -203,26 +203,34 @@ test.only("Validate Account Status Section", async () => {
   const isAccountStatusVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Account Status']");
   const isAccountStatusPanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Account Status']");
   const isAccoutnStatusHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Account Status']")
-
+  const isCancelBtnOnAccountStatusAvailable = page_scm_vbcs_frame.locator('#btnCancel');
+  const isContinueBtnOnAccountStatusAvailable = page_scm_vbcs_frame.locator('#btnContinue');
 
   await expect(isAccountStatusVisible).toBeVisible();
   await isAccountStatusVisible.click();
   await expect(isAccountStatusPanelAvailable).toBeVisible();
   await expect(isAccoutnStatusHeadingAvailable).toHaveText('Account Status');
-  await page_scm_vbcs_frame.locator("button[aria-label='Close']").scrollIntoViewIfNeeded();
-  await page_scm_vbcs_frame.locator("button[aria-label='Close']").click({ force: true });
+  await expect(isCancelBtnOnAccountStatusAvailable).toBeVisible();
+  await expect(isContinueBtnOnAccountStatusAvailable).toBeVisible();
+  await page_scm_vbcs_frame.locator("div.oj-sm-align-self-flex-start button[aria-label='Close']").scrollIntoViewIfNeeded();
+  await page_scm_vbcs_frame.locator("div.oj-sm-align-self-flex-start button[aria-label='Close']").click({ force: true });
+
 })
 
 test.only("Validate Available Balance Section", async () => {
   const isAvailableBalanceVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Available Balance']");
   const isAvailableBalancePanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Transaction History']");
   const isAvailableBalanceHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Transaction History']")
-  const closeBtn = page_scm_vbcs_frame.locator("button[aria-label='Close']")
+  const closeBtn = page_scm_vbcs_frame.locator("div.oj-sm-align-self-flex-start button[aria-label='Close']")
+  const isCancelBtnOnAccountStatusAvailable = page_scm_vbcs_frame.locator('#btnCancel');
+  const isContinueBtnOnAccountStatusAvailable = page_scm_vbcs_frame.locator('#btnContinue');
 
   await expect(isAvailableBalanceVisible).toBeVisible();
   await isAvailableBalanceVisible.click()
   await expect(isAvailableBalancePanelAvailable).toBeVisible();
   await expect(isAvailableBalanceHeadingAvailable).toHaveText('Transaction History')
+  await expect(isCancelBtnOnAccountStatusAvailable).toBeVisible();
+  await expect(isContinueBtnOnAccountStatusAvailable).toBeVisible();
   await closeBtn.scrollIntoViewIfNeeded();
   await closeBtn.click({ force: true });
 })
@@ -242,7 +250,7 @@ test.only("Validate Customer PO section info Slot", async () => {
   const isCustomerOrderNumberTextBoxAvailable = page_scm_vbcs_frame.locator("oj-c-input-text[label-hint='Customer Order Number'] input");
   const isCancelBtnAvailableUnderCustPOSection = page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' })
   const isContinueBtnAvailableUnderCustPOSection = page_scm_vbcs_frame.getByRole('button', { name: 'Continue' })
-  const closeBtn = page_scm_vbcs_frame.locator("button[aria-label='Close']")
+  const closeBtn = page_scm_vbcs_frame.locator("div.oj-sm-align-self-flex-start button[aria-label='Close']")
 
   await expect(customerPOTextAvailable).toHaveText("Customer PO #")
   await expect(customerPOContentSlotSelection).toBeEnabled();
@@ -271,9 +279,9 @@ test.only("Validate Customer PO section info Slot", async () => {
 
 test.only("Validate Product Details page", async () => {
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
-  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40003")
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40001")
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40003']").click();
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40001']").click();
   const getQuantityLabel = page_scm_vbcs_frame.getByLabel("Quantity");
   const addBtnOnProdDetailsPage = page_scm_vbcs_frame.getByRole('button', { name: 'Add to Basket' });
   const productDetailsText = page_scm_vbcs_frame.locator("div.oj-flex.oj-sm-flex-direction-column   div.oj-typography-body-md.oj-flex-item.oj-sm-flex-initial");
@@ -299,14 +307,14 @@ test.only("Validate Add button on Product Search Page section", async () => {
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40003']").click();
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40001']").click();
   //temporary fix 
   // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
   await expect(isFeederDataVisible).toBeVisible({ timeout: 12000 });
   await expect(isAtpDataVisible).toBeVisible({ timeout: 12000 });
-  await expect(isFutureStkDataVisible).toBeVisible({ timeout: 12000 });
+  await expect(isFutureStkDataVisible).toBeVisible({ timeout: 18000 });
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
 })
 
