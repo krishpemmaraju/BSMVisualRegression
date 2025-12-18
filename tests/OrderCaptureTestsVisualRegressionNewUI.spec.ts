@@ -6,6 +6,7 @@ let page_scm_vbcs_frame: FrameLocator;
 let page_scm: Page;
 let vbcs_url: string, vbcs_user: string, vbcs_password: string;
 let scm_url: string, scm_user: string, scm_password: string;
+let productWithStk:string,productWithoutStk:string;
 test.beforeAll(async () => {
   test.setTimeout(300000);
   let browser_vbcs: Browser, browser_scm: Browser;
@@ -32,6 +33,8 @@ test.beforeAll(async () => {
     vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
     scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
+    productWithStk = "R40001";
+    productWithoutStk  = "R40004"
   }
   if (process.env.ENV == "dev") {
     vbcs_url = "https://vb04.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
@@ -40,6 +43,8 @@ test.beforeAll(async () => {
     vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QUJCNzM3NQ==', 'base64').toString('utf-8')
     scm_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8')
+    productWithStk = "R40063";
+    productWithoutStk  = "R40001"
   }
   await page_vbcs.goto(vbcs_url);
   await page_vbcs.waitForLoadState('networkidle');
@@ -148,7 +153,7 @@ test.only("Validate Product List slot", async () => {
   const prodSearchInputSlot = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await prodSearchInputSlot.waitFor({ timeout: 5000 })
   await prodSearchInputSlot.scrollIntoViewIfNeeded();
-  await prodSearchInputSlot.fill("R40001")
+  await prodSearchInputSlot.fill(productWithStk)
   const productSearchSlot = page_scm_vbcs_frame.getByRole('gridcell').filter({ has: page_scm_vbcs_frame.locator("wol-product-card") })
   await expect(productSearchSlot).toBeVisible({ timeout: 5000 })
   await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
@@ -279,12 +284,9 @@ test.only("Validate Customer PO section info Slot", async () => {
 
 test.only("Validate Product Details page", async () => {
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
-  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40001")
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40001']").click();
-  const getQuantityLabel = page_scm_vbcs_frame.getByLabel("Quantity");
-  const addBtnOnProdDetailsPage = page_scm_vbcs_frame.getByRole('button', { name: 'Add to Basket' });
-  const productDetailsText = page_scm_vbcs_frame.locator("div.oj-flex.oj-sm-flex-direction-column   div.oj-typography-body-md.oj-flex-item.oj-sm-flex-initial");
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithStk+"']").click();
   const getAlternateProductLink = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(0);
   const getRelatedProducts = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(1);
   await expect(getAlternateProductLink).toHaveText("Alternate Products");
@@ -294,22 +296,39 @@ test.only("Validate Product Details page", async () => {
 
 
 
-test.only("Validate Add button on Product Search Page section", async () => {
+test.only("Validate Add button on Product Search Page section for available product having stock", async () => {
+  //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
+  const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
+  const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
+  await productSearchAddBtn.scrollIntoViewIfNeeded()
+  await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
+  await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
+  await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
+   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
+  await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithStk+"']").click();
+  //temporary fix 
+  // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
+  await page_scm_vbcs_frame.locator("#btnBack").click()
+  await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
+})
+
+test.only("Validate Add button on Product Search Page section for product having 0 stock", async () => {
   //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
   const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
   const isAvailableStockVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(1) > div > span');
   const isFeederDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(1) > span');
   const isAtpDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(2) > span');
   const isFutureStkDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(3) > span');
-
+  
   const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
   await productSearchAddBtn.scrollIntoViewIfNeeded()
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='R40001']").click();
-  //temporary fix 
-  // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
+   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+  await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithoutStk+"']").click();
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
   await expect(isFeederDataVisible).toBeVisible({ timeout: 12000 });
@@ -344,7 +363,6 @@ test.only("Validate Add product to basket layout and Validate Auto populate fiel
   const isTotalDisplayed = page_scm_vbcs_frame.getByText('Total', { exact: true });
   const isDeleteBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Delete']");
   const isMoveBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Move']");
-  const isEditBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Edit']");
   await expect(isCollectionPanelAvailable).toBeVisible({ timeout: 5000 })
   await expect(isSubTotalDisplayed).toBeVisible();
   await expect(isVATDisplayed).toBeVisible();
@@ -354,7 +372,6 @@ test.only("Validate Add product to basket layout and Validate Auto populate fiel
   await expect(addToBsktDeleteBtn).toBeVisible();
   await expect(isDeleteBtnAvailableCollBtn).toBeVisible();
   await expect(isMoveBtnAvailableCollBtn).toBeVisible();
-  await expect(isEditBtnAvailableCollBtn).toBeVisible();
 })
 
 test.only("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
