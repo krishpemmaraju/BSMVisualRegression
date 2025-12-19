@@ -379,6 +379,138 @@ test.only("Validate Detail Slot (Add Basket Section) in Order Capture Page", asy
   await expect(detailSlotSection).toHaveScreenshot(["OrderCapture/DetailSlotSection", "DetailSlotSectionOnOrderCapturePage.png"])
 })
 
+//nandini's code
+
+// test.only("Validate Product List slot for R40063", async () => {
+//   const prodSearchInputSlot = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
+//   await prodSearchInputSlot.waitFor({ timeout: 5000 })
+//   await prodSearchInputSlot.scrollIntoViewIfNeeded();
+//   await prodSearchInputSlot.fill("R40063")
+//   //const productSearchSlot = page_scm_vbcs_frame.getByRole('gridcell').filter({ has: page_scm_vbcs_frame.locator("wol-product-card") })
+//   //await expect(productSearchSlot).toBeVisible({ timeout: 5000 })
+//   //await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
+// })
+
+// test.only("Validate Product Details page for R40063", async () => {
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill("R40063")
+//   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   await page_scm_vbcs_frame.locator("wol-product-card[id*='R40063']").click();
+//   const getQuantityLabel = page_scm_vbcs_frame.getByLabel("Quantity");
+//   const addBtnOnProdDetailsPage = page_scm_vbcs_frame.getByRole('button', { name: 'Add to Basket' });
+//   const productDetailsText = page_scm_vbcs_frame.locator("div.oj-flex.oj-sm-flex-direction-column   div.oj-typography-body-md.oj-flex-item.oj-sm-flex-initial");
+//   const getAlternateProductLink = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(0);
+//   const getRelatedProducts = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(1);
+//   await expect(getAlternateProductLink).toHaveText("Alternate Products");
+//   await expect(getRelatedProducts).toHaveText("Related Products");
+//   await page_scm_vbcs_frame.locator("#btnBack").click()
+// })
+
+// test.only("Validate Add button on Product Search Page section for R40063", async () => {
+//   //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
+//   const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
+//   const isAvailableStockVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(1) > div > span');
+//   //const isFeederDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(1) > span');
+//   const isAtpDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(2) > span');
+//   const isFutureStkDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(3) > span');
+
+//   const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
+//   await productSearchAddBtn.scrollIntoViewIfNeeded()
+//   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
+//   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
+//   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
+//   await page_scm_vbcs_frame.locator("wol-product-card[id*='R40063']").click();
+//   //temporary fix 
+//   // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
+//   await page_scm_vbcs_frame.locator("#btnBack").click()
+//   await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
+//   //await expect(isFeederDataVisible).toBeVisible({ timeout: 12000 });
+//   // await expect(isAtpDataVisible).toBeVisible({ timeout: 12000 });
+//   // await expect(isFutureStkDataVisible).toBeVisible({ timeout: 18000 });
+//   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
+// })
+
+// test.only("Validate Add product to basket layout and Validate Auto populate fields for R40063", async () => {
+//   await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
+//   await page_scm_vbcs_frame.locator("button[aria-label='Add']").click();
+//   //const isPopForProduct ="";
+//   //  await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
+
+//   await expect(page_scm_vbcs_frame.getByText('Amend Fulfilment method', {exact : true})).toBeVisible({timeout: 3000 });
+//   const dialog = page_scm_vbcs_frame.getByRole('dialog');
+
+//   await dialog.locator('.wol-multi-column-dialog-column-items').first().locator('[role="button"]').first().click();
+//   await page_scm_vbcs_frame.getByRole('button').filter({hasText: 'Confirm'}).click();
+//   await page_scm_vbcs_frame.locator("div.product-lines div.product-line").waitFor({ state: 'visible', timeout: 40000 })
+//   //changes related to Save and Exit 
+//   // const isMoreActionsAvailable = "button[aria-label='More Actions']"
+//   // const isMoreActionsMenuAvailable = "div[aria-label='More Actions']"
+//   // await expect(page_scm_vbcs_frame.locator(isMoreActionsAvailable)).toBeVisible({ timeout: 3000 });
+//   // await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
+//   // await expect(page_scm_vbcs_frame.locator(isMoreActionsMenuAvailable)).toBeVisible({ timeout: 9000 })
+//   // await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
+//   // await expect(page_scm_vbcs_frame.getByText('Save and Exit', { exact: true })).toBeVisible({ timeout: 3000 })
+//   // await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
+//   // const isClearAllVisible = page_scm_vbcs_frame.locator("button[aria-label='Clear All']")
+//   // expect(isClearAllVisible).toBeVisible()
+//   // const productSelAddToBsktList = page_scm_vbcs_frame.locator("div.product-lines div.product-line")
+//   // await expect(productSelAddToBsktList).toBeVisible()
+//   // const isCollectionPanelAvailable = page_scm_vbcs_frame.locator("li.wolPanel div.oj-sm-justify-content-space-between.oj-divider-bottom")
+//   // const addToBsktDecreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Decrease']")
+//   // const addToBsktIncreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Increase']")
+//   // const addToBsktDeleteBtn = page_scm_vbcs_frame.locator("div.product-details oj-c-button[label='Delete'] button[aria-label='Delete']")
+//   // const isSubTotalDisplayed = page_scm_vbcs_frame.getByText('Sub Total');
+//   // const isVATDisplayed = page_scm_vbcs_frame.getByText('VAT');
+//   // const isTotalDisplayed = page_scm_vbcs_frame.getByText('Total', { exact: true });
+//   // const isDeleteBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Delete']");
+//   // const isMoveBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Move']");
+//   // const isEditBtnAvailableCollBtn = page_scm_vbcs_frame.locator("div.oj-divider-bottom  button[aria-label='Edit']");
+//   // await expect(isCollectionPanelAvailable).toBeVisible({ timeout: 5000 })
+//   // await expect(isSubTotalDisplayed).toBeVisible();
+//   // await expect(isVATDisplayed).toBeVisible();
+//   // await expect(isTotalDisplayed).toBeVisible();
+//   // await expect(addToBsktDecreaseBtn).toBeVisible();
+//   // await expect(addToBsktIncreaseBtn).toBeVisible();
+//   // await expect(addToBsktDeleteBtn).toBeVisible();
+//   // await expect(isDeleteBtnAvailableCollBtn).toBeVisible();
+//   // await expect(isMoveBtnAvailableCollBtn).toBeVisible();
+//   //   await expect(page_scm_vbcs_frame.getByText('Amend Fulfilment method', {exact : true})).toBeVisible({timeout: 3000 });
+//   // await page_scm_vbcs_frame.getByRole('button').filter({hasText: 'Confirm'}).click();
+//   // await page_scm_vbcs_frame.locator("div.product-lines div.product-line").waitFor({ state: 'visible', timeout: 40000 })
+
+//   //await expect(isEditBtnAvailableCollBtn).toBeVisible();
+// })
+
+// test.only("Validate the move button for both the products",async() => {
+
+//     // await page_scm_vbcs_frame.getByRole('button').filter({hasText: 'Confirm'}).click();
+
+//   const moveButton = page_scm_vbcs_frame.getByRole('button').filter({hasText: 'Move'});
+//   const count = await moveButton.count();
+//   for (let i = 0; i < count; i++) {
+
+
+//   await moveButton.nth(i).click();
+
+//   const movePopup = page_scm_vbcs_frame.getByRole('dialog');
+
+
+//   await expect(movePopup).toBeVisible({ timeout: 10000 });
+
+
+//   await expect(
+//     movePopup.getByText('Choose the target bucket to move the lines to')).toBeVisible();
+
+//   await movePopup.getByRole('button', { name: /close/i }).click();
+
+//   await expect(movePopup).toBeHidden();
+// }
+
+
+// })
+
+//till here
+
 
 test.only("Validate Order Dialog pop up with Print and Edit Options", async () => {
   const customerContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
