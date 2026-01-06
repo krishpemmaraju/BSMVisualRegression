@@ -1,0 +1,102 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - alert "Message category warning" [ref=e6]:
+      - img [ref=e8]: 
+      - generic [ref=e10]: Cloned on June 2025
+    - text:  
+    - generic [ref=e15]:
+      - generic [ref=e19]:
+        - generic [ref=e24]:
+          - text:                                                                                                                                                                                               
+          - button "Navigator" [ref=e26] [cursor=pointer]:
+            - img "Navigator" [ref=e27]: 
+        - link "Home" [ref=e29] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e30]
+        - generic [ref=e31]:
+          - link "Home" [ref=e32] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e33]: 
+          - link "Notifications" [ref=e38] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e39]: 
+          - link "Settings and Actions" [ref=e44] [cursor=pointer]:
+            - /url: "#"
+            - img "Test Auto" [ref=e48]:
+              - generic [ref=e50]: TA
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner "Order Capture":
+                  - generic [ref=f1e16]:
+                    - button "Back" [ref=f1e20] [cursor=pointer]:
+                      - generic [ref=f1e23]: 凌
+                    - heading "Order Capture" [level=1] [ref=f1e27]
+                    - toolbar "Header" [ref=f1e29]:
+                      - button "Checkout" [disabled] [ref=f1e31]
+            - generic [ref=f1e36]:
+              - generic [ref=f1e38] [cursor=pointer]:
+                - generic "Customer" [ref=f1e42]
+                - generic "Select Customer..." [ref=f1e46]
+                - generic "Click to select a customer" [ref=f1e48]
+              - generic [ref=f1e50] [cursor=pointer]:
+                - 'generic "Customer PO #" [ref=f1e54]'
+                - generic "--" [ref=f1e58]
+            - generic [ref=f1e59]:
+              - generic [ref=f1e70]:
+                - generic [ref=f1e71]:
+                  - generic "Product Search" [ref=f1e73]:
+                    - generic [ref=f1e74]: 
+                    - textbox "Product Search" [active] [ref=f1e76]:
+                      - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                  - generic [ref=f1e78]:
+                    - text: 
+                    - generic [ref=f1e79]:
+                      - generic [ref=f1e80]:
+                        - generic [ref=f1e83]: Requested Date
+                        - combobox "Requested Date" [ref=f1e84]: 06/01/2026
+                      - generic [ref=f1e85]:
+                        - generic "Select Date Time." [ref=f1e86] [cursor=pointer]: 
+                        - generic [ref=f1e87]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                  - generic "Requested Quantity" [ref=f1e89]:
+                    - generic [ref=f1e91]:
+                      - generic [ref=f1e92]: Quantity
+                      - textbox "Quantity" [ref=f1e93]: "1"
+                  - toolbar [ref=f1e96]:
+                    - generic [ref=f1e98] [cursor=pointer]:
+                      - generic [ref=f1e101]: 
+                      - radio " Grid View Large" [ref=f1e103]
+                      - generic [ref=f1e104]: Grid View Large
+                    - generic [ref=f1e106] [cursor=pointer]:
+                      - generic [ref=f1e109]: 
+                      - radio " Grid View" [ref=f1e111]
+                      - generic [ref=f1e112]: Grid View
+                    - generic [ref=f1e114] [cursor=pointer]:
+                      - generic [ref=f1e117]: 
+                      - radio " List" [checked] [ref=f1e119]
+                      - generic [ref=f1e120]: List
+                - grid [ref=f1e123]:
+                  - row "No items to display" [ref=f1e124]:
+                    - gridcell "No items to display" [ref=f1e125]
+              - generic [ref=f1e134]:
+                - generic [ref=f1e139]: Your basket is empty
+                - generic [ref=f1e144]:
+                  - generic [ref=f1e145]:
+                    - generic [ref=f1e146]: Sub Total
+                    - generic [ref=f1e147]: £0.00
+                  - generic [ref=f1e148]:
+                    - generic [ref=f1e149]: VAT
+                    - generic [ref=f1e150]: £0.00
+                  - generic [ref=f1e151]:
+                    - generic [ref=f1e152]: Total
+                    - generic [ref=f1e153]: £0.00
+          - text:    
+  - text:      北
+```

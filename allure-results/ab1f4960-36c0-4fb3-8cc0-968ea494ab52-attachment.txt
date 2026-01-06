@@ -1,0 +1,1 @@
+C:\Automation\AutomationNewSVN\AutoMisc\visualregression\tests\OrderCaptureTestsVisualRegressionNewUI.spec.ts-snapshots\OrderCapture\HeaderTexts\OrderCapturePageHeader-chromium-win32.txt does not match, writing actual.

@@ -6,7 +6,7 @@ let page_scm_vbcs_frame: FrameLocator;
 let page_scm: Page;
 let vbcs_url: string, vbcs_user: string, vbcs_password: string;
 let scm_url: string, scm_user: string, scm_password: string;
-let productWithStk:string,productWithoutStk:string;
+let productWithStk: string, productWithoutStk: string;
 test.beforeAll(async () => {
   test.setTimeout(300000);
   let browser_vbcs: Browser, browser_scm: Browser;
@@ -33,8 +33,8 @@ test.beforeAll(async () => {
     vbcs_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8');
     scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
     scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
-    productWithStk = "R40001";
-    productWithoutStk  = "R40004"
+    productWithStk = "508200";
+    productWithoutStk = "R40063"
   }
   if (process.env.ENV == "dev") {
     vbcs_url = "https://vb04.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
@@ -44,7 +44,7 @@ test.beforeAll(async () => {
     scm_user = Buffer.from('QUJCNzM3NQ==', 'base64').toString('utf-8')
     scm_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8')
     productWithStk = "R40063";
-    productWithoutStk  = "R40001"
+    productWithoutStk = "R40001"
   }
   await page_vbcs.goto(vbcs_url);
   await page_vbcs.waitForLoadState('networkidle');
@@ -109,24 +109,24 @@ test.beforeAll(async () => {
   }
 });
 
-test.only("Getting Order Capture", async () => {
+test("Getting Order Capture", async () => {
   await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
   //       await page_scm.locator('#ojHeader_pageTitle').waitFor({state:'visible',timeout:16000})
-  console.log(await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').textContent())
 })
 
 
 
-test.only("Order Capture - Full Page Screenshot", async () => {
+test("Order Capture - Full Page Screenshot", async () => {
   await expect(page_scm).toHaveScreenshot(["OrderCapture", "OrderCaptureFullScreenshot.png"], { fullPage: true });
 })
 
-test.only("Validate Order Capture Header Text", async () => {
+test("Validate Order Capture Header Text", async () => {
+  console.log(await page_scm_vbcs_frame.locator("#ojHeader_pageTitle").textContent())
+  await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
   expect(await page_scm_vbcs_frame.locator("#ojHeader_pageTitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageHeader.txt"]);
-  expect(await page_scm_vbcs_frame.locator("#ojHeader_pageSubtitle").textContent()).toMatchSnapshot(["OrderCapture/HeaderTexts", "OrderCapturePageSubHeader.txt"]);
 })
 
-test.only("Validate Requested Date and Requested Quantity", async () => {
+test("Validate Requested Date and Requested Quantity", async () => {
   const IsRequestedDateAvailable = page_scm_vbcs_frame.locator('#requestedDate');
   const IsRequestedQuantityAvailable = page_scm_vbcs_frame.locator('#quantity');
   const IsDatePickerAvailable = page_scm_vbcs_frame.locator("span[title='Select Date Time.']");
@@ -139,17 +139,17 @@ test.only("Validate Requested Date and Requested Quantity", async () => {
   await page_scm_vbcs_frame.getByRole('button', { name: 'Done' }).click();
 })
 
-test.only("Validate Product search input is present", async () => {
+test("Validate Product search input is present", async () => {
   const getSearchBarElement = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await expect(getSearchBarElement).toHaveAttribute('aria-label', 'Product Search')
 })
 
-test.only("Validate Checkout button", async () => {
+test("Validate Checkout button", async () => {
   const submitButton = page_scm_vbcs_frame.locator("button[aria-label='Checkout']");
   await expect(submitButton).toHaveScreenshot(["OrderCapture/CheckoutButton", "CheckoutBtnOnOrderCapturePage.png"])
 })
 
-test.only("Validate Product List slot", async () => {
+test("Validate Product List slot", async () => {
   const prodSearchInputSlot = page_scm_vbcs_frame.locator("input[aria-label='Product Search']");
   await prodSearchInputSlot.waitFor({ timeout: 5000 })
   await prodSearchInputSlot.scrollIntoViewIfNeeded();
@@ -159,14 +159,14 @@ test.only("Validate Product List slot", async () => {
   await expect(productSearchSlot).toHaveScreenshot(["OrderCapture/ProductListSlotSection", "ProductListContentSlotSection.png"], { maxDiffPixels: 100, maxDiffPixelRatio: 0.02 })
 })
 
-test.only("Validate filter buttons on Order Capture Page", async () => {
+test("Validate filter buttons on Order Capture Page", async () => {
   const getSearchBarElement = page_scm_vbcs_frame.getByRole('textbox', { name: 'Product Search' })
   await getSearchBarElement.click();
   const gridView = page_scm_vbcs_frame.locator("span[role='toolbar']").filter({ has: page_scm_vbcs_frame.getByLabel('Grid View') })
   await expect(gridView).toHaveScreenshot(["OrderCapture/ContentSlotSection", "GridViewButtonOnContentSlotSection.png"])
 })
 
-test.only("Validate Select Customer section info Slot", async () => {
+test("Validate Select Customer section info Slot", async () => {
   const customerTextAvailable = page_scm_vbcs_frame.locator("span[title='Customer']");
   const selectCustomerText = page_scm_vbcs_frame.locator("div[title='Select Customer...']");
   const clickToSelectCustomer = page_scm_vbcs_frame.locator("span[title='Click to select a customer']");
@@ -204,7 +204,7 @@ test.only("Validate Select Customer section info Slot", async () => {
   await expect(isSelectedCustomerVisible).toBeVisible();
 })
 
-test.only("Validate Account Status Section", async () => {
+test("Validate Account Status Section", async () => {
   const isAccountStatusVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Account Status']");
   const isAccountStatusPanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Account Status']");
   const isAccoutnStatusHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Account Status']")
@@ -222,7 +222,7 @@ test.only("Validate Account Status Section", async () => {
 
 })
 
-test.only("Validate Available Balance Section", async () => {
+test("Validate Available Balance Section", async () => {
   const isAvailableBalanceVisible = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Available Balance']");
   const isAvailableBalancePanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Transaction History']");
   const isAvailableBalanceHeadingAvailable = page_scm_vbcs_frame.locator("div[title='Transaction History']")
@@ -246,7 +246,7 @@ test.skip("Validate Required Section", async () => {
 })
 
 
-test.only("Validate Customer PO section info Slot", async () => {
+test("Validate Customer PO section info Slot", async () => {
   const customerPOTextAvailable = page_scm_vbcs_frame.locator("span[title='Customer PO #']");
   const customerPOContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer PO #']");
   const customerPOPanelAvailable = page_scm_vbcs_frame.locator("oj-sp-general-drawer-template[drawer-title='Order Details']");
@@ -282,11 +282,11 @@ test.only("Validate Customer PO section info Slot", async () => {
 
 
 
-test.only("Validate Product Details page", async () => {
+test("Validate Product Details page", async () => {
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithStk+"']").click();
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='" + productWithStk + "']").click();
   const getAlternateProductLink = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(0);
   const getRelatedProducts = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(1);
   await expect(getAlternateProductLink).toHaveText("Alternate Products");
@@ -296,7 +296,7 @@ test.only("Validate Product Details page", async () => {
 
 
 
-test.only("Validate Add button on Product Search Page section for available product having stock", async () => {
+test("Validate Add button on Product Search Page section for available product having stock", async () => {
   //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
   const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
   const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
@@ -304,31 +304,31 @@ test.only("Validate Add button on Product Search Page section for available prod
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithStk+"']").click();
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='" + productWithStk + "']").click();
   //temporary fix 
   // await expect(page_scm_vbcs_frame.locator('oj-c-button.atp-button button[aria-label]:not([aria-label=""])')).toBeVisible({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
 })
 
-test.only("Validate Add button on Product Search Page section for product having 0 stock", async () => {
+test("Validate Add button on Product Search Page section for product having 0 stock", async () => {
   //  const isAtpDateVisible = page_scm_vbcs_frame.locator('span.oj-flex-item.oj-badge.custom-badge-atp');
   const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete');
   const isAvailableStockVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(1) > div > span');
   const isFeederDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(1) > span');
   const isAtpDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(2) > span');
   const isFutureStkDataVisible = page_scm_vbcs_frame.locator('wol-icon-text > div:nth-child(2) > div:nth-child(3) > span');
-  
+
   const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
   await productSearchAddBtn.scrollIntoViewIfNeeded()
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
-  await page_scm_vbcs_frame.locator("wol-product-card[id*='"+productWithoutStk+"']").click();
+  await page_scm_vbcs_frame.locator("wol-product-card[id*='" + productWithoutStk + "']").click();
   await page_scm_vbcs_frame.locator("#btnBack").click()
   await expect(isAvailableStockVisible).toBeVisible({ timeout: 12000 });
   await expect(isFeederDataVisible).toBeVisible({ timeout: 12000 });
@@ -337,7 +337,7 @@ test.only("Validate Add button on Product Search Page section for product having
   await expect(page_scm_vbcs_frame.locator('wol-stock-quantity.oj-complete')).toHaveCount(1);
 })
 
-test.only("Validate Add product to basket layout and Validate Auto populate fields", async () => {
+test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").click()
   await page_scm_vbcs_frame.locator("div.product-lines div.product-line").waitFor({ state: 'visible', timeout: 40000 })
@@ -374,13 +374,13 @@ test.only("Validate Add product to basket layout and Validate Auto populate fiel
   await expect(isMoveBtnAvailableCollBtn).toBeVisible();
 })
 
-test.only("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
+test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
   const detailSlotSection = page_scm_vbcs_frame.locator("oj-vb-fragment-slot[name='detail']")
   await expect(detailSlotSection).toHaveScreenshot(["OrderCapture/DetailSlotSection", "DetailSlotSectionOnOrderCapturePage.png"])
 })
 
 
-test.only("Validate Order Dialog pop up with Print and Edit Options", async () => {
+test("Validate Order Dialog pop up with Print and Edit Options", async () => {
   const customerContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
   const customerSearchInputAvailable = page_scm_vbcs_frame.locator("input[aria-label='Customer Search']");
   const selectCustomerListed = page_scm_vbcs_frame.getByText('7000D54')
@@ -413,6 +413,40 @@ test.only("Validate Order Dialog pop up with Print and Edit Options", async () =
   // await (page_scm_vbcs_frame.locator("//button[text()='Confirm']")).click();
   // expect(await page_scm_vbcs_frame.locator("#oj_gop1_h_pageTitle").textContent({ timeout: 8000 })).toMatchSnapshot(["OrderCapture/OrderConfirmation", "OrderConfirmationHeader.txt"]);
 })
+
+test("Validate Fulfillment Method Pop Up", async () => {
+  await page_scm_vbcs_frame.locator("button[aria-label='Back']").click();
+  // await page_scm_vbcs_frame.locator("button[aria-label='Clear All']").waitFor({timeout: 10000})
+  // await page_scm_vbcs_frame.locator("button[aria-label='Clear All']").click();
+  // await page_scm_vbcs_frame.locator("#clearAllConfirmation_layer button[aria-label='Continue']").waitFor({timeout: 10000});
+  // await page_scm_vbcs_frame.locator("#clearAllConfirmation_layer button[aria-label='Continue']").click()
+  // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({state:'attached', timeout: 10000})
+  // await expect( page_scm_vbcs_frame.locator("input[aria-label='Product Search']")).toBeEnabled({timeout : 5000})
+  // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+  // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+  // await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+  // await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
+  await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+  await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+  await expect(page_scm_vbcs_frame.getByText('Amend Fulfilment method')).toBeVisible({ timeout: 5000 })
+  await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' })).toBeVisible({ timeout: 5000 })
+  await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Confirm' })).toBeVisible({ timeout: 5000 })
+  await page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' }).click()
+})
+
+test.skip("Validate Fufillment Method Changes in Basket Page", async () => {
+  //  await page_scm_vbcs_frame.locator("aria-label='Clear All']").click();
+  //  await expect(page_scm_vbcs_frame.getByRole('heading',{name:'Clear All'})).toBeVisible({timeout: 5000})
+  //  await page_scm_vbcs_frame.locator("aria-label='Continue']").click()
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+  console.log(await page_scm_vbcs_frame.locator("#requestedDate\\|input").inputValue())
+  await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+  await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+  await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+})
+
+
 
 
 

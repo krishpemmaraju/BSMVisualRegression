@@ -1,0 +1,114 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - link "Notifications (0 unread)" [ref=e80] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e81]
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e98] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e102]
+      - iframe [active] [ref=e142]:
+        - generic [ref=f1e11]:
+          - generic [ref=f1e13]:
+            - generic:
+              - banner:
+                - generic [ref=f1e16]:
+                  - button [ref=f1e20] [cursor=pointer]:
+                    - generic [ref=f1e23]: 凌
+                  - generic [ref=f1e25]:
+                    - heading [level=1] [ref=f1e27]: Checkout
+                    - generic [ref=f1e28]: 1BL|008422
+                  - toolbar [ref=f1e30]:
+                    - button [ref=f1e32] [cursor=pointer]:
+                      - generic [ref=f1e35]: 
+                    - button [active] [ref=f1e37] [cursor=pointer]: Create Shipment
+          - generic [ref=f1e41]:
+            - generic [ref=f1e45]:
+              - generic [ref=f1e46]:
+                - generic [ref=f1e47]: SMITH AND BYFORD LTD - 7060F14
+                - generic [ref=f1e48]: ST GEORGES HOUSE, CHEAM, SM2 7AT
+              - button [ref=f1e51] [cursor=pointer]:
+                - generic [ref=f1e54]: 
+            - generic [ref=f1e59]:
+              - generic [ref=f1e60]:
+                - generic [ref=f1e61]:
+                  - text: Paying on account -
+                  - generic [ref=f1e62]: 7060F14
+                - generic [ref=f1e63]: ST GEORGES HOUSE, CHEAM, SM2 7AT
+              - button [ref=f1e66] [cursor=pointer]:
+                - generic [ref=f1e69]: 
+            - generic [ref=f1e76]:
+              - listitem [ref=f1e81]:
+                - generic [ref=f1e82]:
+                  - generic [ref=f1e83] [cursor=pointer]:
+                    - generic [ref=f1e84]:
+                      - generic [ref=f1e86]:
+                        - text: Collect from 1BL
+                        - generic [ref=f1e87]: 08 Jan
+                      - generic [ref=f1e89]: 1 items • £3.21
+                    - generic [ref=f1e90]:
+                      - button [ref=f1e92]: Delete
+                      - button [ref=f1e94]: Move
+                  - generic [ref=f1e98]:
+                    - generic [ref=f1e99]:
+                      - generic [ref=f1e100]:
+                        - generic [ref=f1e101] [cursor=pointer]: R40001
+                        - button [ref=f1e104] [cursor=pointer]:
+                          - generic [ref=f1e107]: 
+                      - generic [ref=f1e108]: XPRESS CU S1 STRAIGHT COUPLING 15
+                    - generic [ref=f1e109]:
+                      - generic [ref=f1e110]:
+                        - generic [ref=f1e112]:
+                          - button [disabled] [ref=f1e116]:
+                            - img [ref=f1e119]
+                          - spinbutton [ref=f1e122]: "1"
+                          - button [ref=f1e126] [cursor=pointer]:
+                            - img [ref=f1e129]
+                        - generic [ref=f1e131]: of 1
+                      - generic [ref=f1e132]:
+                        - generic [ref=f1e133]: £3.21
+                        - generic [ref=f1e134]: £3.21
+                      - generic [ref=f1e135]:
+                        - button [ref=f1e137] [cursor=pointer]:
+                          - generic [ref=f1e140]: 
+                        - button [ref=f1e142] [cursor=pointer]:
+                          - generic [ref=f1e145]: 
+                        - button [ref=f1e147] [cursor=pointer]:
+                          - generic [ref=f1e150]: 
+              - generic [ref=f1e155]:
+                - generic [ref=f1e156]:
+                  - generic [ref=f1e157]: Sub Total
+                  - generic [ref=f1e158]: £3.21
+                - generic [ref=f1e159]:
+                  - generic [ref=f1e160]: VAT
+                  - generic [ref=f1e161]: £0.00
+                - generic [ref=f1e162]:
+                  - generic [ref=f1e163]: Total
+                  - generic [ref=f1e164]: £3.21
+```

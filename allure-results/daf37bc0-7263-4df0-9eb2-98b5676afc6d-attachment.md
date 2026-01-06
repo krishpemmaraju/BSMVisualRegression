@@ -1,0 +1,111 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+    - alert "Message category warning" [ref=e6]:
+      - img [ref=e8]: 
+      - generic [ref=e10]: Cloned on June 2025
+    - text:  
+    - generic [ref=e15]:
+      - generic [ref=e19]:
+        - generic [ref=e24]:
+          - text:                                                                                                                                                                                               
+          - button "Navigator" [ref=e26] [cursor=pointer]:
+            - img "Navigator" [ref=e27]: 
+        - link "Home" [ref=e29] [cursor=pointer]:
+          - /url: "#"
+          - img "Home" [ref=e30]
+        - generic [ref=e31]:
+          - link "Home" [ref=e32] [cursor=pointer]:
+            - /url: "#"
+            - img "Home" [ref=e33]: 
+          - link "Notifications" [ref=e38] [cursor=pointer]:
+            - /url: "#"
+            - img "Notifications" [ref=e39]: 
+          - link "Settings and Actions" [ref=e44] [cursor=pointer]:
+            - /url: "#"
+            - img "Test Auto" [ref=e48]:
+              - generic [ref=e50]: TA
+      - iframe [active] [ref=e52]:
+        - generic [ref=f1e11]:
+          - generic [ref=f1e13]:
+            - generic:
+              - banner:
+                - generic [ref=f1e16]:
+                  - button [ref=f1e20] [cursor=pointer]:
+                    - generic [ref=f1e23]: 凌
+                  - generic [ref=f1e25]:
+                    - heading [level=1] [ref=f1e27]: Checkout
+                    - generic [ref=f1e28]: 1BL|006311
+                  - toolbar [ref=f1e30]:
+                    - button [ref=f1e32] [cursor=pointer]:
+                      - generic [ref=f1e35]: 
+                    - button [active] [ref=f1e37] [cursor=pointer]: Create Shipment
+          - generic [ref=f1e41]:
+            - generic [ref=f1e45]:
+              - generic [ref=f1e46]:
+                - generic [ref=f1e47]: SMITH AND BYFORD LTD - 7060F14
+                - generic [ref=f1e48]: ST GEORGES HOUSE, CHEAM, SM2 7AT
+              - button [ref=f1e51] [cursor=pointer]:
+                - generic [ref=f1e54]: 
+            - generic [ref=f1e59]:
+              - generic [ref=f1e60]:
+                - generic [ref=f1e61]:
+                  - text: Paying on account -
+                  - generic [ref=f1e62]: 7060F14
+                - generic [ref=f1e63]: ST GEORGES HOUSE, CHEAM, SM2 7AT
+              - button [ref=f1e66] [cursor=pointer]:
+                - generic [ref=f1e69]: 
+            - generic [ref=f1e76]:
+              - listitem [ref=f1e81]:
+                - generic [ref=f1e82]:
+                  - generic [ref=f1e83] [cursor=pointer]:
+                    - generic [ref=f1e84]:
+                      - generic [ref=f1e86]:
+                        - text: Collect from 1BL
+                        - generic [ref=f1e87]: 07 Jan
+                      - generic [ref=f1e89]: 1 items • £2.92
+                    - generic [ref=f1e90]:
+                      - button [ref=f1e92]: Delete
+                      - button [ref=f1e94]: Move
+                  - generic [ref=f1e98]:
+                    - generic [ref=f1e99]:
+                      - generic [ref=f1e100]:
+                        - generic [ref=f1e101] [cursor=pointer]: R40063
+                        - button [ref=f1e104] [cursor=pointer]:
+                          - generic [ref=f1e107]: 
+                      - generic [ref=f1e108]: XPRESS CU S12 90D ELBOW 22
+                    - generic [ref=f1e109]:
+                      - generic [ref=f1e110]:
+                        - generic [ref=f1e112]:
+                          - button [disabled] [ref=f1e116]:
+                            - img [ref=f1e119]
+                          - spinbutton [ref=f1e122]: "1"
+                          - button [ref=f1e126] [cursor=pointer]:
+                            - img [ref=f1e129]
+                        - generic [ref=f1e131]: of 1
+                      - generic [ref=f1e132]:
+                        - generic [ref=f1e133]: £2.92
+                        - generic [ref=f1e134]: £2.92
+                      - generic [ref=f1e135]:
+                        - button [ref=f1e137] [cursor=pointer]:
+                          - generic [ref=f1e140]: 
+                        - button [ref=f1e142] [cursor=pointer]:
+                          - generic [ref=f1e145]: 
+                        - button [ref=f1e147] [cursor=pointer]:
+                          - generic [ref=f1e150]: 
+              - generic [ref=f1e155]:
+                - generic [ref=f1e156]:
+                  - generic [ref=f1e157]: Sub Total
+                  - generic [ref=f1e158]: £2.92
+                - generic [ref=f1e159]:
+                  - generic [ref=f1e160]: VAT
+                  - generic [ref=f1e161]: £0.00
+                - generic [ref=f1e162]:
+                  - generic [ref=f1e163]: Total
+                  - generic [ref=f1e164]: £2.92
+  - text:      北
+```
