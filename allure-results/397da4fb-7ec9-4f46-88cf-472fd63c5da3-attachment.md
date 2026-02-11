@@ -1,0 +1,68 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - generic:
+        - banner "Order Capture":
+          - generic [ref=e16]:
+            - button "Back" [ref=e20] [cursor=pointer]:
+              - generic [ref=e23]: 凌
+            - heading "Order Capture" [level=1] [ref=e27]
+            - toolbar "Header" [ref=e29]:
+              - button "More Actions" [ref=e31] [cursor=pointer]:
+                - generic [ref=e34]: 
+              - button "Checkout" [disabled] [ref=e36]
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e44] [cursor=pointer]:
+          - generic "Customer" [ref=e48]
+          - generic "Select Customer..." [ref=e52]
+          - generic "Click to select a customer" [ref=e54]
+        - generic [ref=e56] [cursor=pointer]:
+          - 'generic "Customer PO #" [ref=e60]'
+          - generic "--" [ref=e64]
+      - generic [ref=e65]:
+        - generic [ref=e66]: Order Total (exc VAT)
+        - generic [ref=e67]: £0.00
+    - generic [ref=e68]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic "Search by Product Code, Description, Supplier Part Code or Barcode" [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e87]: Product Search
+              - textbox "Product Search" [active] [ref=e88]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+          - generic "Requested Quantity" [ref=e90]:
+            - generic [ref=e92]:
+              - generic [ref=e93]: Quantity
+              - textbox "Quantity" [ref=e94]: "1"
+          - generic [ref=e96]:
+            - text: 
+            - generic [ref=e97]:
+              - generic [ref=e98]:
+                - generic [ref=e101]: Requested Date
+                - combobox "Requested Date" [ref=e102]: 04/02/2026
+              - generic [ref=e103]:
+                - generic "Select Date Time." [ref=e104] [cursor=pointer]: 
+                - generic [ref=e105]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+          - toolbar [ref=e108]:
+            - generic [ref=e110] [cursor=pointer]:
+              - generic [ref=e113]: 
+              - radio " Grid View Large" [ref=e115]
+              - generic [ref=e116]: Grid View Large
+            - generic [ref=e118] [cursor=pointer]:
+              - generic [ref=e121]: 
+              - radio " Grid View" [ref=e123]
+              - generic [ref=e124]: Grid View
+            - generic [ref=e126] [cursor=pointer]:
+              - generic [ref=e129]: 
+              - radio " List" [checked] [ref=e131]
+              - generic [ref=e132]: List
+        - grid [ref=e134]:
+          - row "No items to display" [ref=e135]:
+            - gridcell "No items to display" [ref=e136]
+      - generic [ref=e150]: Your basket is empty
+  - text:     
+```

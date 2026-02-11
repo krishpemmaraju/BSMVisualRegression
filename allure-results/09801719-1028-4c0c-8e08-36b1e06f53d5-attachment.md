@@ -1,0 +1,105 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - link "Notifications (0 unread)" [ref=e80] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e81]
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e98] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e102]
+      - iframe [ref=e142]:
+        - generic [active] [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner "Order Capture":
+                  - generic [ref=f1e16]:
+                    - button "Back" [ref=f1e20] [cursor=pointer]:
+                      - generic [ref=f1e23]: 凌
+                    - heading "Order Capture" [level=1] [ref=f1e27]
+                    - toolbar "Header" [ref=f1e29]:
+                      - button "Checkout" [disabled] [ref=f1e31]
+            - generic [ref=f1e36]:
+              - generic [ref=f1e38] [cursor=pointer]:
+                - generic "Customer" [ref=f1e42]
+                - generic "Select Customer..." [ref=f1e46]
+                - generic "Click to select a customer" [ref=f1e48]
+              - generic [ref=f1e50] [cursor=pointer]:
+                - 'generic "Customer PO #" [ref=f1e54]'
+                - generic "--" [ref=f1e58]
+            - generic [ref=f1e59]:
+              - generic [ref=f1e70]:
+                - generic [ref=f1e71]:
+                  - generic "Product Search" [ref=f1e73]:
+                    - generic [ref=f1e74]: 
+                    - textbox "Product Search" [ref=f1e76]:
+                      - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                  - generic [ref=f1e78]:
+                    - text: 
+                    - generic [ref=f1e79]:
+                      - generic [ref=f1e80]:
+                        - generic [ref=f1e83]: Requested Date
+                        - combobox "Requested Date" [ref=f1e84]: 23/12/2025
+                      - generic [ref=f1e85]:
+                        - generic "Select Date Time." [ref=f1e86] [cursor=pointer]: 
+                        - generic [ref=f1e87]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                  - generic "Requested Quantity" [ref=f1e89]:
+                    - generic [ref=f1e91]:
+                      - generic [ref=f1e92]: Quantity
+                      - textbox "Quantity" [ref=f1e93]: "1"
+                  - toolbar [ref=f1e96]:
+                    - generic [ref=f1e98] [cursor=pointer]:
+                      - generic [ref=f1e101]: 
+                      - radio " Grid View Large" [ref=f1e103]
+                      - generic [ref=f1e104]: Grid View Large
+                    - generic [ref=f1e106] [cursor=pointer]:
+                      - generic [ref=f1e109]: 
+                      - radio " Grid View" [ref=f1e111]
+                      - generic [ref=f1e112]: Grid View
+                    - generic [ref=f1e114] [cursor=pointer]:
+                      - generic [ref=f1e117]: 
+                      - radio " List" [checked] [ref=f1e119]
+                      - generic [ref=f1e120]: List
+                - grid [ref=f1e123]:
+                  - row "No items to display" [ref=f1e124]:
+                    - gridcell "No items to display" [ref=f1e125]
+              - generic [ref=f1e134]:
+                - generic [ref=f1e139]: Your basket is empty
+                - generic [ref=f1e144]:
+                  - generic [ref=f1e145]:
+                    - generic [ref=f1e146]: Sub Total
+                    - generic [ref=f1e147]: £0.00
+                  - generic [ref=f1e148]:
+                    - generic [ref=f1e149]: VAT
+                    - generic [ref=f1e150]: £0.00
+                  - generic [ref=f1e151]:
+                    - generic [ref=f1e152]: Total
+                    - generic [ref=f1e153]: £0.00
+          - text:    
+```

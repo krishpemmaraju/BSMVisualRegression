@@ -1,0 +1,126 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - generic [ref=e79]:
+            - link "Notifications (1 unread)" [ref=e80] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e81]
+            - generic "Notifications (1 unread)" [ref=e90] [cursor=pointer]: "1"
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e99] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e103]
+      - iframe [active] [ref=e143]:
+        - generic [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner "Order Capture":
+                  - generic [ref=f1e14]:
+                    - generic [ref=f1e16]:
+                      - button "Back" [ref=f1e20] [cursor=pointer]:
+                        - generic [ref=f1e23]: 凌
+                      - generic [ref=f1e25]:
+                        - generic [ref=f1e26]:
+                          - heading "Order Capture" [level=1] [ref=f1e27]
+                          - generic "DOO_DRAFT" [ref=f1e29]
+                        - generic "1BL|008249" [ref=f1e30]
+                      - generic [ref=f1e31]:
+                        - toolbar "Header" [ref=f1e32]:
+                          - button "More Actions" [ref=f1e34] [cursor=pointer]:
+                            - generic [ref=f1e37]: 
+                          - button "Checkout" [disabled] [ref=f1e39]
+                        - generic [ref=f1e44]: Updated just now
+                    - generic "Product Search" [ref=f1e47]:
+                      - generic [ref=f1e48]: 
+                      - textbox "Product Search" [ref=f1e50]:
+                        - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                        - text: R40063
+            - generic [ref=f1e55]:
+              - generic [ref=f1e57] [cursor=pointer]:
+                - generic "Customer" [ref=f1e61]
+                - generic "PECKHAM - 1BL CASH ACCOUNT" [ref=f1e65]
+                - generic "7135U80 (Cash)" [ref=f1e67]
+              - generic [ref=f1e69] [cursor=pointer]:
+                - 'generic "Customer PO #" [ref=f1e73]'
+                - generic "--" [ref=f1e77]
+            - generic [ref=f1e78]:
+              - generic [ref=f1e89]:
+                - generic [ref=f1e90]:
+                  - generic [ref=f1e91]:
+                    - generic [ref=f1e92]:
+                      - text: 
+                      - generic [ref=f1e93]:
+                        - generic [ref=f1e94]:
+                          - generic [ref=f1e97]: Requested Date
+                          - combobox "Requested Date" [ref=f1e98]: 19/12/2025
+                        - generic [ref=f1e99]:
+                          - generic "Select Date Time." [ref=f1e100] [cursor=pointer]: 
+                          - generic [ref=f1e101]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                    - generic [ref=f1e104]:
+                      - generic [ref=f1e105]: Requested Quantity
+                      - textbox "Requested Quantity" [ref=f1e106]: "1"
+                  - toolbar [ref=f1e108]:
+                    - generic [ref=f1e110] [cursor=pointer]:
+                      - generic [ref=f1e113]: 
+                      - radio " Grid View Large" [ref=f1e115]
+                      - generic [ref=f1e116]: Grid View Large
+                    - generic [ref=f1e118] [cursor=pointer]:
+                      - generic [ref=f1e121]: 
+                      - radio " Grid View" [ref=f1e123]
+                      - generic [ref=f1e124]: Grid View
+                    - generic [ref=f1e126] [cursor=pointer]:
+                      - generic [ref=f1e129]: 
+                      - radio " List" [checked] [ref=f1e131]
+                      - generic [ref=f1e132]: List
+                - grid [ref=f1e135]:
+                  - row "R40063 / 38290 XPRESS CU S12 90D ELBOW 22 993 available £3.15 Add" [ref=f1e136]:
+                    - gridcell "R40063 / 38290 XPRESS CU S12 90D ELBOW 22 993 available £3.15 Add" [ref=f1e138]:
+                      - generic [ref=f1e142] [cursor=pointer]:
+                        - generic [ref=f1e147]:
+                          - generic [ref=f1e149]: R40063 / 38290
+                          - generic "XPRESS CU S12 90D ELBOW 22" [ref=f1e151]:
+                            - generic [ref=f1e152]: XPRESS CU S12 90D ELBOW 22
+                        - generic [ref=f1e158]: 993 available
+                        - generic [ref=f1e160]:
+                          - generic [ref=f1e162]: £3.15
+                          - button "Add" [active] [ref=f1e165]
+              - generic [ref=f1e174]:
+                - generic [ref=f1e179]: Your basket is empty
+                - generic [ref=f1e184]:
+                  - generic [ref=f1e185]:
+                    - generic [ref=f1e186]: Sub Total
+                    - generic [ref=f1e187]: £0.00
+                  - generic [ref=f1e188]:
+                    - generic [ref=f1e189]: VAT
+                    - generic [ref=f1e190]: £0.00
+                  - generic [ref=f1e191]:
+                    - generic [ref=f1e192]: Total
+                    - generic [ref=f1e193]: £0.00
+          - text:    
+```

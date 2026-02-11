@@ -1,0 +1,206 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - link "Notifications (0 unread)" [ref=e80] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e81]
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e98] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e102]
+      - iframe [active] [ref=e142]:
+        - generic [active] [ref=f1e1]:
+          - generic [ref=f1e11]:
+            - generic [ref=f1e13]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e16]:
+                    - button [ref=f1e20] [cursor=pointer]:
+                      - generic [ref=f1e23]: 凌
+                    - generic [ref=f1e25]:
+                      - generic [ref=f1e26]:
+                        - heading [level=1] [ref=f1e27]: Order Capture
+                        - generic [ref=f1e29]: DOO_DRAFT
+                      - generic [ref=f1e30]: 1BL|008412
+                    - generic [ref=f1e31]:
+                      - toolbar [ref=f1e32]:
+                        - button [ref=f1e34] [cursor=pointer]:
+                          - generic [ref=f1e37]: 
+                        - button [ref=f1e39] [cursor=pointer]: Checkout
+                      - generic [ref=f1e44]: Updated just now
+            - generic [ref=f1e49]:
+              - generic [ref=f1e51] [cursor=pointer]:
+                - generic [ref=f1e55]: Customer
+                - generic [ref=f1e59]: SMITH AND BYFORD LTD
+                - generic [ref=f1e61]: 7060F14 (Credit)
+              - generic [ref=f1e62]:
+                - generic [ref=f1e64] [cursor=pointer]:
+                  - generic [ref=f1e66]:
+                    - generic [ref=f1e68]: Account Status
+                    - generic [ref=f1e71]: OK
+                  - generic [ref=f1e75]: OK to Trade
+                - generic [ref=f1e77] [cursor=pointer]:
+                  - generic [ref=f1e81]: Available Balance
+                  - generic [ref=f1e85]: £648,894.35
+                  - generic [ref=f1e87]: £3,000,000 Credit Limit
+              - generic [ref=f1e89] [cursor=pointer]:
+                - generic [ref=f1e93]: "Customer PO #"
+                - generic [ref=f1e97]: "--"
+            - generic [ref=f1e98]:
+              - generic [ref=f1e109]:
+                - generic [ref=f1e110]:
+                  - generic [ref=f1e112]:
+                    - generic [ref=f1e113]: 
+                    - textbox [ref=f1e115]:
+                      - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                      - text: R40063
+                  - generic [ref=f1e117]:
+                    - text: 
+                    - generic [ref=f1e118]:
+                      - generic [ref=f1e119]:
+                        - generic [ref=f1e122]: Requested Date
+                        - combobox [ref=f1e123]: 05/01/2026
+                      - generic [ref=f1e124]:
+                        - generic [ref=f1e125] [cursor=pointer]: 
+                        - generic [ref=f1e126]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                  - generic [ref=f1e130]:
+                    - generic [ref=f1e131]: Quantity
+                    - textbox [ref=f1e132]: "1"
+                  - toolbar [ref=f1e135]:
+                    - generic [ref=f1e137] [cursor=pointer]:
+                      - generic [ref=f1e140]: 
+                      - radio [ref=f1e142]
+                      - generic [ref=f1e143]: Grid View Large
+                    - generic [ref=f1e145] [cursor=pointer]:
+                      - generic [ref=f1e148]: 
+                      - radio [ref=f1e150]
+                      - generic [ref=f1e151]: Grid View
+                    - generic [ref=f1e153] [cursor=pointer]:
+                      - generic [ref=f1e156]: 
+                      - radio [checked] [ref=f1e158]
+                      - generic [ref=f1e159]: List
+                - grid [ref=f1e162]:
+                  - row [ref=f1e163]:
+                    - gridcell [ref=f1e165]:
+                      - generic [ref=f1e169] [cursor=pointer]:
+                        - generic [ref=f1e174]:
+                          - generic [ref=f1e176]: R40063 / 38290
+                          - generic [ref=f1e179]: XPRESS CU S12 90D ELBOW 22
+                        - generic [ref=f1e185]: 993 available
+                        - generic [ref=f1e187]:
+                          - generic [ref=f1e189]: £5.83
+                          - button [disabled] [ref=f1e192]: Add
+              - generic [ref=f1e201]:
+                - generic [ref=f1e205]:
+                  - listitem [ref=f1e206]:
+                    - generic [ref=f1e207]:
+                      - generic [ref=f1e208] [cursor=pointer]:
+                        - generic [ref=f1e209]:
+                          - generic [ref=f1e211]:
+                            - text: Collect from 1BL
+                            - generic [ref=f1e212]: Ready Now
+                          - generic [ref=f1e214]: 1 items • £5.83
+                        - generic [ref=f1e215]:
+                          - button [ref=f1e217]: Delete
+                          - button [ref=f1e219]: Move
+                      - generic [ref=f1e223]:
+                        - generic [ref=f1e224]:
+                          - generic [ref=f1e225]:
+                            - generic [ref=f1e226] [cursor=pointer]: R40063
+                            - generic [ref=f1e229] [cursor=pointer]: 01 Jan
+                          - generic [ref=f1e230]: XPRESS CU S12 90D ELBOW 22
+                        - generic [ref=f1e231]:
+                          - generic [ref=f1e232]:
+                            - generic [ref=f1e234]:
+                              - button [disabled] [ref=f1e238]:
+                                - img [ref=f1e241]
+                              - spinbutton [ref=f1e244]: "1"
+                              - button [ref=f1e248] [cursor=pointer]:
+                                - img [ref=f1e251]
+                            - generic [ref=f1e253]: of 1
+                          - generic [ref=f1e254]:
+                            - generic [ref=f1e255]: £5.83
+                            - generic [ref=f1e256]: £5.83
+                          - generic [ref=f1e257]:
+                            - button [ref=f1e259] [cursor=pointer]:
+                              - generic [ref=f1e262]: 
+                            - button [ref=f1e264] [cursor=pointer]:
+                              - generic [ref=f1e267]: 
+                            - button [ref=f1e269] [cursor=pointer]:
+                              - generic [ref=f1e272]: 
+                  - listitem [ref=f1e273]:
+                    - generic [ref=f1e274]:
+                      - generic [ref=f1e275] [cursor=pointer]:
+                        - generic [ref=f1e276]:
+                          - generic [ref=f1e278]:
+                            - text: Collect from 1BL
+                            - generic [ref=f1e279]: 08 Jan
+                          - generic [ref=f1e281]: 1 items • £3.21
+                        - generic [ref=f1e282]:
+                          - button [ref=f1e284]: Delete
+                          - button [ref=f1e286]: Move
+                      - generic [ref=f1e290]:
+                        - generic [ref=f1e291]:
+                          - generic [ref=f1e292]:
+                            - generic [ref=f1e293] [cursor=pointer]: R40001
+                            - button [ref=f1e296] [cursor=pointer]:
+                              - generic [ref=f1e299]: 
+                          - generic [ref=f1e300]: XPRESS CU S1 STRAIGHT COUPLING 15
+                        - generic [ref=f1e301]:
+                          - generic [ref=f1e302]:
+                            - generic [ref=f1e304]:
+                              - button [disabled] [ref=f1e308]:
+                                - img [ref=f1e311]
+                              - spinbutton [ref=f1e314]: "1"
+                              - button [ref=f1e318] [cursor=pointer]:
+                                - img [ref=f1e321]
+                            - generic [ref=f1e323]: of 1
+                          - generic [ref=f1e324]:
+                            - generic [ref=f1e325]: £3.21
+                            - generic [ref=f1e326]: £3.21
+                          - generic [ref=f1e327]:
+                            - button [ref=f1e329] [cursor=pointer]:
+                              - generic [ref=f1e332]: 
+                            - button [ref=f1e334] [cursor=pointer]:
+                              - generic [ref=f1e337]: 
+                            - button [ref=f1e339] [cursor=pointer]:
+                              - generic [ref=f1e342]: 
+                - generic [ref=f1e346]:
+                  - button [ref=f1e350] [cursor=pointer]: Clear All
+                  - generic [ref=f1e351]:
+                    - generic [ref=f1e352]:
+                      - generic [ref=f1e353]: Sub Total
+                      - generic [ref=f1e354]: £9.04
+                    - generic [ref=f1e355]:
+                      - generic [ref=f1e356]: VAT
+                      - generic [ref=f1e357]: £0.00
+                    - generic [ref=f1e358]:
+                      - generic [ref=f1e359]: Total
+                      - generic [ref=f1e360]: £9.04
+          - text:       
+```

@@ -1,0 +1,143 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic:
+    - link "Skip to main content" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - generic [ref=e14]:
+        - link "Navigator" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e18]
+        - link "Oracle Logo Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e28]:
+          - link "Search" [ref=e31] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e32]
+          - link "Home" [ref=e43] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e44]
+          - link "Favorites and Recent Items" [ref=e55] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e56]
+          - link "Watchlist" [ref=e67] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e68]
+          - link "Notifications (0 unread)" [ref=e80] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e81]
+          - link "Access Accessibility Settings":
+            - /url: "#"
+        - link "Settings and Actions" [ref=e98] [cursor=pointer]:
+          - /url: "#"
+          - img "Settings and Actions" [ref=e102]
+      - iframe [active] [ref=e142]:
+        - generic [ref=f1e1]:
+          - dialog [active] [ref=f1e5]:
+            - generic [ref=f1e8]:
+              - banner "Customer Details" [ref=f1e10]:
+                - generic [ref=f1e11]:
+                  - img "Customer Details" [ref=f1e14]
+                  - heading "Customer Details" [level=2] [ref=f1e18]
+                  - button "Close" [ref=f1e22] [cursor=pointer]:
+                    - generic [ref=f1e25]: 
+              - generic [ref=f1e33]:
+                - generic [ref=f1e35]:
+                  - generic [ref=f1e36]:
+                    - generic [ref=f1e37]:
+                      - generic [ref=f1e38]: Customer
+                      - generic [ref=f1e39]: Select customer account
+                    - generic [ref=f1e40] [cursor=pointer]:
+                      - generic [ref=f1e42]: Customer
+                      - generic [ref=f1e43]: 
+                  - generic [ref=f1e44]:
+                    - generic [ref=f1e45]:
+                      - generic [ref=f1e46]: Bill To
+                      - generic [ref=f1e47]: Where the invoice goes
+                    - generic:
+                      - generic:
+                        - generic: Bill To
+                      - generic: 
+                - generic [ref=f1e50]:
+                  - button "Cancel" [ref=f1e52] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f1e54]
+          - generic [ref=f1e64]:
+            - generic [ref=f1e66]:
+              - generic:
+                - banner:
+                  - generic [ref=f1e69]:
+                    - button [ref=f1e73] [cursor=pointer]:
+                      - generic [ref=f1e76]: 凌
+                    - heading [level=1] [ref=f1e80]: Order Capture
+                    - toolbar [ref=f1e82]:
+                      - button [disabled] [ref=f1e84]: Checkout
+              - generic [ref=f1e86]:
+                - generic [ref=f1e87]: "Entry Mode:"
+                - toolbar [ref=f1e89]:
+                  - generic [ref=f1e91] [cursor=pointer]:
+                    - text: Standard
+                    - radio [checked] [ref=f1e93]
+                  - generic [ref=f1e95] [cursor=pointer]:
+                    - text: Quick Entry
+                    - radio [ref=f1e97]
+            - generic [ref=f1e102]:
+              - generic [ref=f1e103]:
+                - generic [ref=f1e105] [cursor=pointer]:
+                  - generic [ref=f1e109]: Customer
+                  - generic [ref=f1e113]: Select Customer...
+                  - generic [ref=f1e115]: Click to select a customer
+                - generic [ref=f1e117] [cursor=pointer]:
+                  - generic [ref=f1e121]: "Customer PO #"
+                  - generic [ref=f1e125]: "--"
+              - generic [ref=f1e126]:
+                - generic [ref=f1e127]: Order Total (exc VAT)
+                - generic [ref=f1e128]: £0.00
+            - generic [ref=f1e129]:
+              - generic [ref=f1e139]:
+                - generic [ref=f1e140]:
+                  - generic [ref=f1e142]:
+                    - generic [ref=f1e143]: 
+                    - textbox [ref=f1e145]:
+                      - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+                      - text: R40063
+                  - generic [ref=f1e147]:
+                    - text:   
+                    - generic [ref=f1e148]:
+                      - generic [ref=f1e149]:
+                        - generic [ref=f1e152]: Requested Date
+                        - combobox [ref=f1e153]: 20/01/2026
+                      - generic [ref=f1e154]:
+                        - generic [ref=f1e155] [cursor=pointer]: 
+                        - generic [ref=f1e156]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+                  - generic [ref=f1e160]:
+                    - generic [ref=f1e161]: Quantity
+                    - textbox [ref=f1e162]: "1"
+                  - toolbar [ref=f1e165]:
+                    - generic [ref=f1e167] [cursor=pointer]:
+                      - generic [ref=f1e170]: 
+                      - radio [ref=f1e172]
+                      - generic [ref=f1e173]: Grid View Large
+                    - generic [ref=f1e175] [cursor=pointer]:
+                      - generic [ref=f1e178]: 
+                      - radio [ref=f1e180]
+                      - generic [ref=f1e181]: Grid View
+                    - generic [ref=f1e183] [cursor=pointer]:
+                      - generic [ref=f1e186]: 
+                      - radio [checked] [ref=f1e188]
+                      - generic [ref=f1e189]: List
+                - grid [ref=f1e191]:
+                  - row [ref=f1e192]:
+                    - gridcell [ref=f1e194]:
+                      - generic [ref=f1e198] [cursor=pointer]:
+                        - generic [ref=f1e203]:
+                          - generic [ref=f1e205]: R40063 / 38290
+                          - generic [ref=f1e208]: XPRESS CU S12 90D ELBOW 22
+                        - generic [ref=f1e214]: 932 available
+                        - generic [ref=f1e216]:
+                          - generic [ref=f1e218]: £3.15
+                          - button [ref=f1e221]: Add
+              - generic [ref=f1e234]: Your basket is empty
+          - text:     
+```
