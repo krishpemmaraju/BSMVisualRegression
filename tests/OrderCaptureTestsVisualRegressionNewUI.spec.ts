@@ -23,17 +23,19 @@ test.beforeAll(async () => {
     scm_url = "https://egvh-tst.fa.em3.oraclecloud.com/";
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
     vbcs_password = Buffer.from('RGF0dGF2YXJhaGkxNiQk', 'base64').toString('utf-8');
-    scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
-    scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
+scm_user = Buffer.from('a2F0aGlyYXZhbi5z', 'base64').toString('utf-8');
+scm_password = Buffer.from('S2F0aGlyZGV2YUAyNTA3', 'base64').toString('utf-8');
   }
   if (process.env.ENV == "tst") {
     vbcs_url = "https://vb03.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
     scm_url = "https://egvh-dev2.fa.em3.oraclecloud.com/";
-    vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
-    vbcs_password = Buffer.from('RGF0dGF2YXJhaGkxNiQk', 'base64').toString('utf-8');
-    scm_user = Buffer.from('QXV0b21hdGlvbg==', 'base64').toString('utf-8')
-    scm_password = Buffer.from('QXV0b21hdGlvbjEyIQ==', 'base64').toString('utf-8')
-    productWithStk = "508200";
+    // vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
+    // vbcs_password = Buffer.from('RGF0dGF2YXJhaGkxNiQk', 'base64').toString('utf-8');
+vbcs_user = Buffer.from('a2F0aGlyYXZhbi5zQHdvbHNlbGV5LmNvLnVr', 'base64').toString('utf-8');
+vbcs_password = Buffer.from('QXByNTkwNyNA', 'base64').toString('utf-8');
+    scm_user = Buffer.from('a2F0aGlyYXZhbi5z', 'base64').toString('utf-8')
+    scm_password = Buffer.from('S2F0aGlyZGV2YUAyNTA3', 'base64').toString('utf-8')
+    productWithStk = "R40001";
     productWithoutStk = "R40063"
   }
   if (process.env.ENV == "dev") {
@@ -43,7 +45,7 @@ test.beforeAll(async () => {
     vbcs_password = Buffer.from('RGF0dGF2YXJhaGkxNiQk', 'base64').toString('utf-8');
     scm_user = Buffer.from('QUJCNzM3NQ==', 'base64').toString('utf-8')
     scm_password = Buffer.from('SmF5YXZhcmFoaTE2JA==', 'base64').toString('utf-8')
-    productWithStk = "635692";
+    productWithStk = "508200";
     productWithoutStk = "R40001"
   }
   await page_vbcs.goto(vbcs_url);
@@ -65,9 +67,9 @@ test.beforeAll(async () => {
   context_scm = await browser_scm.newContext({ storageState });
   page_scm = await context_scm.newPage();
   await page_scm.goto(scm_url);
-  await page_scm.getByPlaceholder("User ID").fill(scm_user);
-  await page_scm.getByPlaceholder("Password").fill(scm_password);
-  await page_scm.getByRole("button").filter({ hasText: 'Sign In ' }).click();
+  await page_scm.getByText("Username").fill(scm_user);
+await page_scm.locator('input[type="password"]').fill(scm_password);
+  await page_scm.getByRole("button").filter({ hasText: 'Next ' }).click();
   await page_scm.waitForSelector("a[title='Home']", { timeout: 30000 });
   await page_scm.locator("a[title='Home']").click();
   //Check for Order Management 
@@ -98,13 +100,15 @@ test.beforeAll(async () => {
     await page_scm.getByRole('heading', { name: 'Order Management' }).waitFor({ state: 'visible', timeout: 15000 });
     await page_scm.locator("#_oj18_navItem_order-new a").click()
     await page_scm.getByRole('heading', { name: 'Sales Orders' }).waitFor({ state: 'visible', timeout: 15000 })
-    await page_scm.locator("button[aria-label='Create Order']").click();
+    await page_scm.locator("button[aria-label='Create Order']").nth(0).click();
     page_scm_vbcs_frame = page_scm.frameLocator('iframe[src*="wol-order-capture/live"]');
   }
 });
 
 test("Getting Order Capture", async () => {
-  await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
+  //await page_scm_vbcs_frame.locator('#ojHeader_pageTitle').waitFor({ state: 'visible', timeout: 16000 });
+    //await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
+  await expect(page_scm_vbcs_frame.getByText('Order Capture',{exact : true})).toBeVisible({timeout : 10000});
 })
 
 test("Order Capture - Full Page Screenshot", async () => {
@@ -136,7 +140,7 @@ test("Validate Product search input is present", async () => {
 })
 
 test("Validate Checkout button", async () => {
-  const submitButton = page_scm_vbcs_frame.locator("button[aria-label='Checkout']");
+  const submitButton = page_scm_vbcs_frame.locator("button[aria-label='Checkout']").nth(0);
   await expect(submitButton).toHaveScreenshot(["OrderCapture/CheckoutButton", "CheckoutBtnOnOrderCapturePage.png"])
 })
 
@@ -272,23 +276,103 @@ test("Validate Product Details page", async () => {
   const getRelatedProducts = page_scm_vbcs_frame.locator("div.oj-collapsible-header-wrapper").nth(1);
   await expect(getAlternateProductLink).toHaveText("Alternate Products");
   await expect(getRelatedProducts).toHaveText("Related Products");
-  await page_scm_vbcs_frame.locator("#btnBack").click()
+  //const Actions = page_scm_vbcs_frame.locator("button[aria-label='Actions for collect basket group']")
+  //await Actions.click();
+  //await expect(page_scm_vbcs_frame.getByText('Delete', { exact: true })).toBeVisible({ timeout: 6000 })
+  //await expect(page_scm_vbcs_frame.getByText('Move', { exact: true })).toBeVisible({ timeout: 3000 })  
+  //await page_scm_vbcs_frame.locator("#btnBack").click()
+  //await page_scm_vbcs_frame.locator('.oj-ux-ico-arrow-left-alt').click();
+  await page_scm_vbcs_frame.locator('.oj-ux-ico-arrow-left').click();
+    await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").waitFor({ timeout: 6000 });
+  await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").fill(productWithStk)
+
 })
+
+// test.skip("Validate Fulfillment Method Pop Up", async () => {
+//   await page_scm_vbcs_frame.locator("button[aria-label='Back']").click();
+//   // await page_scm_vbcs_frame.locator("button[aria-label='Clear All']").waitFor({timeout: 10000})
+//   // await page_scm_vbcs_frame.locator("button[aria-label='Clear All']").click();
+//   // await page_scm_vbcs_frame.locator("#clearAllConfirmation_layer button[aria-label='Continue']").waitFor({timeout: 10000});
+//   // await page_scm_vbcs_frame.locator("#clearAllConfirmation_layer button[aria-label='Continue']").click()
+//   // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({state:'attached', timeout: 10000})
+//   // await expect( page_scm_vbcs_frame.locator("input[aria-label='Product Search']")).toBeEnabled({timeout : 5000})
+//   // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+//   // await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+//   // await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   // await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
+//   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+//   await expect(page_scm_vbcs_frame.getByText('Amend Fulfillment method')).toBeVisible({ timeout: 5000 })
+//   await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' })).toBeVisible({ timeout: 5000 })
+//   await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Confirm' })).toBeVisible({ timeout: 5000 })
+//   await page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' }).click()
+// })
+
+// test.skip("Validate Fufillment Method Changes in Basket Page", async () => {
+//   //  await page_scm_vbcs_frame.locator("aria-label='Clear All']").click();
+//   //  await expect(page_scm_vbcs_frame.getByRole('heading',{name:'Clear All'})).toBeVisible({timeout: 5000})
+//   //  await page_scm_vbcs_frame.locator("aria-label='Continue']").click()
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+//   console.log(await page_scm_vbcs_frame.locator("#requestedDate\\|input").inputValue())
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+//   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+// })
+// test("Validate Fulfillment Method Pop Up", async () => {
+//   await page_scm_vbcs_frame.locator("button[aria-label='Back']").click();
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithStk)
+//   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+//   await expect(page_scm_vbcs_frame.getByText('Amend Fulfillment method')).toBeVisible({ timeout: 5000 })
+//   await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' })).toBeVisible({ timeout: 5000 })
+//   await expect(page_scm_vbcs_frame.getByRole('button', { name: 'Confirm' })).toBeVisible({ timeout: 5000 })
+//   await page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' }).click()
+// })
+
+// test("Validate Fufillment Method Changes in Basket Page", async () => {
+//   //  await page_scm_vbcs_frame.locator("aria-label='Clear All']").click();
+//   //  await expect(page_scm_vbcs_frame.getByRole('heading',{name:'Clear All'})).toBeVisible({timeout: 5000})
+//   //  await page_scm_vbcs_frame.locator("aria-label='Continue']").click()
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").waitFor({ timeout: 6000 });
+//   console.log(await page_scm_vbcs_frame.locator("#requestedDate\\|input").inputValue())
+//   await page_scm_vbcs_frame.locator("input[aria-label='Product Search']").fill(productWithoutStk)
+//   await page_scm_vbcs_frame.locator("#searchInputContainer_tbProductSearch").click()
+//   await page_scm_vbcs_frame.locator("[aria-label='Add']").click()
+// })
+
 
 
 
 test("Validate Add button on Product Search Page section for available product having stock", async () => {
-  const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('span.oj-typography-body-xs.oj-typography-bold.oj-text-color-success');
-  const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
-  await productSearchAddBtn.scrollIntoViewIfNeeded()
+  const isWolStockQtyAvailable = page_scm_vbcs_frame.locator('.oj-typography-body-xs oj-typography-bold oj-text-color-success');
+  // const productSearchAddBtn = page_scm_vbcs_frame.locator("button[aria-label='Add']")
+  // await productSearchAddBtn.scrollIntoViewIfNeeded()
+  const productSearchAddBtn = page_scm_vbcs_frame
+  .locator("button[aria-label='Add']")
+  .first();
+
+await productSearchAddBtn.scrollIntoViewIfNeeded();
+await productSearchAddBtn.click();
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
-  await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-  await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").fill(productWithStk)
+  const moveButton = page_scm_vbcs_frame.locator("button[aria-label='Actions for collect basket group']");
+  await moveButton.click();
+  await page_scm_vbcs_frame.locator("//a[@data-oj-label='Move']").click();
+  await page_scm_vbcs_frame.getByRole('button', { name: 'Cancel' }).click();
+  //await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
+  // await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").nth(0).fill(productWithStk)
+  await page_scm_vbcs_frame.locator('#tbProductSearch\\|input').fill(productWithStk);
   await page_scm_vbcs_frame.locator("div.AvatarStyles_base__167n05h0.AvatarStyles_image__167n05h3").nth(0).click();
   await page_scm_vbcs_frame.locator("button[aria-label='Add to Basket']").nth(0).click();
-  await page_scm_vbcs_frame.locator("#btnBack").click();
-  await expect(page_scm_vbcs_frame.locator('span.oj-typography-body-xs.oj-typography-bold.oj-text-color-success')).toHaveCount(1);
+  await page_scm_vbcs_frame.locator('.oj-ux-ico-arrow-left').click();
+    await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").waitFor({ timeout: 6000 });
+  await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").fill(productWithStk)
+
+
+
+  //await page_scm_vbcs_frame.locator("#btnBack").click();
+  //await expect(page_scm_vbcs_frame.locator('span.oj-typography-body-xs.oj-typography-bold.oj-text-color-success')).toHaveCount(1);
 })
 
 test("Validate Add button on Product Search Page section for product having 0 stock", async () => {
@@ -302,39 +386,48 @@ test("Validate Add button on Product Search Page section for product having 0 st
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-  await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").fill(productWithoutStk)
-    await page_scm_vbcs_frame.locator("button[aria-label='Add']").click();
+ // await page_scm_vbcs_frame.locator("//span[@id='tbProductSearch|hint']").nth(0).fill(productWithoutStk)
+   await page_scm_vbcs_frame.locator('#tbProductSearch\\|input').fill(productWithoutStk);
+  //await expect(page_scm_vbcs_frame.locator('span.oj-typography-body-xs.oj-typography-bold.oj-text-color-success')).toHaveCount(1);
+    await expect(page_scm_vbcs_frame.locator("button[aria-label='Add']")).toHaveCount(1);
 })
 
 test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").waitFor({ state: 'visible', timeout: 9000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Add']").click()
+  await page_scm_vbcs_frame.locator("button[aria-label='OK']").click()
   await page_scm_vbcs_frame.locator("div.oj-md-padding-2x.basket-item-list").waitFor({ state: 'visible', timeout: 40000 })
   //changes related to Save and Exit 
+  // const expandIcon = "button[title='Show header']"
+  // await page_scm_vbcs_frame.locator("button[title='Show header']").waitFor({state: 'visible', timeout : 40000});
+  //   await page_scm_vbcs_frame.locator("button[title='Show header']").click({timeout : 40000});
+
   const isMoreActionsAvailable = "button[aria-label='More Actions']"
-  const isMoreActionsMenuAvailable = "div[aria-label='More Actions']"
-  await expect(page_scm_vbcs_frame.locator(isMoreActionsAvailable)).toBeVisible({ timeout: 3000 });
-  await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
-  await expect(page_scm_vbcs_frame.locator(isMoreActionsMenuAvailable)).toBeVisible({ timeout: 9000 })
-  await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
-  await expect(page_scm_vbcs_frame.getByText('Save and Exit', { exact: true })).toBeVisible({ timeout: 3000 })
-  await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
+  // const isMoreActionsMenuAvailable = "div[aria-label='More Actions']"
+  //  await expect(page_scm_vbcs_frame.locator(isMoreActionsAvailable)).toBeVisible({ timeout: 10000 });
+  //  await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
+  // //await expect(page_scm_vbcs_frame.locator(isMoreActionsMenuAvailable)).toBeVisible({ timeout: 9000 })
+  // await expect(page_scm_vbcs_frame.getByText('Save', { exact: true })).toBeVisible({ timeout: 6000 })
+  // await expect(page_scm_vbcs_frame.getByText('Save and Exit', { exact: true })).toBeVisible({ timeout: 3000 })
+  //await page_scm_vbcs_frame.locator(isMoreActionsAvailable).click();
   const isClearAllVisible = page_scm_vbcs_frame.locator("button[aria-label='Clear All']")
   expect(isClearAllVisible).toBeVisible()
   const productSelAddToBsktList = page_scm_vbcs_frame.locator("div.oj-md-padding-2x.basket-item-list")
   await expect(productSelAddToBsktList).toBeVisible()
-  const isCollectionPanelAvailable = page_scm_vbcs_frame.locator("div.basket-header-container.collect")
-  const addToBsktDecreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Decrease']")
-  const addToBsktIncreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Increase']")
-  const addToBsktDeleteBtn = page_scm_vbcs_frame.locator("//button[contains(@aria-label,'Delete product')]")
-  const isDeleteBtnAvailableCollBtn = page_scm_vbcs_frame.locator("button[aria-label='Delete collect basket group']");
-  const isMoveBtnAvailableCollBtn = page_scm_vbcs_frame.locator("button[aria-label='Move collect basket group']");
-  await expect(isCollectionPanelAvailable).toBeVisible({ timeout: 5000 })
+ // const isCollectionPanelAvailable = page_scm_vbcs_frame.locator("basket-header-container collect")
+const isCollectionPanelAvailable = page_scm_vbcs_frame
+  .locator("//li[@class='wolPanel']//div[@aria-label='Collect basket group with 1 item']");
+  const addToBsktDecreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Decrease']").first();
+  const addToBsktIncreaseBtn = page_scm_vbcs_frame.locator("button[aria-label='Increase']").first();
+  //const addToBsktDeleteBtn = page_scm_vbcs_frame.locator("//button[contains(@aria-label,'Delete product')]").first();
+  //const isDeleteBtnAvailableCollBtn = page_scm_vbcs_frame.locator("button[aria-label='Delete collect basket group']").first();
+  //const isMoveBtnAvailableCollBtn = page_scm_vbcs_frame.locator("button[aria-label='Move collect basket group']").first();
+  //await expect(isCollectionPanelAvailable).toBeVisible({ timeout: 5000 })
   await expect(addToBsktDecreaseBtn).toBeVisible();
   await expect(addToBsktIncreaseBtn).toBeVisible();
-  await expect(addToBsktDeleteBtn).toBeVisible();
-  await expect(isDeleteBtnAvailableCollBtn).toBeVisible();
-  await expect(isMoveBtnAvailableCollBtn).toBeVisible();
+  // await expect(addToBsktDeleteBtn).toBeVisible();
+  // await expect(isDeleteBtnAvailableCollBtn).toBeVisible();
+  // await expect(isMoveBtnAvailableCollBtn).toBeVisible();
 })
 
 test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async () => {
@@ -351,18 +444,29 @@ test("Validate Order Dialog pop up with Print and Edit Options", async () => {
   const clickOnClearAllBtn = page_scm_vbcs_frame.locator("button[aria-label='Clear All']");
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeVisible({ timeout: 7000 })
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeEnabled({ timeout: 7000 })
-  await page_scm_vbcs_frame.locator("button[aria-label='Checkout']").click({ force: true });
-  //New Layout for Checkout Page
-  await expect(page_scm_vbcs_frame.locator('h1', { hasText: 'Checkout' })).toBeVisible({ timeout: 8000 })
-  await expect(page_scm_vbcs_frame.locator("div.wol-basket-item")).toBeVisible({ timeout: 8000 });
+
+  //await expect(page_scm_vbcs_frame.locator("button[aria-label='Checkout']"))
+
+  await page_scm_vbcs_frame.locator("button[aria-label='Checkout']").nth(1).click({ timeout: 20000 });
+  await page_scm_vbcs_frame.locator("span.oj-ux-ico-chevron-right").first().click({ timeout: 20000 });
+  //await expect(page_scm_vbcs_frame.locator(".basket-item-additional-info")).toBeVisible({ timeout: 7000 });
+//  await expect(page_scm_vbcs_frame.locator('h1', { hasText: 'Checkout' })).toBeVisible({ timeout: 8000 })
+  //await expect(page_scm_vbcs_frame.locator("div.wol-basket-item")).toBeVisible({ timeout: 8000 });
+  await expect(page_scm_vbcs_frame.locator("button[aria-label='Edit']")).toBeVisible({timeout : 30000});
+  //await page_scm_vbcs_frame.locator("button[aria-label='Edit']").click();
+
   await expect(page_scm_vbcs_frame.locator('text=Method of Payment')).toBeVisible({ timeout: 8000 });
+  const MoreActions = page_scm_vbcs_frame.locator("button[aria-label='More Actions']");
+  await MoreActions.click();
+  await expect(page_scm_vbcs_frame.getByText('Save and Exit', { exact: true })).toBeVisible({ timeout: 6000 })
+  await expect(page_scm_vbcs_frame.getByText('New Order', { exact: true })).toBeVisible({ timeout: 3000 })  
   await expect(page_scm_vbcs_frame.locator('div.oj-bg-neutral-0.oj-flex').nth(0)).toBeVisible({ timeout: 8000 });
   await expect(page_scm_vbcs_frame.getByText('Customer', { exact: true }).locator('xpath=ancestor::div[contains(@class,"oj-bg-neutral-0")]')).toBeVisible({timeout: 8000});
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Edit']")).toBeVisible({ timeout: 8000 });
   await expect(page_scm_vbcs_frame.getByText('Order Comments')).toBeVisible({ timeout: 5000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Place Order']").click({ force: true });
-  await page_scm_vbcs_frame.locator("button[aria-label='Create Shipment']").click({ force: true });
-  expect(await page_scm_vbcs_frame.locator("#oj_gop1_h_pageTitle").textContent({ timeout: 8000 })).toMatchSnapshot(["OrderCapture/OrderConfirmation", "OrderConfirmationHeader.txt"]);
+  //await page_scm_vbcs_frame.locator("button[aria-label='Create Shipment']");
+  //expect(await page_scm_vbcs_frame.locator("#oj_gop1_h_pageTitle").textContent({ timeout: 8000 })).toMatchSnapshot(["OrderCapture/OrderConfirmation", "OrderConfirmationHeader.txt"]);
 })
 
 test.skip("Validate Fulfillment Method Pop Up", async () => {

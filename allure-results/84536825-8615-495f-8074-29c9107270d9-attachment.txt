@@ -1,0 +1,1 @@
+C:\NandiniAutomation\BSM Script\BSM VisualREgression - 19th Dec\BSMVisualRegression\tests\OrderCaptureTestsVisualRegressionNewUI.spec.ts-snapshots\OrderCapture\CheckoutButton\CheckoutBtnOnOrderCapturePage-chromium-win32.png is re-generated, writing actual.

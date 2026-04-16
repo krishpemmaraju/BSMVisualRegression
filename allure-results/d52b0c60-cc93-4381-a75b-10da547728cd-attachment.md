@@ -1,0 +1,79 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - generic:
+        - banner "Order Capture":
+          - generic [ref=e16]:
+            - button "Back" [ref=e20] [cursor=pointer]:
+              - generic [ref=e23]: 凌
+            - heading "Order Capture" [level=1] [ref=e27]
+            - toolbar "Header" [ref=e29]:
+              - 'button "Branch: 1BL" [ref=e31] [cursor=pointer]'
+              - button "Checkout" [disabled] [ref=e33]
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e41] [cursor=pointer]:
+          - generic "Customer" [ref=e45]
+          - generic "Select Customer..." [ref=e49]
+          - generic "Click to select a customer" [ref=e51]
+        - generic [ref=e53] [cursor=pointer]:
+          - 'generic "Customer PO #" [ref=e57]'
+          - generic "--" [ref=e61]
+      - generic [ref=e62]:
+        - generic [ref=e63]: Order Total (exc VAT)
+        - generic [ref=e64]: £0.00
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - button "" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: 
+        - generic [ref=e71]: No Customer
+        - generic [ref=e72]: "Total: £0.00"
+      - button "Checkout" [disabled] [ref=e75]
+    - generic [ref=e76]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic "Quicker Entry" [ref=e91]:
+            - button "Quicker Entry" [ref=e92] [cursor=pointer]:
+              - generic [ref=e95]: 
+          - generic "Search by Product Code, Description, Supplier Part Code or Barcode" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e101]: Product Search
+              - textbox "Product Search" [active] [ref=e102]:
+                - /placeholder: Search by Product Code, Description, Supplier Part Code or Barcode
+          - generic "Requested Quantity" [ref=e104]:
+            - generic [ref=e106]:
+              - generic [ref=e107]: Quantity
+              - textbox "Quantity" [ref=e108]: "1"
+          - generic [ref=e110]:
+            - text: 
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - generic [ref=e115]: Requested Date
+                - combobox "Requested Date" [ref=e116]: 16/04/2026
+              - generic [ref=e117]:
+                - generic "Select Date Time." [ref=e118] [cursor=pointer]: 
+                - generic [ref=e119]: Press Key down or Key up for access to Calendar and Shift + Key down or Shift Key up for access to time drop down.
+          - toolbar [ref=e122]:
+            - generic [ref=e124] [cursor=pointer]:
+              - generic [ref=e127]: 
+              - radio " Grid View Large" [ref=e129]
+              - generic [ref=e130]: Grid View Large
+            - generic [ref=e132] [cursor=pointer]:
+              - generic [ref=e135]: 
+              - radio " Grid View" [ref=e137]
+              - generic [ref=e138]: Grid View
+            - generic [ref=e140] [cursor=pointer]:
+              - generic [ref=e143]: 
+              - radio " List" [checked] [ref=e145]
+              - generic [ref=e146]: List
+        - generic [ref=e147]:
+          - grid [ref=e149]:
+            - row "No items to display." [ref=e150]:
+              - gridcell "No items to display." [ref=e151]
+          - generic [ref=e153]: Loaded
+      - generic [ref=e167]: Your basket is empty
+  - text:      
+```
