@@ -11,7 +11,6 @@ test.beforeAll(async () => {
   test.setTimeout(300000);
   let browser_vbcs: Browser, browser_scm: Browser;
   let context_vbcs: BrowserContext, context_scm: BrowserContext;
-
   browser_vbcs = await firefox.launch({
     slowMo: 2000
   });
@@ -23,8 +22,8 @@ test.beforeAll(async () => {
     scm_url = "https://egvh-tst.fa.em3.oraclecloud.com/";
     vbcs_user = Buffer.from('a3Jpc2huYS5wZW1tYXJhanVAd29sc2VsZXkuY28udWs=', 'base64').toString('utf-8');
     vbcs_password = Buffer.from('RGF0dGF2YXJhaGkxNiQk', 'base64').toString('utf-8');
-scm_user = Buffer.from('a2F0aGlyYXZhbi5z', 'base64').toString('utf-8');
-scm_password = Buffer.from('S2F0aGlyZGV2YUAyNTA3', 'base64').toString('utf-8');
+    scm_user = Buffer.from('a2F0aGlyYXZhbi5z', 'base64').toString('utf-8');
+    scm_password = Buffer.from('S2F0aGlyZGV2YUAyNTA3', 'base64').toString('utf-8');
   }
   if (process.env.ENV == "tst") {
     vbcs_url = "https://vb03.wolseleyuk.com/ic/builder/rt/wol-order-capture/live/webApps/wol-order-capture/vp/";
@@ -305,8 +304,9 @@ test("Validate Add button on Product Search Page section for product having 0 st
   await productSearchAddBtn.waitFor({ state: 'visible', timeout: 8000 });
   await expect(productSearchAddBtn).toBeVisible({ timeout: 8000 })
   await expect(isWolStockQtyAvailable).toBeVisible({ timeout: 10000 });
-   await page_scm_vbcs_frame.locator('#tbProductSearch\\|input').fill(productWithoutStk);
-    await expect(page_scm_vbcs_frame.locator("button[aria-label='Add']")).toHaveCount(1);
+  await page_scm_vbcs_frame.locator('#tbProductSearch\\|input').fill(productWithoutStk);
+  await expect(page_scm_vbcs_frame.locator("button[aria-label='Add']")).toHaveCount(1);
+
 })
 
 test("Validate Add product to basket layout and Validate Auto populate fields", async () => {
@@ -333,12 +333,6 @@ test("Validate Detail Slot (Add Basket Section) in Order Capture Page", async ()
 })
 
 test("Validate Order Dialog pop up with Print and Edit Options", async () => {
-  const customerContentSlotSelection = page_scm_vbcs_frame.locator("oj-sp-scoreboard-metric-card[card-title='Customer']");
-  const customerSearchInputAvailable = page_scm_vbcs_frame.locator("input[aria-label='Customer Search']");
-  const selectCustomerListed = page_scm_vbcs_frame.getByText('7000D54')
-  const customerSearchResultsAvailable = page_scm_vbcs_frame.locator('oj-c-list-view.customer-list');
-  const clickOnChangeButton = page_scm_vbcs_frame.locator('#btnChangeCustomer');
-  const clickOnClearAllBtn = page_scm_vbcs_frame.locator("button[aria-label='Clear All']");
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeVisible({ timeout: 7000 })
   await expect(page_scm_vbcs_frame.locator("button[aria-label='Clear All']")).toBeEnabled({ timeout: 7000 })
   await page_scm_vbcs_frame.locator("button[aria-label='Checkout']").nth(1).click({ timeout: 20000 });
